@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\src\ec_base.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\src\ec_coe.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\src\ec_config.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\src\ec_dc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\src\ec_eoe.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\src\ec_foe.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\src\ec_main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\src\ec_print.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\src\ec_soe.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\osal\win32\osal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\oshw\win32\oshw.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\oshw\win32\nicdrv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\osal\win32\osal_defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\oshw\win32\oshw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\oshw\win32\nicdrv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\JT-021\BEIJING_ECAT\test_M04\soem\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{82564ABA-6663-32F4-9C9B-FABBCECE5E16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D41A841B-B944-33F7-B553-8E9CC12D2036}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
