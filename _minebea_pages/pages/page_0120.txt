@@ -1,0 +1,44 @@
+Chapter8 RS485 Communication
+- Parameter Maximum Speed (802H) = 300[pps], speed rate =50 (%).
+ Torque Limit
+Set the torque rate when moving.
+Torque rate = torque limit.
+This setting is valid when the following modes are selected.
+mode Valid Modes
+6: Relative Position Control/(Encoder Position ×
+Base)
+7: Absolute Position Control ×
+8: Homing ×
+9: Position Set ×
+10: Following Error Counter Clear ×
+16: Relative Position Control/Force/(Encoder 〇
+Position Base)
+17: Absolute Position Control/Force 〇
+18: Position Domination/(Command Position Base) ×
+19: Relative Position Control/Force/(command 〇
+position Base)
+20: Round Absolute Position Control ×
+21: Round Absolute Position Control/ Force 〇
+ acceleration
+Set the acceleration rate when moving.
+This setting is valid when the following modes are selected.
+mode Valid Modes
+6: Relative Position Control/(Encoder Position 〇
+Base)
+7: Absolute Position Control 〇
+8: Homing 〇
+9: Position Set ×
+10: Following Error Counter Clear ×
+16: Relative Position Control/Force/(Encoder 〇
+Position Base)
+17: Absolute Position Control/Force 〇
+18: Position Domination/(Command Position Base) 〇
+19: Relative Position Control/Force/(command 〇
+position Base)
+20: Round Absolute Position Control 〇
+21: Round Absolute Position Control/ Force 〇
+The operating speed in each mode is determined by the program operation base
+acceleration/deceleration (81EH) x acceleration rate.
+For example, to set the operating acceleration of Mode 6: Relative position
+control/(encoder position reference) to 800000 [pps/s],
+119

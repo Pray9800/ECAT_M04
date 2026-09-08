@@ -1,0 +1,16 @@
+Chapter9 Internal register
+Word Range/Unit Initial refle
+address content detail
+Length s value ct
+When enabled, the integrated
+load is automatically cleared
+each time operation is
+started.
+0:Disable
+1: Enable
+0B81H 1 Integrated load clear Clears the Integrated load 0～1/- 0 A
+(134DH).
+1:Clear
+0B82H 1 Integrated load denominator Sets the denominator for the 1～32767/- 1 B
+Integrated load calculation
+192

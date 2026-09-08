@@ -1,0 +1,47 @@
+Chapter6 Control signal
+6. Control signal
+6.1 Control Signal Overview
+Control signals (input and output signals) serve as the interface between the motor controller
+and the host device.
+Control signals can be assigned by function selection.
+6.2 Input signal
+6.2.1 IO Control input
+The IO control input (DI) is a method of directly inputting the signal by routing the
+control cable to the control signal terminal.
+name explanation
+Input Functions Select the input signal to be assigned to the terminal.
+Signal Debounce Time If the set time is exceeded, the change in the input signal takes
+effect.
+ Input Functions
+function parameter explanation Initial value
+DI0 Function Select the input signal to be assigned to See ➡ 9.5.7
+Assignment Control Signal
+DI0～DI7.
+DI1 Function Parameters
+Assignment [Setting range]
+DI2 Function See ➡ 6.4.1 Input signal list.
+assignment
+DI3 Function
+Function
+assignment
+Selection DI4 Function
+assignment
+DI5 Function
+assignment
+DI6 Function
+assignment
+DI7 Function
+assignment
+ Signal Debounce Time
+function parameter explanation Initial value
+DI0 Signal Debounce Sets the debounce time from DI0～DI7 0
+Time
+signal input to detection validity.
+DI1 Signal Debounce
+Function
+Time [Setting range]
+Selection
+DI2 Signal Debounce 0～250 ms
+Time
+DI3 Signal Debounce
+72

@@ -1,0 +1,19 @@
+Chapter3 Installation and Wiring
+If the torque off function is not used, connect the three jumper wires as shown in the table
+below.
+The connectors in the accessories are pre-connected with jumpers.
+No. Connection point
+1 +14V (5-pin) - TO1+ (11-pin)
+2 TO1- (4-pin) - TO2+ (10-pin)
+3 TO2- (3-pin) - GND (9-pin)
+( 2 ) Connection of control cables
+Caution
+ Do not route control cables in the same piping as other cables. Noise may cause
+malfunction.
+ The cable length between the motor controller and the PLC/controller should not exceed
+3 m.
+1. Peel off about 7 to 8 mm of the lead wire sheath.
+Matching lead wires are AWG 26 to 18. Please provide your own lead wires.
+2. Check the pin assignment, and while pressing the orange button with a flat-blade screwdriver
+(①), connect the lead wires to the supplied TO/EDM terminal connector (②).
+38

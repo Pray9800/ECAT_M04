@@ -1,0 +1,20 @@
+Chapter3 Installation and Wiring
+3. Installation and Wiring
+3.1 Installation
+( 1 ) Location
+The motor controller is designed and manufactured for equipment integration. Install in the
+following locations that are well ventilated and easily accessible for inspection.
+ Inside an enclosure installed indoors (but with ventilation openings)
+ Ambient operating temperature 0 to +50°C (not frozen)
+ Ambient operating humidity: 85% or less (no condensation)
+ Where it is not exposed to direct sunlight
+ Where there is no dust, iron powder, etc.
+ Where there is less salt.
+ No explosive atmosphere, no harmful gases, and no liquids.
+ Locations where water (rain or water droplets), oil (oil droplets), and other liquids
+will not splash on it.
+ Where continuous vibration or excessive shock is not applied.
+ Where electromagnetic noise (welding machines, power equipment, etc.) is low
+ Where there is no radioactive material or magnetic field and no vacuum
+ Less than 1,000 m above sea level
+17

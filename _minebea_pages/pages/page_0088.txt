@@ -1,0 +1,15 @@
+Chapter7 Torque off function
+7.2.2 Output Signal
+Signal Name use content
+EDM1 EDM Monitoring Signals This signal is used to monitor the status of the torque off
+function.
+EDM2(※) EDM Monitoring Signals
+* In the case of RS485 type, EDM2 is not used.
+The relationship between the TO1/TO2 input and the EDM1/EDM2 output is as follows:
+If the input/output status is not as shown below, the external device or torque cutoff circuit
+may be faulty.
+Signal Name state
+TO1 ON ON OFF OFF
+TO2 ON OFF ON OFF
+EDM1/EDM2 OFF OFF OFF ON
+87

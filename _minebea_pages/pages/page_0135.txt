@@ -1,0 +1,66 @@
+Chapter9 Internal register
+address Word content detail Range/Units refle
+Length ct
+3002H 2 Speed order Specifies the speed. -2147483648 A
+The operation order (3000H) to which this
+～2147483647
+parameter applies are 2, 3, 4, 5, 6, 7, 16,
+17, 18, 19, 20, and 21. /pps
+For operation order 2 and 3, set the speed
+with direction (sign).
+For others, the speed without direction
+(sign) is set.
+For operation order that do not apply, enter
+an arbitrary value within the range.
+This parameter is referenced by RS485 type.
+Please refer to the chapter of each
+communication protocol in the instruction
+manual for the operation method of other
+protocols.
+3004H 1 Stop option Specifies the option when the operation 0～5/- A
+order (3000H) is 0: Stop.
+0: Deceleration to stop
+1: Emergency stop (short-circuit braking)
+2: Servo-off
+3: Servo-on
+4: Quick stop
+5: Immediate stop
+The operation order (3000H) to which this
+parameter is applied is 0.
+Enter any value within the range for
+operation order to which this parameter is
+not applicable.
+This parameter is referenced by RS485 type.
+Please refer to the chapter of each
+communication protocol in the instruction
+manual for the operation method of other
+protocols.
+Short-circuit braking (or Short brake) stops
+the motor by short-circuiting its coils.
+It is not a function that can hold the
+current position. The short-circuit braking
+is released by Servo-on or Servo-off.
+3005H 1 Operation number Specify the start number of the operation 0～63/- A
+order data when the operation order (3000H) is 9
+(programmed operation).
+This parameter is not referenced when the
+operation order is other than the above.
+This parameter is referenced by RS485 type.
+Please refer to the chapter of each
+communication protocol in the instruction
+manual for the operation method of other
+protocols.
+3006H 2 Target position Specifies the target position or target -2147483648 A
+distance.
+～2147483647
+The operation order (3000H) to which this
+parameter applies are 5, 6, 7, 16, 17, 18, /pulse
+19, 20, and 21.
+This parameter is referenced by RS485 type.
+Please refer to the chapter of each
+communication protocol in the instruction
+manual for the operation method of other
+protocols
+3008H 1 Torque order Specifies the torque as a percentage of the 0～1500 A
+rating.
+134

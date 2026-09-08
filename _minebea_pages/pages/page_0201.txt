@@ -1,0 +1,11 @@
+Chapter11 Maintenance and inspection
+11. Maintenance and inspection
+11.1 Inspection
+For safe use of motor controller and motors with encoders, we recommend periodic inspections.
+( 1 ) checklist
+ Scratched or stressed motor and encoder cables, disconnected connectors
+ Loose motor mounting screws, etc.
+ Smooth operation of motor
+11.2 Disposal
+When disposing of the product, please dispose of it properly as industrial waste.
+200

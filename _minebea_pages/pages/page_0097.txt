@@ -1,0 +1,8 @@
+Chapter8 RS485 Communication
+( 1 ) Requests and Responses
+When the host device sends a request message, the machine sends a reply message in response
+to the contents of the message. The operation of the message on the host device and the
+message on the machine side is as follows.
+For communication between the host device and this unit, an idle time of 3.5 characters is
+required when switching between transmission and reception.
+96

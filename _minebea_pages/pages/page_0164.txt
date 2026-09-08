@@ -1,0 +1,69 @@
+Chapter9 Internal register
+9.5.4 Position control parameters
+Configure the number of pulses, direction of rotation, and other position control related
+settings.
+address Word content detail Range/Unit Initial refle
+Length s value ct
+0106H 1 Feedforward Sets the magnitude of feedforward. 0～100 0 B
+Increasing this parameter reduces
+/%
+position deviation during position
+control.
+However, rapid acceleration/
+deceleration may cause overshoot.
+0107H 1 Following Error Sets whether to clear the following 0～1/- 0 C
+Counter Clear at error at servo-off.
+servo-off 0: Clear
+1: Do not clear
+0108H 2 Following Error Sets the threshold for following 1～ 30000 A
+excess alarm count error excess alarm during position
+2147483647
+value control.
+/±pulse
+010AH 1 Inposition zone count Sets the range within which 0～65535 4 A
+value inposition status is enabled.
+/±pulse
+This parameter is set in motor
+encoder pulse units.
+It is not in the pulse units after
+modification by the electronic
+gear.
+010BH 1 Electro Gear Sets the number of pulses per motor 1～10000/- 1 C
+Numerator
+revolution from the user's
+perspective.
+010CH 1 Electro Gear 1～10000/- 1 C
+(Number of pulses after change)
+Denominator
+= (pulses per motor encoder
+revolution) / (electronic gear
+numerator / electronic gear
+denominator)
+010DH 1 Mode setting for Selects the mode for position 0～1/- 0 C
+position control control.
+0: Always closed mode
+1: Open mode at or below the set
+speed
+010EH※1※2 1 Switching speed from Sets the speed to switch to open 1～5000 1000 C
+closed mode to open mode.
+/rpm
+mode
+010FH※1 1 Automatic current Reduces the current value when 0～1/- 0 C
+down setting in open stopped during open mode.
+mode 0: Disable
+1: Enable
+Reduces power consumption and
+motor heat generation, but may
+cause misalignment when a large
+load is applied.
+0110H※1 1 Current value of Sets the current value during 0～1000 500 C
+automatic current automatic current down.
+/0.1%
+down in open mode Set as a percentage of the rated
+current.
+0111H※1 1 Time to automatic Sets the time from stop to 50～5000 1000 C
+current down in open transition to current down.
+/msec
+mode
+0112H※1 1 Current value in open Sets the current value in open 0～1000 1000 C
+163

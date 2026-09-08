@@ -1,0 +1,10 @@
+cX-stepper
+Closed Loop Stepping System
+S
+series
+Motor Controller with
+Battery-less Absolute Encoder
+Instruction Manual
+RS485(Modbus RTU) TYPE
+Pulse Input Function
+No.5-4162

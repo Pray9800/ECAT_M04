@@ -1,0 +1,26 @@
+Chapter9 Internal register
+address Word content detail Range/Units refle
+Length ct
+The operation order (3000H) to which this /0.1%
+parameter applies are 3, 4, 16, 17, 19, and
+21.
+This parameter is referenced by RS485 type.
+Please refer to the chapter of each
+communication protocol in the instruction
+manual for the operation method of other
+protocols
+※The operating command parameters are3000Hfrom9Please access it on a word-by-word basis. When you write,
+you will perform the operation that you commanded.
+address Word content detail Range/Units refle
+Length ct
+3009H 1 Clear Alarm Clears the alarm state. Write the 0～1/- A
+following values:
+1: Alarm Clear
+If the alarm factor has not been removed,
+the alarm may be triggered again after
+clearing. Servo-off is executed with the
+Alarm clear.
+Alarms 7, 8, 11, 12, 13, and 15 cannot be
+cleared by this operation. A control power
+cycle is required.
+135

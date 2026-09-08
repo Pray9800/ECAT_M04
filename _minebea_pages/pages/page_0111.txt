@@ -1,0 +1,14 @@
+Chapter8 RS485 Communication
+address Word content detail Range/Units Initial refle
+Length value ct
+0x80000001 (-2147483647)
+instead of 0x80000000 (-
+2147483648)
+because the maximum offset
+amount that can be set is ±
+2147483647.
+090AH 1 Homing torque limit Sets the torque limit 0～ 0 B
+detection time when homing
+detection time 10000/msec
+mode 11 to 14 is executed.
+110

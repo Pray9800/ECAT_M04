@@ -1,0 +1,125 @@
+Chapter3 Installation and Wiring
+( 4 ) Timing chart for pulse input method
+ 2-pulse input method (parameter 0115H is 0: P1=CW, P2=CCW)
+The direction of rotation is determined by whether pulses are input to P1 or P2.
+ 1-pulse input method (parameter 0115H is 1: P1=pulse, P2=direction)
+When a pulse is input to P1, the direction of rotation is determined by whether P2 is
+at a HIGH or LOW level.
+ Phase difference input method (parameter 0115H is 2: P1 = phase A, P2 = phase B)
+The direction of rotation is determined by inputting pulses that are 90° out of phase
+between phase A and phase B, and which phase is more advanced.
+31
+P(
+P(
+P(
+P(
+1p
+2d
+1A
+2B
+P 1 -
+( C W )
+P 2 -
+( C C W )
+-u
+l s e )
+-
+ir e c t io n
+-
+p h a s e )
+-
+p h a s e )
+)
+O
+O
+O
+O
+F F
+N
+F F
+N
+O
+O
+H I
+L O
+O
+O
+O
+O
+F F
+N
+G H
+W
+F F
+N
+F F
+N
+t 1 , t 2
+t 1
+t 1
+, t
+, t
+t
+3
+t
+2
+t
+1
+t
+, t 4
+1
+, t 3
+1
+, t 2
+2
+, t 5
+t
+, t 4
+t
+, t 3
+C
+≧
+2
+, t
+2
+, t
+W
+5
+4
+0
+≧
+,
+. 6
+t 3
+t 5
+3
+0
+≧
+μ
+. 6
+s e
+C
+3
+1
+c
+W
+μ s
+t 4
+. 2
+e
+5
+c
+μ s e c
+C C W
+t
+t
+3
+3
+C W
+t 4
+t 4
+C C
+t
+W
+5
+C C W

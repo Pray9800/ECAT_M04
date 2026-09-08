@@ -1,0 +1,24 @@
+Chapter3 Installation and Wiring
+3.2 Wiring
+Caution
+ Turn off the power and make sure that the indicator is off before disconnecting or
+inserting the connector. Residual voltage may cause electric shock.
+ When inserting the connector, hold the connector body and insert it straight and
+securely. Incomplete connection may cause damage to the motor or motor controller.
+ When unplugging the connector, pull it straight out while releasing the lock. Pulling
+out the connector by holding the cable may cause damage to the connector.
+3.2.1 Power supply connection
+Connect the main power supply, control power supply, ground wire, and electromagnetic brake to
+the motor controller using the terminal block for power input terminals provided.
+( 1 ) Power input terminal (CN4) Pin assignment
+Pin No. signal name use remarks
+1 E ground (elec) -
+2 0V Control power supply 0V*1 Control power GND
+3 +24V Control power plus/power -
+plus for brake
+4 BRK- Brake output- Open drain output
+5 BRK+ Brake output+. -
+6 0V Main power supply 0V*1 Main power supply GND
+7 +24V/+48V*2 Main power plus -
+*1 Pins 2 and 6 are connected inside the motor controller.
+19

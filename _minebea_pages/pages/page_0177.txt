@@ -1,0 +1,42 @@
+Chapter9 Internal register
+Word Range/Unit Initial refle
+address content detail
+Length s value ct
+signal list for the input
+signals that can be assigned.
+RO9 Function Select the output signal to 0: Unused C
+Assignment be assigned to RO9.
+0D39H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO10 Function Select the output signal to 0: Unused C
+Assignment be assigned to RO10.
+0D3AH 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO11 Function Select the output signal to 0: Unused C
+Assignment be assigned to RO11.
+0D3BH 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO12 Function Select the output signal to 0: Unused C
+Assignment be assigned to RO12.
+0D3CH 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO13 Function Select the output signal to 134:MOVE C
+Assignment be assigned to RO13.
+0D3DH 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO14 Function Select the output signal to 138:INPONS C
+Assignment be assigned to RO14.
+0D3EH 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO15 Function Select the output signal to 0: Unused C
+Assignment be assigned to RO15.
+0D3FH 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+176

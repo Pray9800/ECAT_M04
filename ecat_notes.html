@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>EtherCAT M04 学习笔记</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    font-size: 11.5pt; line-height: 1.75; color: #26313c;
+    margin: 0;
+  }
+  h1 { font-size: 22pt; color: #0d4f8b; margin: 0 0 6px 0; }
+  h2 {
+    font-size: 15pt; color: #ffffff; background: #0d4f8b;
+    padding: 7px 14px; border-radius: 6px; margin: 26px 0 12px 0;
+  }
+  h3 { font-size: 12.5pt; color: #0d4f8b; margin: 18px 0 6px 0;
+       border-left: 5px solid #2e9bd6; padding-left: 10px; }
+  p { margin: 6px 0; }
+  .cover { text-align: center; padding: 60px 0 30px 0; }
+  .cover .sub { color: #5a6a78; font-size: 12pt; margin-top: 10px; }
+  .meta { text-align: center; color: #8a97a3; font-size: 10pt; margin-top: 20px; }
+  .toc { background: #f2f7fb; border: 1px solid #cfe3f0; border-radius: 8px;
+         padding: 12px 22px; margin: 20px 0; }
+  .toc h2 { background: none; color: #0d4f8b; padding: 0; margin: 6px 0; font-size: 14pt; }
+  .toc ol { margin: 6px 0 6px 22px; }
+  .toc li { margin: 3px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 10.5pt; }
+  th { background: #0d4f8b; color: #fff; padding: 6px 10px; text-align: left; }
+  td { border: 1px solid #b9ccda; padding: 6px 10px; vertical-align: top; }
+  tr:nth-child(even) td { background: #f4f8fb; }
+  pre {
+    background: #1e2935; color: #e8f1f8; padding: 12px 16px;
+    border-radius: 8px; font-family: Consolas, "Courier New", monospace;
+    font-size: 10pt; line-height: 1.6; overflow-wrap: break-word;
+    white-space: pre-wrap; margin: 10px 0;
+  }
+  code { font-family: Consolas, "Courier New", monospace; font-size: 10pt;
+         background: #eef3f7; color: #0a4b75; padding: 1px 5px; border-radius: 3px; }
+  pre code { background: none; color: #e8f1f8; padding: 0; }
+  .tip { background: #fff8e6; border-left: 5px solid #f5b301; padding: 10px 14px;
+         border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .key { background: #e8f6ee; border-left: 5px solid #2fa75f; padding: 10px 14px;
+         border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .cmp { background: #fdeeee; border-left: 5px solid #d9534f; padding: 10px 14px;
+         border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .fig { text-align: center; font-size: 10pt; color: #5a6a78; margin: 8px 0; }
+  .boxflow { background: #eef6fd; border: 1px solid #b9d8ef; border-radius: 8px;
+             padding: 10px 16px; margin: 10px 0; font-size: 10.5pt; }
+  .arrow { color: #0d4f8b; font-weight: bold; }
+  .small { font-size: 9.5pt; color: #7a8792; }
+  .pagebreak { page-break-before: always; }
+  .hl { color: #c0392b; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<!-- ======================= 封面 ======================= -->
+<div class="cover">
+  <h1>EtherCAT + M04 通讯学习笔记</h1>
+  <div class="sub">从「为什么能通讯」到「工程每个文件是干什么的」——最近五轮问答精华整理</div>
+  <div class="meta">整理日期：2026-09-02 ｜ 配套工程：test_M04（SOEM + EC2-MB-M04）</div>
+</div>
+
+<div class="toc">
+  <h2>本笔记导航</h2>
+  <ol>
+    <li>SOEM 库：哪来的？谁的？</li>
+    <li>“推”状态机：M04 内部的状态升降机</li>
+    <li>站号：M04 是 EtherCAT 的第几站？</li>
+    <li>扫描后自动获得的信息：为什么“这么匹配”？</li>
+    <li>ecx_config_map_group 三个参数 &amp; “10字节”的真相</li>
+    <li>printSlaveInfo：是 M04 专属函数吗？数据哪来的？</li>
+    <li>test_M04 工程全景：四类文件各司其职</li>
+    <li>ESI/XML 文件：发挥什么作用？</li>
+    <li>一课一测：快速自检</li>
+  </ol>
+</div>
+
+<!-- ======================= 第1章 ======================= -->
+<h2>1. SOEM 库：哪来的？谁的？</h2>
+
+<p><b>SOEM</b> = <b>S</b>imple <b>O</b>pen <b>E</b>therCAT <b>M</b>aster（开源 EtherCAT 主站库）。</p>
+
+<div class="key">
+  <b>来源结论：既不是自己写的，也不是 M04 官网提供的——是开源社区的项目，从网上下载的免费库。</b><br>
+  版权方：Arthur Ketels（2005-2025）与瑞典 RT-Labs AB（2009-2025），可从 GitHub 免费获取。
+</div>
+
+<table>
+  <tr><th>对比项</th><th>你自己写的代码</th><th>SOEM 库</th></tr>
+  <tr><td>文件</td><td>test_m04.cpp（约190行，唯一业务代码）</td><td>约30个 .c 文件、几万行</td></tr>
+  <tr><td>角色</td><td>“指挥官”——决定做什么</td><td>“工具箱”——负责实现 EtherCAT 协议细节</td></tr>
+  <tr><td>类比</td><td>你决定用扳手拧哪个螺丝</td><td>买来的扳手工具箱，不用自己造扳手</td></tr>
+</table>
+
+<p>SOEM 库内部结构（你不需要读懂它，但要知道它有哪些部分）：</p>
+<pre><code>soem/
+├── src/      ← 9个源文件（ec_config.c、ec_main.c… 库的“员工”）
+├── osal/     ← 操作系统适配层（Windows / Linux 各一套）
+├── oshw/     ← 网卡硬件接口（Windows 上调用 Npcap 抓包）
+├── include/  ← 头文件（soem.h 等“说明书”）
+└── samples/  ← 官方示例程序（printSlaveInfo 就是参考这里的写法）</code></pre>
+
+<div class="tip"><b>提示</b>：ethercat_win 和 test_M04 里的 SOEM 是<b>同一个库</b>（测试工程是从主工程复制了一份做隔离测试），所以两个工程的通讯底层一模一样。</div>
+
+<!-- ======================= 第2章 ======================= -->
+<h2 class="pagebreak">2. “推”状态机：M04 内部的状态升降机</h2>
+
+<p>“推”是我用的通俗说法，完整表达是<b>“推状态机”</b>——<b>命令 M04 切换到某个工作状态</b>。</p>
+
+<p>EtherCAT 从站有 4 个状态，像一台<b>只有 4 层、必须逐层上升的升降机</b>：</p>
+
+<div class="boxflow">
+  INIT（第1层 刚上电） <span class="arrow">→</span>
+  PREOP（第2层 预运行） <span class="arrow">→</span>
+  SAFE-OP（第3层 试运行） <span class="arrow">→</span>
+  <b>OP（第4层 干活状态）</b><br>
+  状态值：0x01 → 0x02 → 0x04 → 0x08
+</div>
+
+<p><b>“推”在代码里做了两件事</b>（每一层都重复这两件事）：</p>
+
+<p>① <b>提出要求</b>——告诉 M04“请进入XX状态”，并把要求发出去：</p>
+<pre><code>ctx.slavelist[0].state = EC_STATE_SAFE_OP;   // 设定目标楼层（要进SAFE-OP）
+ecx_writestate(&amp;ctx, 0);                     // 按下按钮：发出切换指令</code></pre>
+
+<p>② <b>反复确认</b>——不停地发数据帧问“你到了吗”，直到 M04 回答“到了”才停：</p>
+<pre><code>do {
+    ecx_send_processdata(&amp;ctx);               // 发一帧数据（拍门问话）
+    ecx_receive_processdata(&amp;ctx, ...);       // 收回复
+    ecx_statecheck(&amp;ctx, 0, EC_STATE_SAFE_OP, ...); // 查状态：到了没？
+} while (还没到 且 没超时);                   // 没到就继续问</code></pre>
+
+<p><b>为什么不能直接“瞬移”到 OP？</b> 每一层都要检查：链路通不通、参数配没配好、数据格式对不对——这是 EtherCAT 的<b>安全设计</b>。</p>
+
+<p><b>你的测试程序推了两次</b>，对应你看到的输出：</p>
+<table>
+  <tr><th>输出文字</th><th>含义</th></tr>
+  <tr><td>Slaves entered SAFE-OP state!</td><td>第一次推：从第1层爬到第3层 ✓</td></tr>
+  <tr><td>Slaves entered OP state!</td><td>第二次推：从第3层爬到第4层 ✓ <b>← 看到这句=通讯成功</b></td></tr>
+</table>
+
+<!-- ======================= 第3章 ======================= -->
+<h2>3. 站号：M04 是 EtherCAT 的第几站？</h2>
+
+<p><b>当前测试环境：M04 是第 1 站（站号 1）。</b>证据：程序输出 <code>Found 1 slave(s)</code>，且打印循环从 <code>cnt = 1</code> 开始——EtherCAT 的站号<b>从 1 开始</b>（0 保留给主站自己）。</p>
+
+<p><b>站号怎么定？</b>按<b>物理连接顺序</b>，谁离主站（电脑网卡）最近谁就是第 1 站：</p>
+
+<div class="boxflow">
+  电脑 → [设备A] → [设备B] → [设备C]<br>
+  　　　　第1站　　第2站　　第3站
+</div>
+
+<p><b>将来把 M04 接进主工程</b>（3个TSJA20 + M04，去掉3个鸣志电机）：</p>
+<div class="boxflow">
+  电脑 → [TSJA20-1] → [TSJA20-2] → [TSJA20-3] → [M04]<br>
+  　　　　第1站　　　　第2站　　　　第3站　　　　第4站 ← M04变成第4站
+</div>
+
+<div class="key">
+  <b>这就是建议“M04 放最后一站”的原因</b>：前 3 个电机的站号不变，主工程里“前3个从站=旋转电机”的代码逻辑就<b>不用大改</b>。
+</div>
+
+<!-- ======================= 第4章 ======================= -->
+<h2 class="pagebreak">4. 扫描后自动获得的信息：为什么“这么匹配”？</h2>
+
+<p>运行程序时，一行行信息自动打印出来（名字、厂商ID 0xB95、产品代码 0x1410、输入输出字节数……）。<b>这些不是程序“猜”的，也不是“写死”的——是 M04 自己报上来的！</b></p>
+
+<div class="boxflow">
+  ① M04 出厂时，艾莫迅把身份信息烧进它的 EEPROM 芯片（相当于<b>身份证</b>）<br>
+  ② 程序调用 ecx_config_init() 扫描 → SOEM 按协议标准向 M04 发“上交身份证”指令<br>
+  ③ M04 把 EEPROM 内容发给主站 → SOEM 解析后存进 ctx.slavelist[1]<br>
+  ④ 打印函数只负责把存好的数据显示出来
+</div>
+
+<p><b>为什么信息“这么规整、正好匹配”？</b>因为 EtherCAT 是<b>行业标准</b>：每个从站 EEPROM 的<b>固定位置</b>必须存厂商ID、固定位置必须存产品代码……全世界的从站厂家都按这个标准烧录。程序按标准去固定位置“读取”，读出来自然是设备自己的真实身份。</p>
+
+<table>
+  <tr><th>扫描后拿到的字段</th><th>含义</th><th>M04 的值（举例）</th></tr>
+  <tr><td>name</td><td>设备名字</td><td>EC2-MB-M04</td></tr>
+  <tr><td>eep_man</td><td>厂商ID（身份证上的“发证机关”）</td><td>0xB95（艾莫迅）</td></tr>
+  <tr><td>eep_id</td><td>产品代码</td><td>0x1410</td></tr>
+  <tr><td>eep_rev</td><td>版本号</td><td>0x10100</td></tr>
+  <tr><td>Obytes / Ibytes</td><td>输出/输入字节数（数据区大小）</td><td>输出 10 字节 / 输入看实际配置</td></tr>
+</table>
+
+<div class="tip"><b>类比</b>：像收银台扫码——商品信息是商品自己带的，扫码枪只是读取并显示。M04 的 EEPROM=商品条码，SOEM=扫码枪，打印函数=收银显示器。</div>
+
+<!-- ======================= 第5章 ======================= -->
+<h2>5. ecx_config_map_group 三个参数 &amp; “10字节”的真相</h2>
+
+<p>关键一行：<code>ecx_config_map_group(&amp;ctx, IOmap, 0);</code></p>
+
+<table>
+  <tr><th>参数</th><th>名字</th><th>是什么</th><th>类比</th></tr>
+  <tr><td>① &amp;ctx</td><td>上下文</td><td>SOEM 的“总档案柜”，保存所有从站信息（扫描结果都在里面）</td><td>全公司的员工档案</td></tr>
+  <tr><td>② IOmap</td><td>IO 映射缓冲区</td><td>一块 4096 字节的内存，SOEM 按每个从站的声明在这里“分格子”</td><td>数据仓库</td></tr>
+  <tr><td>③ 0</td><td>组号</td><td>第 0 组（把从站分组管理用；只有一串从站就填 0）</td><td>分组编号</td></tr>
+</table>
+
+<p><b>这个函数干的事</b>：根据扫描到的“每个从站要几字节”，在 IOmap 仓库里划分区域，并把 <code>slavelist[1].outputs</code>（输出区指针）和 <code>slavelist[1].inputs</code>（输入区指针）自动指到对应格子——<b>你不用自己记地址</b>。</p>
+
+<div class="cmp">
+  <b>容易混淆的点：参数里的“0” ≠ “10字节”！</b><br>
+  · 第三个参数 <b>0</b> = 组号（第0组，与大小无关）<br>
+  · <b>10 字节</b> = M04 的输出区大小（Obytes），来自 M04 的 PDO 定义（Modbus Enable 1字节 + Control Byte1~8 共8字节 + 对齐填充1字节 = 10字节）<br>
+  · 验证方法：运行程序看 <code>Output PDO Size: 10 bytes</code> —— 那是 M04 自己声明的
+</div>
+
+<!-- ======================= 第6章 ======================= -->
+<h2 class="pagebreak">6. printSlaveInfo：是 M04 专属函数吗？数据哪来的？</h2>
+
+<p><b>不是 M04 专属！</b>它是“通用从站信息打印器”，任何从站（TSJA20、鸣志电机）都能用。函数本身是我们参照 SOEM 官方样例（slaveinfo）写的——本质只是 9 行 printf 打印语句，<b>没有任何“发明数据”的能力</b>。</p>
+
+<table>
+  <tr><th>代码部分</th><th>性质</th></tr>
+  <tr><td>打印 Name / Vendor ID / Product Code / State / Ibytes / Obytes…</td><td><b>通用</b>：每个从站都有这些字段，只是值不同</td></tr>
+  <tr><td><code>if (eep_man == 0xB95 &amp;&amp; eep_id == 0x1410)</code></td><td><b>M04 专属</b>：唯一写死“期望值”的地方，作用是“验明正身”（检查读到的值是不是艾莫迅M04）</td></tr>
+</table>
+
+<div class="key">
+  <b>核心理解</b>：程序里从头到尾没有“设置”M04 是 0xB95——M04 本来就是这个值。<code>if</code> 判断是拿读到的值<b>对比</b>预期值，读到了就标注“这是艾莫迅设备”。
+</div>
+
+<!-- ======================= 第7章 ======================= -->
+<h2>7. test_M04 工程全景：四类文件各司其职</h2>
+
+<pre><code>test_M04/
+├── soem/                         ① SOEM开源库（第三方，占代码量99%）
+├── test_m04.cpp                  ② 业务代码（唯一，约190行）
+├── CMakeLists.txt                ② 构建脚本（怎么编译+链接soem）
+├── CMakePresets.json             ② VS生成器配置
+├── README.md                     ② 说明文档
+├── create_admin_shortcut.ps1     ② 快捷方式辅助脚本
+├── AMX_EC2_MB_M04_....xml        ③ M04官方ESI文件（设备描述）
+├── build/  out/  .vs/            ④ 编译产物与VS缓存（自动生成，可删除）
+└── .git  .gitignore              ④ 版本控制文件</code></pre>
+
+<table>
+  <tr><th>类别</th><th>内容</th><th>来源</th><th>你需要动吗？</th></tr>
+  <tr><td>① SOEM 库</td><td>soem/ 整个文件夹</td><td>开源社区下载（从 ethercat_win 复制）</td><td>不用动，当工具箱用</td></tr>
+  <tr><td>② 自己/辅助代码</td><td>cpp + 配置文件等</td><td>测试工程阶段由助手创建</td><td>真正要理解改动的就 test_m04.cpp</td></tr>
+  <tr><td>③ ESI/XML</td><td>AMX_EC2_MB_M04_general_0.1_1.0.xml</td><td>M04 官方（艾莫迅）发布</td><td>当资料查/以后装TwinCAT用</td></tr>
+  <tr><td>④ 自动生成</td><td>build/ .vs/ 等</td><td>CMake / VS / git 生成</td><td>不用管，可随时删除重建</td></tr>
+</table>
+
+<!-- ======================= 第8章 ======================= -->
+<h2 class="pagebreak">8. ESI/XML 文件：发挥什么作用？</h2>
+
+<p><b>ESI</b> = EtherCAT Slave Information（EtherCAT 从站信息文件）= M04 的<b>“完整版说明书”</b>，由艾莫迅官方发布。里面写了：身份信息（厂商ID 0xB95、产品代码 0x1410）、对象字典（0x7000 Modbus Enable、Control Byte1~8）、PDO 定义（0x1600 输出10字节、0x1A00 输入）、DC 时钟配置、支持的 Modbus 功能码模块等。</p>
+
+<p><b>关键：给谁用？两种主站玩法完全不同！</b></p>
+
+<table>
+  <tr><th></th><th>TwinCAT 类图形化主站</th><th>SOEM 类代码主站（你的工程）</th></tr>
+  <tr><td>认设备方式</td><td>扫描到不认识的新设备 → 查“从站库” → <b>必须手动安装XML</b>，否则不认识 M04</td><td>直接“问设备本人”：扫描时从 EEPROM 读取真实信息</td></tr>
+  <tr><td>XML 角色</td><td>必需（像装驱动/身份证复印件）</td><td><b>完全不需要</b>（代码和编译都不引用它）</td></tr>
+  <tr><td>你的 XML 实际用处</td><td>以后装了 TwinCAT 要安装它</td><td>当“参考手册”查 PDO/对象字典含义</td></tr>
+</table>
+
+<div class="cmp">
+  <b>为什么 EEPROM 够用还要 XML？</b>因为 M04 的 EEPROM 只有 2KB，装不下完整说明书（XML 有几万行）。<br>
+  · EEPROM（小纸条）：你是谁、PDO 多大等精简关键信息 —— SOEM 只信这个<br>
+  · XML（大书）：完整对象字典、每个字节含义、图标、模块选项 —— TwinCAT 靠这个补齐细节
+</div>
+
+<!-- ======================= 第9章 ======================= -->
+<h2 class="pagebreak">9. 一课一测：快速自检</h2>
+
+<p>看看你是否掌握了这次的内容——<b>先在心里作答，再看答案</b>：</p>
+
+<table>
+  <tr><th>#</th><th>问题</th><th>答案要点</th></tr>
+  <tr><td>1</td><td>SOEM 是 M04 官网提供的吗？</td><td>不是，是开源库（RT-Labs 等维护），免费下载</td></tr>
+  <tr><td>2</td><td>“推”状态机是什么意思？</td><td>命令从站逐级升状态：INIT→PREOP→SAFE-OP→OP，每级“提要求+反复确认”</td></tr>
+  <tr><td>3</td><td>当前测试 M04 是第几站？将来呢？</td><td>现在是第1站；放3个TSJA20后面则是第4站（站号=接线顺序）</td></tr>
+  <tr><td>4</td><td>打印的厂商ID等信息哪来的？</td><td>M04 出厂烧在 EEPROM，扫描时自己上报，程序只读取显示</td></tr>
+  <tr><td>5</td><td>ecx_config_map_group 第3个参数 0 是什么？</td><td>组号（第0组），不是字节数；“10字节”是M04输出区大小</td></tr>
+  <tr><td>6</td><td>printSlaveInfo 是 M04 专属吗？</td><td>不是，通用打印器；只有 if(0xB95) 判断是M04专属验证</td></tr>
+  <tr><td>7</td><td>工程里哪部分是第三方？哪部分是业务代码？</td><td>soem/=第三方库；业务代码只有 test_m04.cpp 等少量文件</td></tr>
+  <tr><td>8</td><td>XML(ESI) 在你的 SOEM 工程里被使用吗？</td><td>不被使用；是给 TwinCAT 认设备+给人查资料用的</td></tr>
+</table>
+
+<div class="key">
+  <b>终极一句话总结</b>：通讯成功 = 网卡对 + M04在线 + 状态机“推”到OP；信息是M04自己报的；SOEM是别人的工具箱；XML是TwinCAT的说明书——而你真正要懂的代码，只有 test_m04.cpp。
+</div>
+
+<p class="small">本笔记由最近五轮问答整理而成，配套代码见 e:\JT-021\BEIJING_ECAT\test_M04\test_m04.cpp，设备描述见 AMX_EC2_MB_M04_general_0.1_1.0.xml。</p>
+
+</body>
+</html>

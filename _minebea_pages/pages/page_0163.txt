@@ -1,0 +1,7 @@
+Chapter9 Internal register
+⑤ The edge of the Z phase is detected in the - direction at the homing search
+speed, and the detection operation ends.
+Homing operation setting 15: Position set
+The current position is set to the value of the homing data (0905H). The current position
+becomes the origin without performing homing.
+162

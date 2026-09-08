@@ -1,0 +1,67 @@
+Chapter9 Internal register
+9.5.8 Program operation data
+Set the mode, speed, and movement amount for each step in program operation.
+address Word Operation content detail Range/Uni Initial refle
+Length data ts value ct
+9000H 1 0 Mode Specify the operation method for 6～21 6 B
+operation data number 0.
+Only the
+6: Relative position control(encoder
+position base) numbers
+7: Absolute position control defined
+8: Homing *1 in the
+9: Position set
+details
+10: Following error counter clear
+16: Relative position on the
+control/force(encoder position base) left are
+17: Absolute position control/force valid./-
+18: Relative position control(command
+position base)
+19: Relative position
+control/force(command position base)
+20: Round absolute position control
+*2
+21: Round absolute position
+control/force *2
+*1 Homing method is set by 0900H.
+*2 Round method is set by 0161H.
+For RS485 type, access with 16
+consecutive words of 9000H-900FH.
+9001H～ 2 0 Positio Sets parameters related to the -2147483648 0 B
+n Data position of operation data number 0.
+9002H ～
+This parameter means the following
+values for each mode. 2147483647
+When relative position control... /pulse
+Target ditance
+When absolute position control ...
+Target position
+When position set ... Encoder position
+to be set
+When absolute round control is used...
+Target position
+When homing, deviation counter
+clear... This parameter is not
+referenced.
+9003H 1 0 Speed Set the speed for operation data 1～100 100 B
+number 0.
+/%
+Set by maximum speed (0802H) x this
+value (%).
+If the speed is less than the startup
+speed (0800H), the speed operates as
+the same as the startup speed.
+This parameter is referenced when
+mode:6,7,16,17,18,19,20,21.
+Refer to 0818H and 0816H when mode:8
+9004H 1 0 Torque Sets the torque limit for operation 0～1500 500 B
+Limit data number 0.
+/0.1%
+Set as a percentage of the rated
+current.
+This parameter is referenced when
+mode:16,17,19,21.
+When mode:8 and 0900H:11-14, 0907H is
+referenced.
+177

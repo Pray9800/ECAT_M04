@@ -1,0 +1,142 @@
+==================== PAGE 10 ====================
+66
+3.2、升级功能
+模块上电前，拨下升级按钮1 和2（拨码开关），直到EC2-MB-M04 的SYS 灯、ERR 灯均快速闪烁，
+模块即进入升级模式，升级模式详细说明见升级固件升级使用说明书。
+四、EC2-MB-M04 模块的使用说明
+本章节针对TwinCAT3 连接EC2-MB-M04 的过程进行介绍，以实现相应功能需求。
+4.1、连接前准备
+
+准备好TwinCAT 软件需要的XML 文件，并放在对应的安装路径下，如：
+C:\TwinCAT\3.1\Config\Io\EtherCAT\。
+
+将DC 24V 外部电源接入模块并通电，通电前请检查电源正负极是否连接正确。
+
+使用网线连接到模块的网口，IN 端口为输入，OUT 端口为输出。
+4.2、扫描EtherCAT 从设备
+
+打开TwinCAT 上位机软件，找到左边Devices->右键点scan 扫描，正常情况下弹出new I/O devices
+found 窗口，点OK，即可显示连接的从设备。
+
+==================== PAGE 11 ====================
+77
+
+列表下即可显示连接的模块。
+4.3、配置slot
+
+选择扫描出的从站->slots->slot 窗口按顺序选择要插slot 的位置，右边选择对应的
+module，点击‘<’，以此类推，module 添加完后，点击Reload Device。
+注意：在增加或者删除SLOT 之前需要将设备切换到PRE-OP 状态，否则更改后的信息无法下载到模块里
+
+==================== PAGE 18 ====================
+1414
+(4)Start Addr,寄存器开始地址。
+(5)Quantity，寄存器数量。
+(6)Trigger Mode，发送数据时的方式，支持Disable、Force Poll、Smart Poll、Rising
+Disable：任何情况都不发送报文
+Force Poll：轮询发送，使能位接通后任何情况都会发送报文
+Smart Poll：数据有更改才发送，当使能位和控制位为1 时，对于读报文会按照轮询的方式一直读取，
+对于写报文会在有数据更改时发送报文，槽号对应的控制发送标志位由1 变到0 后，不论是读报文还是
+写报文都会停止发送。
+Rising：上升沿发送，当使能位为1 时，对应的控制位在收到上升沿的信号会发送一次报文
+(7)Interface Type,接口类型，可选该module 通信接口为RS485_A、RS485_B、RS485_C 或RS485_D。
+(8) Transmission Mode,每个module 支持三种模式：Modbus As Master、Modbus As Slave 和Pass
+Through。
+注意事项：
+Module 传输模式
+注意事项
+Modbus As Master
+功能码读写方向和主站PDO 输入输出方向一致
+Modbus As Slave
+功能码读写方向和主站PDO 输入输出方向相反
+Pass Through
+只有输入或输出时需要配置data index,区分不同modbus 指令
+
+==================== PAGE 19 ====================
+1515
+包含输入和输出pdo 时，不需要配置data index,设备不区分不同的
+modbus 指令
+4.4.6、
+透传模式配置module 参数
+(1) Module ID,不可更改。
+(2) Slave ID，为空。
+(3) Function Code，为空。
+(4) Data Index，module 只支持RxPDO 或TxPDO 时，一个rs485 接口可接多个设备，需配置唯一的Data
+Index 以区分不同的设备数据帧。Module 同时支持RxPDO 和TxPDO 时，防止两端设备发送数据产生
+碰撞，采用非轮询的方式发送数据，通过数据头data valid 控制发送频率，Data Index 不用来区分不同
+设备的数据帧。
+(5) Data Length，配置用户发送有效数据最大长度。
+Trigger Mode, 发送数据时的方式，支持Force Poll 和Smart Poll 和Disable。
+Force Poll：发送数据有无更改皆强制发送
+Smart Poll：数据有更改才发送。
+Disable：
+放弃数据发送。
+(6) Interface Type,选择接口类型，可选该module 指令接收/发送数据接口为RS485_A、RS485_B、
+RS485_C 或RS485_D。
+
+==================== PAGE 20 ====================
+1616
+(7) Transmission Mode,默认为Pass Through，不可更改。
+4.5、配置Modbus 报文（功能码）
+在设备概览中一共有64 个槽位可供配置MODBUS 报文（命令）。每个槽可以用来插入一条MODBUS
+通信报文（命令）,所以一共可以插入64 个MODBUS 通信报文（命令）。
+发送不同的modbus 报文，根据功能码和传输数据长度选择不同的module。
+每个module 名称包含三段信息：input data 或output data; FC 支持的功能码;PDO 数据类型和长度。
+该module 名称FC 后面紧跟支持的功能码，根据操作类型划分，前面功能码为modbus as master
+时配置，后面功能码为modbus as slave 时配置的功能码。
+ModbusRTU 主站和从站支持下面八个MODBUS 通信命令：
+功能码
+功能
+操作地址区域(非寄存器PLC
+地址)
+操作类型
+01H
+读取多个线圈输出状态
+0XXXX
+读
+02H
+读取多个输入线圈状态
+1XXXX
+读
+03H
+读取多个保存寄存器
+4XXXX
+读
+04H
+读取输入寄存器
+3XXXX
+读
+05H
+强置单个线圈
+0XXXX
+写
+06H
+预置单个保持寄存器
+4XXXX
+写
+0FH
+强置多线圈
+0XXXX
+写
+
+==================== PAGE 21 ====================
+1717
+10H
+预置多个保持寄存器
+4XXXX
+写
+4.6、控制字和使能字的使用说明
+Modbus Enable：modbus 的使能字
+--第1 字节(主站和从站都适用)：
+Bit 0:RS485A 是否启用，1 = 启用，0 = 不启用。
+Bit 1:RS485B 是否启用，1 = 启用，0 = 不启用。
+Bit 2:RS485C 是否启用，1 = 启用，0 = 不启用。
+Bit 3:RS485D 是否启用，1 = 启用，0 = 不启用。
+Control Byte1~Byte8：modbus 的控制字用来配合Smart Poll、Rising 两个触发方式使用
+槽和控制字对应方式如下：
+Byte1 的Bit0 位对应SLOT 的第1 个槽
+Byte1 的Bit7 位对应SLOT 的第8 个槽
+Byte2 的Bit0 位对应SLOT 的第9 个槽
+Byte2 的Bit7 位对应SLOT 的第16 个槽
+按照这个顺序一直对应下去
+

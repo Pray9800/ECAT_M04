@@ -1,0 +1,31 @@
+Chapter3 Installation and Wiring
+3.2.4 PLC/Controller Connection
+Connect the PLC or controller to the motor controller using the included connector for control
+signal terminals.
+( 1 ) Control signal pin (CN1) Pin assignment
+Pin No. signal name use remarks
+1 IN+COM Input signal common -
+2 IN0* (*1) Input signal 0 Functions vary depending on the control method
+3 IN1 Input signal 1 setting.
+4 IN2 Input signal 2 For more information, see ➡6.2.1 IO Control
+5 IN3 Input signal 3 input.
+6 IN4 Input signal 4
+7 IN5 Input signal 5
+8 IN6 Input signal 6
+9 IN7 Input signal 7
+10 P1+ Pulse input 1+ Pulse drive format: CW/Pulse/A-phase (set by
+11 P1-. Pulse input 1- parameter 0115H). For more information, see
+➡9.5.4 Position control, or ➡5.4.4 Pulse Input.
+12 OUT0+ Output signal 0+. Functions vary depending on the control method
+13 OUT0- Output signal 0- setting.
+14 OUT1+. Output Signal 1+ For more information, see ➡6.3.1 IO Control
+15 OUT1- Output signal 1- Output.
+16 OUT2+ Output Signal 2+
+17 OUT2- Output signal 2-
+18 OUT3+ Output Signal 3+
+19 OUT3- Output signal 3-
+20 - Not used. -
+21 P2+ Pulse input 2+ Pulse drive format: CW/direction/Phase B (set by
+22 P2- Pulse input 2- parameter 0115H). For more information, see
+➡9.5.4 Position control, or ➡5.4.4 Pulse Input.
+28

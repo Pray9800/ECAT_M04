@@ -1,0 +1,45 @@
+Chapter8 RS485 Communication
+8.7.3 JOG DRIVING
+( 1 ) Operation
+Basically, operation by RS485 is performed with the 9-word data setting shown in ➡ 9.4.1
+Operation Commands.
+An example of JOG operation start data is shown below.
+address Word content detail
+Length
+3000H 1 Operation order Specifies the operation method.
+1: JOG
+3001H 1 Direction order Specifies the direction of movement.
+0: CCW / 1: CW
+3002H 1 Speed order(upper) ※Not used in JOG operation.
+3003H 1 Speed order(lower) The speed is determined by the parameter "JOG speed (081CH)".
+3004H 1 Stop Option ※Not used in JOG operation.
+3005H 1 Operation number ※Not used in JOG operation.
+order
+3006H 1 Target ※Not used in JOG operation.
+position(upper)
+3007H 1 Target
+position(lower)
+3008H 1 Torque order ※Not used in JOG operation.
+・Torque is determined by the maximum torque value (0500H).
+The acceleration is determined by the parameter "Acceleration (0810H)".
+The deceleration is determined by the parameter "Deceleration (0812H)".
+An example of stop data for JOG operation is shown below.
+address Word content detail
+Length
+3000H 1 Operation order Specifies the operation method.
+0: Stop
+3001H 1 Direction order ※Not used in STOP operation.
+3002H 1 Speed order(upper) ※Not used in STOP operation.
+3003H 1 Speed order(lower)
+3004H 1 Stop Option Specifies the option when the operation order is 0: Stop.
+0: Deceleration to stop
+3005H 1 Operation number ※Not used in STOP operation.
+order
+3006H 1 Target ※Not used in STOP operation.
+position(upper)
+3007H 1 Target
+position(lower)
+3008H 1 Torque order ※Not used in STOP operation.
+・Torque is determined by the maximum torque value (0500H).
+The deceleration is determined by the parameter "Deceleration (0812H)".
+112

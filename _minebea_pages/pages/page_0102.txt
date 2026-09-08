@@ -1,0 +1,38 @@
+Chapter8 RS485 Communication
+( 3 ) Continuous Word Data Writing
+Writes consecutive word data by the number of words to be written from the write start
+address.
+The higher-level device transmits the write word data in the order of the high-order byte
+and then the low-order byte.
+ Configuring Request Messages
+Node Address 01H~FFH
+Function Codes 10H
+Write start address UPPER 0000H～FFFFH
+LOWER
+Number of words to write UPPER 0001H~003FH
+LOWER
+Number of bytes to write 02H~7EH
+First word data UPPER 0000H～FFFFH
+LOWER
+Next Word Data UPPER 0000H～FFFFH
+LOWER
+Last word data UPPER 0000H～FFFFH
+LOWER
+CRC-16 LOWER 0000H～FFFFH
+UPPER
+ Configuring Successful Response Messages
+Node Address 01H~FFH
+Function Codes 10H
+Write start address UPPER 0000H～FFFFH
+LOWER
+Write word data UPPER 0000H～FFFFH
+LOWER
+CRC-16 LOWER 0000H～FFFFH
+UPPER
+ Configuring Abnormal Response Messages
+Node Address 01H~FFH
+Function Codes 90H
+Error 01H~03H
+CRC-16 LOWER 0000H～FFFFH
+UPPER
+101

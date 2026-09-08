@@ -1,0 +1,31 @@
+Chapter10 Troubleshooting
+( 3 ) List of Network Alarms
+Type with communication network function (Except for RS485 types), in addition to the drive
+alarm, there are the following alarms:
+command
+number content cause correspondence Unrelease
+in
+81 Network bus anomaly A network anomaly has been Check for abnormalities in 〇
+detected. communication equipment,
+cables, etc.
+82 Internal data A data error has occurred If the problem is ×
+reception error inside the communication reproduced by rebooting, it
+needs repairing.
+83 Abnormal board Failed to initialize the If the problem is ×
+initialization board reproduced by rebooting, it
+needs repairing.
+86 Communication An abnormality has occurred If the problem is
+setting data in the communication setting reproduced by rebooting, it ×
+abnormality data. needs repairing.
+88 Non-volatile memory An abnormality occurs in the If the problem is
+abnormality for non-volatile memory for reproduced by rebooting, it ×
+communication communication. needs repairing.
+89 Unauthorized Startup An unpredictable event If the problem is
+occurred and a reset reboot reproduces, it needs 〇
+occurred. repairing.
+( 4 ) Alarm History
+Up to 10 alarms that have occurred are stored in nonvolatile memory in order from the most
+recent, and the stored alarm history can be retrieved and erased in any of the following ways
+- Network communication
+- Dedicated application
+196

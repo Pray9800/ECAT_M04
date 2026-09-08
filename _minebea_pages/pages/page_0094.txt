@@ -1,0 +1,13 @@
+Chapter8 RS485 Communication
+8.1.3 Communication settings
+An RS485 device is connected to the RS485 communication terminals (CN6, CN7) of the motor
+controller, and operation is performed by commands from the RS485 device. (Parameters and
+programs must be set in advance via RS485 communication or dedicated application..
+For more information on how to access internal registers in RS485 communication, see ➡8
+RS485 Communication and ➡ 9 Internal register.
+How to operate in the dedicated application, see ➡ 5.5 Operation by dedicated application.
+8.1.4 Switch Settings
+ If the motor controller is installed at the end of the RS485 communication, the
+configuration switch (SW1AND SW2) to ON (RS485 termination resistor ON). It is
+factory set to "OFF" (RS485 termination resistor OFF).
+93

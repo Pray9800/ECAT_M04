@@ -1,0 +1,52 @@
+For your safety
+For your safety
+Before using this product, please read the following information carefully and be sure to observe
+it.
+Warning
+General
+ Do not use or store the product in explosive or corrosive environments, in the presence
+of flammable gases, or in locations subject to splashing water or oil, or near
+combustible materials such as dust or iron powder. Doing so may result in fire,
+electric shock, or injury.
+ Installation, wiring, operation, maintenance, inspection, fault diagnosis, etc. should
+be performed by personnel with specialized knowledge. Otherwise, fire, electric shock,
+injury, and damage to the equipment may result.
+ Always turn off the power before performing installation, wiring, maintenance,
+inspection, fault diagnosis, etc. Doing so may result in fire, electric shock, injury,
+or damage to the equipment.
+ When using this product in a lifting device, take measures to hold the moving part. If
+the power is cut off, the motor will lose its holding power, causing the moving part to
+fall and resulting in injury or damage to the device.
+ When an alarm is detected by this unit, the motor stops and loses its holding power.
+Take measures to hold the moving parts. Otherwise, it may cause injury or damage to the
+equipment.
+ If an alarm is detected or an abnormality is observed in the operation of the unit,
+eliminate the cause. If you operate the unit without eliminating the cause, the unit
+may malfunction, resulting in injury or damage to the equipment.
+ Do not use the torque cutoff function while the motor is running. This may result in
+fire or damage to the equipment. When using the torque cutoff function, be sure to
+check that the motor is stopped. (Applicable models only)
+ When using an external brake, install the protective element according to the
+manufacturer's instructions, or use a brake with a protective circuit. This may cause
+injury or damage to the equipment.
+ When using an external brake, be sure to implement fail-safe measures so that the
+machine will return to a safe state even if the brake fails, otherwise it may cause
+injury or damage to the equipment.
+Installation and wiring
+ Install the unit inside the enclosure. Failure to do so may cause electric shock or
+injury.
+ is the grounding terminal. Be sure to ground it to avoid electric shock.
+ Connect securely according to the wiring diagram. Failure to do so may cause fire or
+electric shock.
+ Do not apply excessive stress to connectors by forcibly bending or pulling cables. A
+break in the cable can cause a short circuit in the signal lines, which can lead to
+fire, electric shock, or damage (circuit boards). There is a high risk of fire,
+especially in environments where the positive side is grounded, so when using the cable
+in places where there is a risk of breakage or on moving parts, take measures such as
+adding a reverse current prevention diode to the grounding power supply output, adding
+fuses to the target circuit or using non-shielded cables.
+ When controlling the power supply to this unit with a relay or similar, insert the
+relay on the AC input side of the power supply. Inserting a relay or other device into
+the +24V DC/+48V side of this unit may cause damage to the device.
+ The USB communication connector and RS485 communication connector (applicable models
+2

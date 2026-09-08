@@ -1,0 +1,62 @@
+Chapter9 Internal register
+address Word Operation content detail Range/Uni Initial refle
+Length data ts value ct
+consecutive words.
+9150H 1 21 Operati Sets the operation data number 21. ― ― B
+on Same configuration as 9000H-900FH.
+data21 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9160H 1 22 Operati Sets the operation data number 22. ― ― B
+on Same configuration as 9000H-900FH.
+data22 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9170H 1 23 Operati Sets the operation data number 23. ― ― B
+on Same configuration as 9000H-900FH.
+data23 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9180H 1 24 Operati Sets the operation data number 24. ― ― B
+on Same configuration as 9000H-900FH.
+data24 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9190H 1 25 Operati Sets the operation data number 25. ― ― B
+on Same configuration as 9000H-900FH.
+data25 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+91A0H 1 26 Operati Sets the operation data number 26. ― ― B
+on Same configuration as 9000H-900FH.
+data26 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+91B0H 1 27 Operati Sets the operation data number 27. ― ― B
+on Same configuration as 9000H-900FH.
+data27 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+91C0H 1 28 Operati Sets the operation data number 28. ― ― B
+on Same configuration as 9000H-900FH.
+data28 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+91D0H 1 29 Operati Sets the operation data number 29. ― ― B
+on Same configuration as 9000H-900FH.
+data29 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+91E0H 1 30 Operati Sets the operation data number 30. ― ― B
+on Same configuration as 9000H-900FH.
+data30 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+91F0H 1 31 Operati Sets the operation data number 31. ― ― B
+on Same configuration as 9000H-900FH.
+data31 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9200H 1 32 Operati Sets the operation data number 32. ― ― B
+on Same configuration as 9000H-900FH.
+181

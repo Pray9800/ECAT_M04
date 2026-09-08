@@ -1,0 +1,20 @@
+Chapter9 Internal register
+Homing operation setting 10: LS-, Z operation
+This mode performs homing using LS- and Z phase.
+After detecting the LS- edge, the rising edge of the Z phase on the + side is detected.
+● When the homing start position is LS-undetected
+High = Inactive, Low = Active (at default)
+No. operation
+① The edge of LS- is detected in the - direction at the homing speed.
+② The edge of LS- is detected in the + direction at the homing search speed.
+③ The edge of LS- is detected in the - direction at the homing search speed.
+④ The Z edge is detected in the + direction at the homing search speed, and the detection
+operation ends.
+● When the homing start position is LS-detected
+High = Inactive, Low = Active (at default)
+No. operation
+① The edge of LS- is detected in the + direction at the homing search speed.
+② The edge of LS- is detected in the - direction at the homing search speed.
+③ The Z edge is detected in the + direction at the homing search speed, and the detection
+operation ends.
+159

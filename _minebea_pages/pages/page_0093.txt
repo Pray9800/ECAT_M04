@@ -1,0 +1,13 @@
+Chapter8 RS485 Communication
+8.1.2 Connecting RS485 Communication Cables
+Note
+ Do not route the RS485 communication cable in the same pipe as any other cable. Noise
+may cause malfunction.
+ The cable length for RS485 communication is as follows:30It should be less than m.
+1. Peel off about 9 mm of the lead wire sheath.
+Matching lead wires are AWG 28～16. Please provide your own lead wires.
+2. Check the pin assignment, press the white button with a flat-blade screwdriver ((1)),
+and connect the lead wires to the RS485 communication terminal (CN6 or C)N7) ((2)).
+It does not matter whether you connect to CN6 or CN7. The other spare communication
+terminal can be used to connect to other motor controllers..
+92

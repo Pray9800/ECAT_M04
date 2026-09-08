@@ -1,0 +1,4 @@
+Chapter7 Torque off function
+<Torque shut-off function Simplified block diagram>
+※For RS485 type, EDM2 is not used
+85

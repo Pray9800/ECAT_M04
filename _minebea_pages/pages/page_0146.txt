@@ -1,0 +1,54 @@
+Chapter9 Internal register
+address Word content detail Range/Unit Initial refle
+Length s value ct
+0810H 2 Acceleration Sets the acceleration in absolute value. 1～ 1600000 B
+2147483647
+/pps/s
+0812H 2 Deceleration Sets the deceleration in absolute value. 1～ 1600000 B
+2147483647
+/pps/s
+0814H 2 Quick stop Sets the deceleration for quick stop in 1～ 6400000 B
+deceleration absolute value.
+2147483647
+/pps/s
+0816H 2 Homing search Sets the Homing search speed 1～ 16000 B
+speed
+2147483647
+/pps
+0818H 2 Homing Speed Sets the Homing Speed 1～ 64000 B
+2147483647
+/pps
+081AH 2 Homing Sets the Homing Accel/Decel Speed in 1～ 1600000 B
+Accel/Decel absolute value.
+2147483647
+Speed
+/pps/s
+081CH 2 JOG speed Sets the JOG speed in absolute value. 1～ 16000 B
+2147483647
+/pps
+081EH 2 Programmed Sets the base acceleration/deceleration 1～ 1600000 B
+operation base during programmed operation.
+2147483647
+acceleration/d Used in combination with acceleration
+eceleration [%] (9005H+nx10H, n=0 to 63) /pps/s
+speed and deceleration [%] (9006H+nx10H, n=0
+to 63) in the program operation data
+during program operation.
+0820H 2 Inching Sets the amount of inching movement as 1～ 100 B
+position an absolute value.
+2147483647
+Inching moves by a specified amount each
+time it is executed. pulse
+Inching can be executed from the control
+signal input.
+0821H 1 Command Sets the Command position filter time 1～64/msec 1 B
+position constant
+filter time
+constant
+0822H 1 Command Enables/disables low-pass filter at the 0～1/- 0 B
+position command position.
+filter enable This function and S-curve ratio are used
+exclusively.
+When this function is enabled, the S-
+curve ratio (0806H, 080DH) is regarded
+145

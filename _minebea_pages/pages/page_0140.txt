@@ -1,0 +1,65 @@
+Chapter9 Internal register
+Word Initial refle
+address content detail Range/Units
+Length value ct
+encoder position (current
+position).
+0: With initialization
+operation/absolute encoder
+position
+1: With initialization
+operation/zero
+2: No initialization
+action/absolute encoder
+position
+3: No initialization
+action/zero
+(Do not set the following)
+4,7:Reserved
+*When selecting setting
+values 0, 2, or 3, a motor
+with an absolute encoder
+manufactured by us is
+required.
+If another type of motor is
+connected, an alarm will be
+issued.
+*If set values 2 or 3 are
+selected, a motor
+corresponding to the function
+is required.
+Please contact our sales
+department.
+*If you select setting value
+0 or 2, you must record the
+user home position.
+You can do this by operating
+homing with 051FH set to 1 or
+3, and 0521H set to 1.
+Please perform this
+procedure when using this
+setting for the first time,
+and if you change the motor
+with an absolute encoder.
+If you don't record the user
+home position, Alarm 6 or 13
+will occur.
+0521H 1 Enable User Home Records the user home position 0～1/- 0 A
+position recording for motors with absolute
+encoder.
+The home position is recorded
+by executing homing with this
+parameter enabled.
+The recorded home position
+will be loaded when the power
+is turned on again, provided
+051FH is set to 2 or 3.
+0: Disable
+1: Enable
+To enable this function, a
+motor with an absolute encoder
+manufactured by us is
+required.
+0523H 1 Operation selection Sets the rotation stop 0～5/- 3 B
+when software limit function when the software
+139

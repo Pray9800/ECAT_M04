@@ -1,0 +1,60 @@
+Chapter6 Control signal
+No. parameter explanation
+88 GP8
+89 GP9
+90 GP10
+91 GP11
+92 GP12
+93 GP13
+94 GP14
+95 GP15
+96～103 reservation Not used
+104 EXT1 Trigger 1 for touch probe / External input 1
+*Cannot be set for RS485, EtherNet/IP types.
+105 EXT2 Trigger 2 for touch probe / External input 2
+*Cannot be set for RS485, EtherNet/IP types.
+106 EXT3 External input 3
+*Cannot be set for RS485, EtherNet/IP types.
+107 DEC Home return deceleration limit switch
+*Cannot be set for RS485, EtherNet/IP types.
+108 SS0 Sets to signal search detection input 0.
+When the operation is specified as signal search, the motor stops
+when this input becomes active.
+109 SS1 Sets to signal search detection input 1.
+When the operation is specified as signal search, the motor stops
+when this input becomes active.
+6.4.2 Output signal list
+For the various outputs to which the output signal is assigned, see➡ 6.3 Output signal.
+No. parameter explanation
+0 UNUSED_Re
+1 SV-OFF_Re
+2 SV-ON_Re
+3 PD-CLR_Re
+4 reservation
+5 STOP_Re
+6～7 reservation
+8 ALM CLR_Re
+9～10 reservation
+11 E-STOP_Re
+12 TO-CLR_Re
+13 EVT-CLR_Re
+14 NOTICE-CLR_Re
+15～27 reservation
+Outputs the status (ON/OFF) of the input signal with the same
+28 LS-FWD_Re
+No.
+29 LS-REV_Re
+30 ORG_Re
+31 reservation
+32 PRG_Re
+33～35 reservation
+36 HOME_Re
+37 RTRN_Re
+38～47 reservation
+48 JOG-FWD_Re
+49 JOG-REV_Re
+50～51 reservation
+52 INCH-FWD_Re
+53 INCH-REV_Re
+54～55 reservation
+81

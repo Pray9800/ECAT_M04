@@ -1,0 +1,42 @@
+Chapter8 RS485 Communication
+( 5 ) Configuration Examples
+Word Data Readout
+The following is an example of a setting for reading word data with the following settings.
+・Node address: 1
+・Readout data: Alarm Monitor
+Send the following query:
+Field Name data content
+Node Address 01H Node Address 1
+Function Codes 03H Reading a Register
+Data Read start address upper 30H The address of the beginning of the
+Read start address lower 21H register to be read
+= Alarm Monitor (3021H)
+Read word count upper 00H Number of read words
+Read word count lower 01H
+Error check (lower) DBH CRC-16 calculation result
+Error Check (Upper) 00H
+The following response message is returned to the query, and you can retrieve the value of
+the alarm monitor.
+Field Name data content
+Node Address 01H Node Address 1
+Function Codes 03H Reading a Register
+Bytes read 02H
+data Word Data Upper 00H Alarm Monitor Values
+Word Data Lower 00H (0000H)
+Error check (lower) B8H CRC-16 calculation result
+Error Check (Upper) 44H
+Word Data Writing
+The following is an example of how to write word data with the following settings.
+・Node address: 1
+- Data to be written: Clear Alarm
+Send the following query to perform an alarm clear.
+Field Name data content
+Node Address 01H Node Address 1
+Function Codes 06H Writing to the Holding Register
+data Write start address upper 30H The address of the register to be
+Write start address lower 09H written to = Clear Alarm (3009H)
+Write word data 00H Clear Alarm (0001H)
+Write word data 01H
+Error check (lower) 97H CRC-16 calculation result
+Error Check (Upper) 08H
+104

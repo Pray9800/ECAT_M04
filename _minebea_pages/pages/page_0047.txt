@@ -1,0 +1,57 @@
+Chapter5 Various Operation Methods
+Word Initial
+address content detail Range/Units
+Length value
+051BH 1 Limit switch LS+ Sets the active level of limit switch LS+. 0～1/- 0
+polarity 0: Coupler ON or 1
+1: Coupler OFF or 0
+The setting is Coupler ON/OFF for signals
+from the Control signal pin, and 0/1 for
+data signals from communication I/F.
+Refer to the Control signal pin
+specifications for details on Coupler
+ON/OFF.
+051CH 1 Limit switch LS- Sets the active level of limit switch LS-. 0～1/- 0
+polarity 0: Coupler ON or 1
+1: Coupler OFF or 0
+The setting is Coupler ON/OFF for signals
+from the Control signal pin, and 0/1 for
+data signals from communication I/F.
+Refer to the Control signal pin
+specifications for details on Coupler
+ON/OFF.
+051DH 1 Operation Sets the rotation stop function when limit 0～5/- 2
+selection when switches LS+ and LS- are enabled.
+limit switch is 0: Disable (do nothing).
+enabled 1: Decelerate to stop.
+2: Emergency stop.
+3: Alarm 10 (emergency stop)
+4: Quick stop
+5: Immediate stop.
+When external pulse commands are enabled
+(0514H:0), settings 1, 4, and 5 will
+operate the same as setting 2.
+- Stops motor rotation when limit switch active is detected.
+- The types of stops are as follows:
+Deceleration stop:
+Decelerates to a stop using the internal register Deceleration Rate (0812H).
+Emergency stop:
+Stops without deceleration and maintains a short-circuit braking state. The short-
+circuit braking state is achieved by short-circuiting the motor coils for braking.
+To release the short-circuit braking state, perform servo on (SV-ON) or servo off
+(SV-OFF). If an alarm is active, alarm clear (ALM-CLR) is required beforehand.
+Quick stop:
+Decelerates and stops using the internal register Quick Stop Deceleration (0814H).
+The initial value for Quick Stop Deceleration is higher than Deceleration (0812H),
+enabling faster stopping than decelerated stopping.
+Immediate stop:
+Stops without deceleration.
+- When limit switches LS+/LS- are active, motor movement initiation is restricted.
+When LS+ is active, movement in the - direction is possible; when LS- is active,
+movement in the + direction is possible (use either relative movement, JOG, speed
+control, torque control, or continuous operation).
+When both LS+ and LS- are enabled, the READY signal (operational status) turns OFF,
+and the motor cannot move.
+When LS+ is enabled and the soft limit (described later) on the (-) side is enabled,
+or when LS- is enabled and the soft limit on the (+) side is enabled, the behavior is
+46

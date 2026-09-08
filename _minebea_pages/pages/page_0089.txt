@@ -1,0 +1,45 @@
+Chapter7 Torque off function
+7.3 Operation
+7.3.1 Transition from Normal to Torque off
+Torque off request TO1 and TO2 are used to shut off the power supply to the motor.
+For details of wiring and signals, see ➡ 3.2.7 Torque off request/EDM diagnostics controller
+connection.
+(1) Torque off request TO1 and TO2 are turned from OFF to ON.
+(2) The motor will be in a state of no excitation, and the unit will be in a torque-off state.
+The control signal TO-MON output is turned on, the READY output (ready for operation) is
+turned off, and the SV-STS output (servo on state) is turned off. ※1
+The EDM monitoring signal EDM1 and EDM2 outputs are turned from OFF to ON. ※2
+The PWR LED (green) goes from solid to blinking.
+The electromagnetic brake is in a holding state. ※3
+①
+ON
+TO1/TO2 Input
+OFF
+②
+ON
+EDM1/EDM2 Output
+OFF
+ON
+PWR_LED
+OFF
+ON
+TO-MON Output Normal state Torque off state
+OFF
+ON
+READY Output
+OFF
+ON
+SV-STS Output
+OFF
+YES
+motor excitation
+NO
+HOLD
+Electromagnetic brake
+RELEASE
+≦15ms
+※1 Confirm that the unit is torque-off by the TO-MON output.
+※2 The RS485 type does not use EDM2.
+※3 This chart shows the case where the electromagnetic brake is disabled by user operation (3060H:0
+Servo State Automatic Interlocking Brake).
+88

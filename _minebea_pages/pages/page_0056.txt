@@ -1,0 +1,24 @@
+Chapter5 Various Operation Methods
+ Using PRG signal (program operation)
+Homing is performed using the input signal PRG (program operation).
+⓪Preparation
+Using RS485 communication or a dedicated application, set the mode to "8: Homing" in
+any of the program data number 0~7 of the programmed operation data.
+Similarly, set the following parameters using RS485 communication or dedicated
+application.
+0900H (homing mode)... Set the homing behavior pattern to be used.
+* For details of the homing mode, see ➡9.5.3 Homing Parameters.
+* For details ofprogram operation, see ➡ 9.5.8 Program operation data.
+①Turn on the main power supply and control power supply.
+②Confirm that the READY output (ready for operation) is ON and the SV-STS output (servo
+on state) is ON. ※1 ※2
+③Set the input signals of PNUM2 to PNUM0 inputs (program operation number designation)
+to correspond to the operation data number set in ⓪. ※3
+④Homing is executed when PRG input is turned ON. The homing operation executes the
+operation set to 0900H in ⓪. When the operation starts, the READY output turns OFF
+and the MOVE output turns ON. Confirm that the READY output is OFF and turn off the
+PRG input. ※4
+⑤When the operation is finished, the MOVE output is turned OFF and the READY output is
+turned on. The encoder position (3026H) is the value set by parameter 0905H (homing
+data). ※5
+55

@@ -1,0 +1,48 @@
+Chapter5 Various Operation Methods
+5.4.4 Pulse Input
+( 1 ) Parameter setting
+Use RS485 communication or a dedicated application to set the following parameters:
+address Word content detail Range/Unit Initial refle
+Length s value ct
+0514H 1 Input selection of Enables/disables external pulse 0～1 1 C
+command position commands.
+0: External pulse command
+1: Command operation (initial
+value)
+When external pulse commands are
+selected, command input cannot be
+used.*1
+*1 Excluding Homing, Servo-on,
+Servo-off, and Emergency stop.
+*1 Parameter read and write
+operations are still possible.
+When external pulse commands are
+selected, motor operations via
+input signals cannot be
+executed.*2
+*2 Excluding SV-ON, SV-OFF, PD-
+CLR, E-STOP, HOME, and RTRN.
+*2 Operations not involving motor
+movement, such as ALM-CLR and TO-
+CLR, are possible
+(refer to the "Input Signal
+List").
+0114H 1 Designation of Reverses the rotation direction 0～1 0 B
+rotation direction at external pulse command from
+at external pulse the direction shown in the timing
+command chart.
+0: Normal
+1: Inverted
+0115H 1 External pulse Selects the external pulse 0～2 0 C
+command format command format.
+0: 2 pulses (P1=CW, P2=CCW)
+1: 1 pulse (P1=pulse,
+P2=direction)
+2: 2-phase pulse (P1=Phase A,
+P2=Phase B)
+For pulse input, set 0514H (input selection of command position) to 0 (external pulse command).
+If necessary, change the settings of 0114H (rotation direction designation) and 0115H (external
+pulse command format).
+If the above parameters are changed, the control power must be turned on again to reflect the
+parameters.
+57

@@ -1,0 +1,51 @@
+Chapter6 Control signal
+function parameter explanation Initial value
+Time
+DI4 Signal Debounce
+Time
+DI5 Signal Debounce
+Time
+DI6 Signal Debounce
+Time
+DI7 Signal Debounce
+Time
+6.2.2 Virtual Connection Input
+A virtual connection input (VI) is a method of inputting an output signal set to a virtual
+input source to an input signal set in the input function of a virtual connection input.
+Output and input signals can be connected without wiring, and up to four can be set.
+name explanation
+Input Functions Select the signal that you want to assign to the VI.
+Signal Source Selection Select the output signal that you want to use as input for the VI.
+Invert settings The signal polarity can be reversed.
+ Input Functions
+function parameter explanation Initial value
+VI0 Function Select the input signal to be assigned to
+VI0～VI3.
+assignment
+[Setting range]
+Virtual VI1 Function
+See ➡ 6.4.1 Input signal list.
+assignment
+Connection 0: Unused
+VI2 Function
+Input assignment
+VI3 Function
+assignment
+ Signal Source Selection
+function parameter explanation Initial value
+VI0 Signal Select a output signal to be input to VI0
+～VI3.
+Source Selection
+[Setting range]
+Virtual VI1 Signal
+➡ 6.4.2 Output signal.
+Source Selection
+Connection 128:OFF
+VI2 Signal
+Input Source Selection
+VI3 Signal
+Source Selection
+ Invert settings
+function parameter explanation Initial value
+VI0 Inverted Set the signal polarity of the VI0～VI3. 0
+73

@@ -1,0 +1,29 @@
+Chapter3 Installation and Wiring
+( 2 ) pinout
+ Motor controller side
+Pin No. signal name use
+1 ENC +5V Power supply for encoder +5V
+2 ENC 0V Power supply for encoder GND
+3 ENC A+ Encoder phase-A+
+4 ENC A- Encoder phase-A-
+5 ENC B+ Encoder phase B+
+6 ENC B- Encoder phase B-
+7 ENC Z+ Encoder phase Z+
+8 ENC Z- Encoder phase Z-
+9 EFG Encoder frame GND
+10 - Not Used
+11 - Not Used
+12 - Not Used
+13※1 RS-485+ RS-485 communication +(for encoder communication)
+14※1 RS-485- RS-485 communication -(for encoder communication)
+※ Encoder frame GND is assigned to a round terminal outside the connector on the motor side. To suppress
+noise, it is recommended to ground the encoder frame GND.
+ Motor side
+Pin No. signal name use
+1 ENC +5V Power supply for encoder +5V
+2 RS-485- RS-485 communication -(for encoder communication)
+3 RS-485+ RS-485 communication +(for encoder communication)
+4 ENC A+ Encoder phase A+
+5 ENC A- Encoder phase A-
+6 ENC B+ Encoder phase B+
+26

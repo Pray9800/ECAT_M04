@@ -1,0 +1,21 @@
+Chapter9 Internal register
+Homing operation setting 6: ORG (- side) operation
+This mode performs homing using ORG (origin signal).
+Detects the negative edge of ORG.
+● When the homing start position is on the negative side of ORG
+High = Inactive, Low = Active (at default)
+No. operation
+① The edge of ORG is detected in the positive direction at the homing speed.
+② The edge of ORG is detected in the negative direction at the homing speed.
+③ The edge of ORG is detected in the positive direction at the homing search speed, and
+the detection operation ends.
+● When the homing start position is on the positive side of ORG
+High = Inactive, Low = Active (at default)
+No. operation
+① The edge of LS+ is detected in the positive direction at the homing speed.
+② The edge of ORG is detected in the negative direction at the homing speed.
+③ The edge of ORG is detected in the positive direction at the homing speed.
+④ The edge of ORG is detected in the negative direction at the homing speed.
+⑤ The edge of ORG is detected in the positive direction at the homing search speed, and
+the detection operation ends.
+155

@@ -1,0 +1,20 @@
+Chapter3 Installation and Wiring
+3.2.3 Encoder Connection
+Use the encoder cable to connect the encoder to the motor controller.
+Please use our cable for the encoder. If you make your own cable, we recommend using a shielded
+cable and grounding the shield.
+( 1 ) Connecting the encoder cable
+Caution
+ Do not route the encoder cable in the same piping as other cables. Noise may cause
+malfunction.
+ Do not apply excessive stress to the connectors. Doing so may cause fire, electric
+shock, or damage to the unit (circuit board).
+ When attaching a motor to a moving part, use a separate cable for the moving part that
+has a superior number of bends and bending radius.
+ The recommended length of the encoder cable is 5 m or less; exceeding 5 m may cause an
+increase in radiated noise from the unit.
+1. Connect the motor controller to the encoder with the supplied encoder cable.
+The connector on the motor controller side is plugged into the encoder terminal (CN2).
+After connecting, make sure the connector is locked.
+To remove the connector, pull it out while pressing down on the connector claws.
+25

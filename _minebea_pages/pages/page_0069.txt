@@ -1,0 +1,22 @@
+Chapter5 Various Operation Methods
+5.4.6 Alarm Clear
+Dismiss the alarm if an alarm occurs. For more information about alarms, see ➡ 10.1
+Alarm.
+①When an alarm factor occurs, the unit will enter an alarm state. When the alarm output
+is ON (in the case of ALM-A), the READY output (ready for operation) is turned off,
+and the SV-STS output (in the servo on state) is turned off. ※1
+The motor goes into a short braking state. The ALM LED (red) flashes.
+②Remove the alarm factor. ※2
+③Turn on ALM-CLR input (Clear Alarm). ※3
+The alarm state of the unit is canceled, the alarm output is OFF (in the case of ALM-
+A), and the READY output (ready for operation) is turned on. ※1
+The motor will be in a state of no excitation. The electromagnetic brake is in a
+holding state. ※5
+The ALM LED (red) turns off.
+④Check the alarm output OFF (in the case of ALM-A) and turn OFF ALM-CLR input.
+⑤Confirm that the READY output is ON and the SV-STS output is OFF, and turn on the SV-
+ON input.
+The SV-STS output is turned on and the motor is in an excited state. ※1
+The electromagnetic brake is in the release state. ※5
+⑥Confirm that the SV-STS output is ON and turn off the SV-ON input. ※4
+68

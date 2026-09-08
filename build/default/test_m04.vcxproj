@@ -65,7 +65,7 @@
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:/JT-021/BEIJING_ECAT/test_M04/build/default/bin/Release</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:/JT-021/BEIJING_ECAT/test_M04/build/default/bin</LocalDebuggerWorkingDirectory>
     <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></LocalDebuggerCommandArguments>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\JT-021\BEIJING_ECAT\test_M04\build\default\bin\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">test_m04.dir\Release\</IntDir>
@@ -73,7 +73,7 @@
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:/JT-021/BEIJING_ECAT/test_M04/build/default/bin/Release</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:/JT-021/BEIJING_ECAT/test_M04/build/default/bin</LocalDebuggerWorkingDirectory>
     <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></LocalDebuggerCommandArguments>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\JT-021\BEIJING_ECAT\test_M04\build\default\bin\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">test_m04.dir\MinSizeRel\</IntDir>
@@ -81,7 +81,7 @@
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:/JT-021/BEIJING_ECAT/test_M04/build/default/bin/Release</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:/JT-021/BEIJING_ECAT/test_M04/build/default/bin</LocalDebuggerWorkingDirectory>
     <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></LocalDebuggerCommandArguments>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\JT-021\BEIJING_ECAT\test_M04\build\default\bin\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">test_m04.dir\RelWithDebInfo\</IntDir>
@@ -89,7 +89,7 @@
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
-    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:/JT-021/BEIJING_ECAT/test_M04/build/default/bin/Release</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:/JT-021/BEIJING_ECAT/test_M04/build/default/bin</LocalDebuggerWorkingDirectory>
     <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></LocalDebuggerCommandArguments>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

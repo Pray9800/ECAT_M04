@@ -1,0 +1,28 @@
+Chapter9 Internal register
+Homing operation setting 13: + direction pressing, Z operation
+This mode performs a push using the torque limit, and then performs a return to the
+origin using the Z phase.
+After detecting the torque limit in the + direction, the + edge of the Z phase is
+detected.
+High = Inactive, Low = Active (at default)
+No. operation
+① The torque limit is detected in the positive direction at the homing speed.
+② The edge of the Z phase is detected in the - direction at the homing speed.
+③ The Z-phase edge is detected in the positive direction at the homing search
+speed.
+④ The edge of the Z phase is detected in the - direction at the homing search
+speed, and the detection operation ends.
+Homing operation setting 14: - direction pressing, Z operation
+This mode performs a push using the torque limit, and then performs a return to the
+origin using the Z phase.
+After detecting the torque limit in the + direction, the + edge of the Z phase is
+detected.
+High = Inactive, Low = Active (at default)
+No. operation
+① The torque limit is detected in the negative direction at the homing speed.
+② The edge of the Z phase is detected in the positive direction at the homing
+speed.
+③ The edge of the Z phase is detected in the - direction at the homing speed.
+④ The Z-phase edge is detected in the positive direction at the homing search
+speed.
+161

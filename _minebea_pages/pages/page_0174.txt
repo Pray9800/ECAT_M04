@@ -1,0 +1,69 @@
+Chapter9 Internal register
+( 3 ) Signal Composit Output
+Word Range/Unit Initial refle
+address content detail
+Length s value ct
+SO0 signal source A Select signal source A for 128: No C
+selection SO0.
+function
+0D50H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the output
+signals that can be assigned.
+SO0 signal source A Sets the signal polarity of 0 C
+inverted setting signal source A of SO0.
+0D51H 1 0～1/-
+0: Do nothing
+1: Invert
+SO0 signal source B Selects the signal source B 128: No C
+selected of SO0.
+function
+0D52H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the output
+signals that can be assigned
+SO0 signal source B Sets the signal polarity of 0 C
+inverted setting signal source B of SO0.
+0D53H 1 0～1/-
+0: Do nothing
+1: Invert
+SO0 logic setting Sets the logic coupling 1: OR C
+between signal sources A and
+0D54H 1 B of SO0. 0～1/-
+0:AND (logical conjunction)
+1:OR (logical disjunction)
+SO1 signal source A Select signal source A for 128: No C
+selection SO1.
+function
+0D58H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the output
+signals that can be assigned.
+SO1 signal source A Sets the signal polarity of 0 C
+inverted setting signal source A of SO1.
+0D59H 1 0～1/-
+0: Do nothing
+1: Invert
+SO1 signal source B Selects the signal source B 128: No C
+selected of SO1.
+function
+0D5AH 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the output
+signals that can be assigned
+SO1 signal source B Sets the signal polarity of 0 C
+inverted setting signal source B of SO1.
+0D5BH 1 0～1/-
+0: Do nothing
+1: Invert
+SO1 logic setting Sets the logic coupling 1: OR C
+between signal sources A and
+0D5CH 1 B of SO1. 0～1/-
+0:AND (logical conjunction)
+1:OR (logical disjunction)
+( 4 ) Remote IN/Remote OUT
+Word Range/Unit Initial refle
+address content detail
+Length s value ct
+RI0 function Select the input signal to be 64:PNUM0 C
+assignment assigned to RI0.
+0D20H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+173

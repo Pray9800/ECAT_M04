@@ -1,0 +1,13 @@
+Chapter3 Installation and Wiring
+( 2 ) Connect power cable/ground wire/brake cable
+Caution
+ Do not route the power cable in the same piping as other cables. Noise may cause
+malfunction.
+1. Peel off about 8 mm of the lead wire sheath.
+Matching lead wires are AWG 24 to 16. Please provide your own lead wires.
+2. Check the pin assignment, and while pressing the orange button with a flat-blade
+screwdriver(①), connect the lead wires to the terminal block for the power input terminal
+provided(②).
+3. Insert the terminal block for the power input terminal into the power input terminal (CN4)
+of the motor controller.
+20

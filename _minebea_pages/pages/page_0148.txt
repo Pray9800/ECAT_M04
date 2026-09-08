@@ -1,0 +1,51 @@
+Chapter9 Internal register
+9.5.3 Homing Parameters
+Configure settings related to homing.
+address Word content detail Range/Units Initial refle
+Length value ct
+0900H 1 Homing mode Sets the homing mode. 1～15/- 12 B
+1: ORG(+ side)... . Detects
+the + side edge of the ORG
+signal.
+2: ORG(+ side), Z.. Detects
+the rising edge of the Z
+phase in the - direction
+after the + side edge of the
+ORG signal is detected.
+3: LS+... Detects the edge of
+LS+ signal.
+4: Z(+ side)... Detects the
+rising edge of the Z-phase
+signal in the + direction.
+5: LS+, Z... Detects the
+rising edge of the Z phase in
+the - direction after
+detecting the edge of the LS+
+signal.
+6: ORG(- side).... . Detects
+the - side edge of the ORG
+signal.
+7: ORG(- side), Z.. . Detects
+the rising edge of the Z
+phase in the + direction
+after the - side edge of the
+ORG signal is detected.
+8: LS-... Detects the edge of
+the LS- signal.
+9: Z(-side)... . Detects the
+rising edge of the Z-phase
+signal in the - direction.
+10: LS-, Z.... . Detects the
+rising edge of the Z phase in
+the + direction after the
+edge of the LS- signal is
+detected.
+11: Force control +
+direction... Detects the
+torque limit in the +
+direction.
+12: Force control -
+direction... Detects the
+torque limit in the -
+direction.
+147

@@ -1,0 +1,15 @@
+Chapter5 Various Operation Methods
+※1 If there is a difference in the signal condition, see ➡5.4.7 Status check.
+※2 This chart shows the automatic servo on enabled when the control power is turned on (parameter
+0516H: 0 (initial value)). If automatic servo on disabled (parameter 0516H: 1), execute servo-
+on. For servo-on, refer to➡5.4.5 Other operation:Servo On (Automatic Servo On is disabled).
+※3 The servo on automatically performs initialization operation at the first execution after
+power-on. The servo is automatically turned on after the initialization operation is completed.
+During the initialization operation, the motor shaft rotates in a range of up to 14.4 degrees
+in the forward and reverse directions. During the initialization operation, the electromagnetic
+brake is temporarily released. When servo on is performed for the second and subsequent times
+after the power is turned on, the initialization operation is not executed.
+※4 Turn off the SV-OFF input and the SV-ON input before performing the following operations.
+※5 This chart shows the case where the electromagnetic brake is disabled by user operation (3060H:0
+Servo State Automatic Interlocking Brake).
+63

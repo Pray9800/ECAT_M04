@@ -1,0 +1,59 @@
+Chapter9 Internal register
+9.5 Parameter setting
+Accessing the internal registers allows the user to set the parameters of motor controller.
+For details on how to access the internal registers, see ➡8 RS485 Communication.
+The "Reflect" column in each table indicates the timing when the operation command is reflected.
+For more information, see➡ 9.2 Reflection timing setting parameters.
+9.5.1 Common Parameters
+Set the parameters common to all control methods.
+Word Initial refle
+address content detail Range/Units
+Length value ct
+0500H 1 Maximum torque setting Set the maximum torque. 0～1500/0.1% 1000 C
+Set as a ratio (0 to 150%) to
+the rating.
+When using the motor in excess
+of the rating, pay close
+attention to the temperature of
+the motor.
+The value of this parameter is
+set as the upper limit for all
+operations.
+Set other parameters for torque
+setting and current setting in
+open mode to values lower than
+this parameter.
+0501H 1 Overload error Sets the time until an overload 500～ 1000 C
+detection time error (alarm 1) is detected.
+10000/msec
+An overload error is issued
+when upper torque limit or an
+error in target tracking is
+detected.
+The smaller this parameter is
+set, the easier it is to detect
+an overload error.
+0507H 1 Initialization Sets the operation pattern of 0～1/- 0 C
+operation type initialization operation.
+0: Move in CCW direction
+1: Move in CW direction
+*Initialization
+operation...This is the
+magnetic pole search operation
+when the servo is turned on for
+the first time.
+The motor shaft rotates a
+maximum of 14.4 degrees.
+0509H 1 Excitation current Sets the current value in 20～100/% 40 C
+during initialization initialization operation.
+operation Set this value as a ratio to
+the rated current of motor.
+050EH 1 Selection of short Selects enable/disable of short 0～1/- 0 C
+brake enable/disable at brake at servo-off.
+servo-off 0: Disable (free)
+1: Enable (short-circuit
+braking)
+Short-circuit braking (or Short
+brake) stops the motor by
+short-circuiting its coils.
+136

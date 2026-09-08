@@ -1,0 +1,16 @@
+Chapter5 Various Operation Methods
+5.4 PLC operation
+The PLC is connected to the control signal terminal (CN1) of the motor controller, and operation
+is performed by commands from the PLC. Parameters and programs must be set in advance via RS485
+communication or dedicated application.
+For details on how to access internal registers via RS485 communication, refer to ➡8 RS485
+Communication and ➡ 9 Internal register.
+For details on how to use the dedicated application, please refer to ➡ 5.5 Operation by
+dedicated application.
+The system configuration for PLC operation is shown below.
+Point
+・The time chart described in this chapter shows the time from the change in the signal level
+of the input terminal to the turn on the output terminal coupler. The control timing of the
+higher-level system should be designed with the latency of the higher-level system in mind.
+・The ON/OFF notation in the time chart indicates coupler ON / coupler OFF.
+49

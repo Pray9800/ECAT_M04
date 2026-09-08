@@ -1,0 +1,65 @@
+Chapter9 Internal register
+Word Initial refle
+address content detail Range/Units
+Length value ct
+is set to 0 (automatically
+linked to the servo state).
+051AH 1 Electromagnetic brake- Sets the delay time for when 0～1000/msec 0 A
+off delay time the electromagnetic brake is
+turned off (hold → release).
+This setting is reflected when
+the Manual brake enable (3060H)
+is set to 0 (automatically
+linked to the servo state).
+051BH 1 Limit switch LS+ Sets the active level of limit 0～1/- 0 B
+polarity switch LS+.
+0: Coupler ON or 1
+1: Coupler OFF or 0
+The setting is Coupler ON/OFF
+for signals from the Control
+signal pin, and 0/1 for data
+signals from communication I/F.
+Refer to the Control signal pin
+specifications for details on
+Coupler ON/OFF.
+051CH 1 Limit switch LS- Sets the active level of limit 0～1/- 0 B
+polarity switch LS-.
+0: Coupler ON or 1
+1: Coupler OFF or 0
+The setting is Coupler ON/OFF
+for signals from the Control
+signal pin, and 0/1 for data
+signals from communication I/F.
+Refer to the Control signal pin
+specifications for details on
+Coupler ON/OFF.
+051DH 1 Operation selection Sets the rotation stop function 0～5/- 2 B
+when limit switch is when limit switches LS+ and LS-
+enabled are enabled.
+0: Disable (do nothing).
+1: Decelerate to stop.
+2: Emergency stop.
+3: Alarm 10 (emergency stop)
+4: Quick stop
+5: Immediate stop.
+When external pulse commands
+are enabled (0514H:0), settings
+1, 4, and 5 will operate the
+same as setting 2.
+051EH 1 origin sensor ORG Sets the active level of the 0～1/- 0 B
+polarity origin sensor ORG.
+0: Coupler ON or 1
+1: Coupler OFF or 0
+The setting is Coupler ON/OFF
+for signals from the Control
+signal pin, and 0/1 for data
+signals from communication I/F.
+Refer to the Control signal pin
+specifications for details on
+Coupler ON/OFF.
+051FH 1 Initialization Selects whether 0～4/- 1 C
+operation and current initialization operation is
+position setting at performed when the servo is
+startup turned on for the first time/
+the value to be set for the
+138

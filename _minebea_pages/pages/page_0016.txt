@@ -1,0 +1,7 @@
+Chapter1 Overview
+1.5 System Configuration
+The system configuration for operating a stepping motor with encoder using the motor controller
+is shown below.
+For devices connected to CN1, CN5 to CN7, connect them according to the operation method.
+*Please use our cables (sold separately) for the motor and encoder cables.
+15

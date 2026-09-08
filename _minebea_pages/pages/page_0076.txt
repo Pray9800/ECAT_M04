@@ -1,0 +1,27 @@
+Chapter6 Control signal
+function parameter explanation Initial value
+RI15 Function
+assignment
+ Input value setting
+function parameter explanation Initial value
+Set the input to the remote input RI0~RI15.
+See 0D20H~0D2FH for RI0~RI15 function
+assignments.
+Each bit of this parameter corresponds to the
+following input signal:
+bit0:RI0
+Input value bit1:RI1
+Remote Input
+0
+setting (RI) …
+bit14:RI14
+bit15:RI15
+* This parameter is for use with RS485 type
+(address 3075H)。
+* This parameter is assigned to Implicit
+communication in the EtherNet/IP type.
+When the same input signal is assigned to multiple input terminals, the function is activated
+if there is an input on any of the terminals. (Logical OR)
+Also, when the IO control input, remote input, and virtual connection input are alternated, both
+inputs must be turned on to enable the function. (Logical AND)
+75

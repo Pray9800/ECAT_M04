@@ -1,0 +1,11 @@
+Chapter9 Internal register
+Word Range/Unit Initial refle
+address content detail
+Length s value ct
+*2: The motor rotates toward the
+shorter travel distance.
+Ensure this is used in
+conjunction with the position
+rounding display range defined in
+0534H and 0538H.
+165

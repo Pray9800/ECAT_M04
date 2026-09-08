@@ -1,0 +1,43 @@
+Chapter9 Internal register
+9.5.10 Torque off Parameters
+Configure the settings for the torque off function.
+Word Range/Uni Initial refle
+address content detail
+Length ts value ct
+0B00H 1 Torque-off state clear Clear Torque-off state. 0～1/- 0 A
+The torque-off state is cleared by
+this parameter after the TO request
+signal is disabled,
+and by the edge set by 0B02H.
+It does not return to the servo-on
+state until Torque-off state is
+cleared.
+*Torque-off state...The driver
+enters the torque-off state when
+the TO request signal is enabled
+0B01H 1 Torque-off state clear Sets the time from disabling the TO 0～100 0 C
+invalid time request signal until the operation
+/msec
+of torque-off
+state clear (0B00H) can be
+accepted.
+0B02H 1 Polarity of torque-off Set the polarity of torque-off 0～1/- 0 C
+state clear state clear (0B00H).
+0:1 → 0 to clear.
+1:1 → 0 to clear.
+0B03H 1 Operation when TO Sets whether or not an alarm is 0～1/- 0 C
+request signal is valid issued when the TO request signal
+is enabled.
+0: No alarm occurs
+1: Alarm occurs.
+0B04H 1 TO request signal dual Set the allowable mismatch time 0～100 0 C
+system error detection difference between the two TO
+/msec
+time request signals (TO1 and TO2).
+If one of the signals is enabled
+and the other is not enabled within
+the set time, alarm 14 is issued.
+0 to 10: Detection disabled
+11 to 100: Tolerance for mismatch
+time difference [ms].
+190

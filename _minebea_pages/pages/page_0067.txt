@@ -1,0 +1,26 @@
+Chapter5 Various Operation Methods
+the programmed operation data number 63.
+・Position data (93F1H~93F2H): Set the target position (default value 0pulse).
+・Speed (93F3H): Set the speed as a ratio of the maximum speed (0802H) (initial value
+100%)
+・Acceleration (93F5H) and deceleration (93F6H): Set the acceleration and deceleration
+at the ratio of the program operation base acceleration/deceleration speed (081EH)
+(initial value 100%)
+・Mode (93F0H):7 (Absolute position control)
+・Next operation data number (93FBH):-1 (Next operation data no data)
+* For details of program operation data, see➡9.5.8 Program operation data.
+* When using fixed-point return operation, please use the program operation data in
+the range of 0~62.
+①Turn on the main power supply and control power supply.
+②Check that the READY output (ready for operation) is ON and the SV-STS output (servo
+on state) is ON. ※1 ※2
+③When the RTRN input is turned on, the positioning operation specified in the program
+operation data is executed.
+When operation starts, the READY output is turned off and the MOVE output is turned
+on.
+Confirm that the READY output is OFF and turn off the RTRN input. ※3
+④When the operation is finished, the MOVE output is turned OFF and the READY output is
+turned on.
+The INPOS output is turned on when the motor position (encoder position) is within a
+predetermined distance from the target position. ※4
+66

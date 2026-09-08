@@ -1,0 +1,51 @@
+Chapter6 Control signal
+setting [Setting range]
+0:Do nothing
+VI1 Inverted
+Virtual 1: Invert
+setting
+Connection VI2 Inverted
+setting
+Input
+VI3 Inverted
+setting
+6.2.3 Remote Input
+The method of inputting signals via various communications is remote input (RI).
+name explanation
+Input Functions Select the input signal to be assigned to the RI.
+Input value setting Set the value to be entered in the RI
+ Input Functions
+function parameter explanation Initial value
+RI0 Function Select the input signal to be assigned to ➡ 9.5.7 Control
+assignment Signal
+RI0～RI15.
+RI1 Function Parameters
+assignment [Setting range]
+RI2 Function ➡ 6.4.1 Input signal list.
+assignment
+RI3 Function
+assignment
+RI4 Function
+assignment
+RI5 Function
+assignment
+RI6 Function
+assignment
+RI Function
+RI7 Function
+Selection assignment
+RI8 Function
+assignment
+RI9 Function
+assignment
+RI10 Function
+assignment
+RI11 Function
+assignment
+RI12 Function
+assignment
+RI13 Function
+assignment
+RI14 Function
+assignment
+74

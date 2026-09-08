@@ -1,0 +1,40 @@
+Chapter5 Various Operation Methods
+➡ 9.5.1 Common Parameters
+ Setting the Round Position
+Sets the round position setting to repeatedly count the position with the set number of
+rotations.
+It is used when rotating and returning to the original position, such as a turntable.
+If you only use the normal position (counted in signed 31 bits), you do not need to set
+it.
+address Word content detail Range/Uni Initial
+Length ts value
+0534H 1 Position round Sets the percentage by which the 0～1000 0
+display offset count range of the position round /0.1%
+display is offset to the negative
+side.
+0536H 1 Enable Position Round Sets the position round display 0～1/- 0
+Display validity at the current command
+position (3024H) and current encoder
+position (3026H).
+0: Disabled (Displayed in 32-bit
+position)
+1: Enable
+0538H 1 Number of position Sets the number of turns for the 1～10000 10000
+round display turns p o sition round display. /0.1 turn
+The number of turns in the position
+round display must be set to an
+integral number of 10000[0.1r].
+➡ 9.5.1 Common Parameters
+Example) Number of turns displayed round = 10 → 1 revolution (1 revolution = 16000 pulses)
+Depending on the Position round display offset parameter, the coordinates change as
+follows:
+0(0%) 500(50%) 1000(100%)
+Round absolute positioning operation moves to a target position within the range of the
+round position. You can choose the direction of rotation by setting.
+Word Range/Unit Initial
+address content detail
+Length s value
+0161H 1 Absolute Positioning Selects the direction of 0～3/- 0
+Control Round Type rotation during round absolute
+position control.
+44

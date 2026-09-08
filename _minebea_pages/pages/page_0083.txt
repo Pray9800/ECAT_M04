@@ -1,0 +1,62 @@
+Chapter6 Control signal
+No. parameter explanation
+56 POS-FWD_Re
+57 POS-REV_Re
+58 SPD-FWD_Re
+59 SPD-REV_Re
+60 PSH-FWD_Re
+61 PSH-REV_Re
+62～63 reservation
+64 PNUM0_Re
+65 NUP1_Re
+66 PNUM2_Re
+67 PNUM3_Re
+68 PNUM4_Re
+69 PNUM5_Re
+70～79 reservation
+80 GP0_Re
+81 GP1_Re
+82 GP2_Re
+83 GP3_Re
+84 GP4_Re
+85 GP5_Re
+86 GP6_Re
+87 GP7_Re
+88 GP8_Re
+89 GP9_Re
+90 GP10_Re
+91 GP11_Re
+92 GP12_Re
+93 GP13_Re
+94 GP14_Re
+95 GP15_Re
+96～103 reservation
+104 EXT1_Re
+105 EXT2_Re
+106 EXT3_Re
+107 DEC_Re
+108 SS0_Re
+109 SS1_Re
+110～127 reservation Not used
+128 OFF The output is always OFF.
+129 ALM-A Outputs the driver's alarm status (Normally Open).
+130 ALM-B Outputs the driver's alarm status (Normally Closed).
+131 reservation Not used
+132 READY Turns ON when the driver is ready to operate.
+133 reservation Not used
+134 MOVE Turns ON when the motor is running.
+135 NOTICE Turns ON when a notification is active.
+136 reservation Not used
+137 TO-MON Turns ON when at least one of the torque cutoff function inputs
+(TO1 or TO2) is OFF.
+This state continues until the torque-off state is released and
+the motor is energized.
+138 INPOS During position control (positioning), turns ON when the deviation
+between the target position and the encoder position is below a
+specified value.
+For the specified value, refer to parameter address 010AH (In-
+Position Zone Count Value).
+139 reservation Not used
+140 TQLM Turns ON when the motor reaches the set torque limit (torque
+setting value).
+82

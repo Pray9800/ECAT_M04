@@ -1,0 +1,69 @@
+Chapter9 Internal register
+Word Range/Unit Initial refle
+address content detail
+Length s value ct
+VI0 Function Selects the input signal to 0: Unused C
+Assignment be assigned to VI0.
+0D60H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+VI1 Function Selects the input signal to 0: Unused C
+Assignment be assigned to VI1.
+0D61H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+VI2 Function Selects the input signal to 0: Unused C
+Assignment be assigned to VI2.
+0D62H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+VI3 Function Selects the input signal to 0: Unused C
+Assignment be assigned to VI3.
+0D63H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+VI0 Signal Source Selects the output signal to 128: No C
+Selection be input to VI0.
+function
+0D64H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the output
+signals that can be assigned.
+VI1 Signal Source Selects the output signal to 128: No C
+Selection be input to VI1.
+function
+0D65H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the output
+signals that can be assigned.
+VI2 Signal Source Selects the output signal to 128: No C
+Selection be input to VI2.
+function
+0D66H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the output
+signals that can be assigned.
+VI3 Signal Source Selects the output signal to 128: No C
+Selection be input to VI3.
+function
+0D67H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the output
+signals that can be assigned.
+VI0 inverted setting Sets the signal polarity of 0 C
+VI0
+0D68H 1 0～1/-
+0: Do nothing
+1: Invert.
+VI1 inverted setting Sets the signal polarity of 0 C
+VI1
+0D69H 1 0～1/-
+0: Do nothing
+1: Invert.
+VI2 inverted setting Sets the signal polarity of 0 C
+VI2
+0D6AH 1 0～1/-
+0: Do nothing
+1: Invert.
+VI3 inverted setting Sets the signal polarity of 0 C
+VI3
+0D6BH 1 0～1/-
+0: Do nothing
+1: Invert.
+172

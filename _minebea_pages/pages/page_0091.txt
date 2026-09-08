@@ -1,0 +1,180 @@
+Chapter7 Torque off function
+※1 Confirm that the unit is torque-off by the TO-MON output.
+※2 The RS485 type does not use EDM2.
+※3 If there is a difference in signal conditions, see➡ 5.4.7 Status check.
+※4 This chart shows the case where the electromagnetic brake is disabled by the user (3060H: 0 Servo
+State Automatic Interlocking Brake).
+※5 The torque off state can be cleared not only by the TO-CLR input, but also by rewriting the value
+of the parameter 0B00H (clear torque off state) as 0→1. The polarity can be changed (1→0) by
+parameter 0B02H (polarity of clearing the torque off state) to clear the torque off state by writing
+the above parameters.
+※6 Turn off the SV-ON input before performing the following operations.
+90
+E l e c t
+E
+m
+r
+D
+o
+o
+M
+t
+m
+T
+1
+T
+S
+o
+a
+O
+/
+T
+O
+R
+V
+r
+g
+1
+E
+O
+-
+S
+E
+-
+n
+/
+D
+-
+M
+V
+A
+S
+e
+e
+T
+M
+C
+O
+-
+D
+T
+x
+t
+O
+2
+L
+N
+O
+Y
+S
+c
+i
+2
+P
+R
+N
+i
+c
+O
+W
+O
+O
+O
+t
+I
+u
+R
+I
+u
+I
+u
+u
+a
+b
+n
+t
+n
+t
+n
+t
+t
+t
+r
+p
+p
+L
+p
+p
+p
+p
+p
+i
+a
+u
+u
+E
+u
+u
+u
+u
+u
+o
+k
+t
+t
+D
+t
+t
+t
+t
+t
+n
+e
+R E
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+Y E S
+N O
+H O L D
+L E A S E
+①
+≦ 1 5 m s
+①
+T0
+②
+iB m0 e1
+H
+s eo tr b y
+m o
+≦
+r
+pe
+1
+a
+0
+r a m
+m s
+e t e r
+③
+③
+③
+③
+≦ 1 0 m s
+④
+④
+④
+⑤

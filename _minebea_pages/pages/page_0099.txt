@@ -1,0 +1,35 @@
+Chapter8 RS485 Communication
+( 4 ) CRC-16
+It is a code for detecting errors (bit changes) in messages in the process of signal
+transmission.
+In RTU mode, use CRC-16 (cyclic redundancy check).
+8.5 Error message
+If an error other than the non-response condition is detected, an error code is returned
+according to the type of error.
+Node Address Function Codes Error CRC-16
+1 byte 1 byte 1 byte 2 bytes
+( 1 ) Function Codes
+1. In the event of an error, the received function code is +80H, indicating an abnormal
+response.
+2. If the function code is 80H or more, it will be returned as it is without +80H.
+( 2 ) Error codes
+Error Error details Cause of error
+01H Function Code Error An out-of-the-box function code is received
+02H Address Error • Wrote to a read-only address
+• Write-only address read
+• An address that does not exist is specified at the
+beginning of the read or write address
+03H Data Error • The write data exceeds the writable data range.
+• The value written in the item that can only be set
+exclusively has already been filled.
+• The number of read data is other than the number
+that can be read
+• Parameter rewriting was performed in a state where
+it could not be changed.
+• The number of data written does not match the
+specified number.
+The priority of the error code increases as the value of the error code decreases. If more
+than one error code occurs, the error code with the highest priority is returned.
+Example: If a function code error is detected, 01H is returned even if there is a data
+error (03H) or an address error (02H).
+98

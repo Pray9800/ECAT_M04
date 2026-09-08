@@ -1,0 +1,25 @@
+Chapter7 Torque off function
+Point
+ By setting the operating parameter (0B03H) when the TO request signal is enabled to 1, it
+is possible to issue an alarm when the torque is off. (By default, no alarm is issued.)
+ After one of TO1 or TO2 turns from ON to OFF, if the other does not turn from ON to OFF
+within the TO request signal (2 systems) error detection time (0B04H), alarm 14 is issued.
+7.3.2 Return from Torque off to Normal
+Torque off request TO1 and TO2 are used to cut off the power supply to the motor.
+For details of wiring and signals, see ➡ 3.2.7 Torque off request/EDM diagnostics controller
+connection.
+(1) Set the torque off request TO1 and TO2 from OFF to ON.
+The EDM monitoring signal EDM1 and EDM2 outputs are turned off. ※2
+(2) Confirm that the EDM monitoring signal EDM1 and EDM2 outputs are OFF, and wait for more
+than the time set by the parameter 0B01H (torque off state clear invalid time). ※2
+(3) Turn the TO-CLR input from ON to OFF. If the TO-CLR input is OFF, turn it on and then
+turn it off again.
+The torque off state is released and the system returns to its normal state.
+The TO-MON output is turned OFF and the READY output is turned on. ※3
+The PWR LED (green) will go from blinking to solid.
+(4) Confirm that the READY output is ON and the SV-STS output is OFF, and turn on the SV-ON
+input (servo on). ※1
+The motor is excited and the SV-STS output is turned on. ※3
+The electromagnetic brake is in the release state. ※4
+(5) Confirm that the SV-STS output is ON and turn off the SV-ON input. ※4
+89

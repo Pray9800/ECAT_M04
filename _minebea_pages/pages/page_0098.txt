@@ -1,0 +1,42 @@
+Chapter8 RS485 Communication
+8.3 Precautions for communication
+( 1 ) Conditions that result in no response
+If the time interval between the data constituting the "request message" is more than 3.5
+characters, the machine will not recognize it as a single "request message" and will not
+send a "reply message".
+If there is an error in the request message, but it is not open for more than 3.5 characters,
+an abnormal response message is not returned.
+Therefore, if the "reply message" is not sent back after a reasonable amount of time has
+elapsed after sending the "request message" from the host device, send the necessary
+"request message" again.
+When the time interval of 3.5 characters or more has passed, all codes received before that
+time are cleared.
+( 2 ) Node Addressing Errors
+The node address of the machine is set with the station number setting switch. If you
+specify a node address other than the set ID, the "Request Message" will not respond at
+all.
+Therefore, if there is an error in the node address part of the "request message", the
+"reply message" will not be returned. Therefore, if the "reply message" is not sent back
+after a reasonable amount of time has elapsed after sending the "request message" from the
+host device, send the necessary "request message" again.
+8.4 Message configuration
+RTU mode consists of messages only。
+Node Address Function Codes data CRC-16
+1 byte 1 byte 2~120 bytes 2 bytes
+( 1 ) Node Address
+Messages from higher-level devices are received by all connected devices, but only devices
+that match the node address in the message process the command.
+( 2 ) Function Codes
+This code is used to specify the functions that you want the machine to execute.
+Function Codes function
+03H Word Data Reading
+06H Word Data Writing
+10H Continuous Word Data Writing
+( 3 ) Data
+This is the data required to execute the function code. The structure of the data depends
+on the function code.
+Function Codes content
+03H Data address, number of reads
+06H Data address, write data
+10H Data address, number of writes, write data
+97

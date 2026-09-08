@@ -1,0 +1,10 @@
+Chapter3 Installation and Wiring
+3.2.5 USB device connection
+Connect the PC to the motor controller using a USB cable.
+Caution
+ Do not route the USB cable in the same conduit as other cables. Noise may cause
+malfunction.
+ The length of the USB cable should be less than 3m.
+1. Plug the USB cable into the USB communication terminal of the motor controller.
+Please prepare USB cable (A-miniB type) by yourself.
+35

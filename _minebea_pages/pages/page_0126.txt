@@ -1,0 +1,9 @@
+Chapter9 Internal register
+9.2 Reflection timing setting parameters
+There are three types of timing for reflecting the setting parameters, which are indicated by
+symbols in the “Reflect” column of each table.
+The meanings of the symbols are as follows:
+A: Immediate
+B: Suspension of operation
+C: Power reconnection
+125

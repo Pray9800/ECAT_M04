@@ -1,0 +1,65 @@
+Chapter9 Internal register
+Word
+address content detail Range/Units
+Length
+Others: Reserved bits
+130CH 2 Notification history 0 Displays notification that has occurred in
+the past.
+The history is updated each time there is a
+change, with 0 indicating the latest
+notification status,
+The oldest state is retained in ascending
+order from 0. The history is cleared when
+the power is turned off.
+130EH 2 Notification history 1 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+1310H 2 Notification history 2 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+1312H 2 Notification history 3 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+1314H 2 Notification history 4 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+1316H 2 Notification history 5 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+1318H 2 Notification history 6 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+131AH 2 Notification history 7 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+131CH 2 Notification history 8 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+131EH 2 Notification history 9 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+1320H 2 Notification history 10 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+1322H 2 Notification history 11 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+1324H 2 Notification history 12 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+1326H 2 Notification history 13 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+1328H 2 Notification history 14 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+132AH 2 Notification history 15 Displays notification that have occurred in
+the past.
+*refer to Notification history 0
+132CH 2 Notification occurrence Displays the time when the condition 0～
+time history 0 recorded in notification history 0 occurred.
+4294967295
+The time is measured starting from when the
+control power is turned on. /ms
+This history is erased when the power is
+130

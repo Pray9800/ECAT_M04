@@ -1,0 +1,18 @@
+Chapter3 Installation and Wiring
+( 2 ) Installation of motor controller
+When installing a motor controller in a control panel or other equipment, give full
+consideration to operability, maintainability, and environmental resistance.
+ Do not install equipment with high heat generation or electromagnetic noise in the
+vicinity.
+ If the ambient temperature exceeds 50°C, ventilate the room with a fan to keep the
+temperature below 50°C.
+ Be sure to install vertically.
+ Mount on 32 mm or 35 mm wide DIN rails.
+ Install at least 20 mm away from other equipment horizontally and vertically.
+ Two or more motor controllers can be installed in close proximity to each other in
+the horizontal direction.
+20 mm or more
+20 mm or more
+20 mm or more 20 mm or more
+Shaded areas indicate control panel ceilings, wiring ducts or components.
+18

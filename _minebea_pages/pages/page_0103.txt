@@ -1,0 +1,17 @@
+Chapter8 RS485 Communication
+( 4 ) Example of CRC-16 calculation
+CRC-16 is a 2-byte (16-bit) error checking code.
+CRC-16 is calculated from the node address to the end of the data by the following procedure.
+1. Initialize the CRC register with "FFFFH".
+2. Compute the exclusive OR on the CRC register and the first byte of the message. Write the
+result of the calculation to the CRC register.
+3. Shift the CRC register one bit to the right.
+4. If the carry flag (shifted-out bit) is 1, an exclusive OR is taken between the CRC
+register and A001H, and the calculation result is written to the CRC register.
+5. Repeat 3 and 4 until you shift 8 times.
+6. Compute the exclusive-OR on the CRC register and the next byte of the message. Write the
+result of the calculation to the CRC register.
+7. Repeat 3.~6. for all data except CRC.
+8. It calculates up to the last data byte and assigns the calculated CRC register value to
+the message in descending order and then higher.
+102

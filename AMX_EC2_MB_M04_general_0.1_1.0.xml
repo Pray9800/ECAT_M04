@@ -4198,8 +4198,8 @@
 				<Fmmu>MBoxState</Fmmu>
 				<Sm MinSize="#x24" MaxSize="#x120" DefaultSize="#x120" StartAddress="#x1000" ControlByte="#x26" Enable="1">MBoxOut</Sm>
 				<Sm MinSize="#x24" MaxSize="#x120" DefaultSize="#x120" StartAddress="#x1120" ControlByte="#x22" Enable="1">MBoxIn</Sm>
-				<Sm DefaultSize="10" StartAddress="#x1240" ControlByte="#x64" Enable="1">Outputs</Sm>
-				<Sm DefaultSize="0" StartAddress="#x1E40" ControlByte="#x20" Enable="0">Inputs</Sm>
+				<Sm DefaultSize="146" StartAddress="#x1240" ControlByte="#x64" Enable="1">Outputs</Sm>
+				<Sm DefaultSize="136" StartAddress="#x1E40" ControlByte="#x20" Enable="1">Inputs</Sm>
 				<RxPdo Fixed="true" Mandatory="true" Sm="2">
 					<Index>#x1600</Index>
 					<Name>Modbus Control</Name>

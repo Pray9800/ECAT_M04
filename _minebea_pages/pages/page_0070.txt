@@ -1,0 +1,226 @@
+Chapter5 Various Operation Methods
+※1 If there is a difference in the signal condition, see ➡5.4.7 Status check.
+※2 The alarm factor is determined from the value of the alarm monitor (3021H). For more information
+about each alarm factor, see➡ 10.1 Alarm.
+※3 There are alarm factors that can only be cleared by turning the power back on, not by ALM-CLR
+input (alarm clear). For more information, see➡10.1 Alarm.
+※4 ALM-CLR input and SV-ON input must be turned off before the next operation is executed.
+※5 This chart shows the case where the electromagnetic brake is disabled by user operation (3060H:0
+Servo State Automatic Interlocking Brake).
+69
+E
+A
+l
+l
+e
+M
+a
+c
+a
+r
+t
+i
+m
+m
+r
+n
+o
+o
+/
+(
+t
+m
+C
+A
+A
+S
+A
+o
+a
+o
+l
+L
+R
+V
+L
+r
+g
+n
+a
+M
+S
+E
+-
+M
+n
+t
+r
+-
+V
+A
+S
+-
+e
+e
+r
+m
+C
+-
+D
+T
+A
+x
+t
+o
+L
+O
+Y
+S
+)
+c
+i
+l
+F
+R
+N
+A
+i
+c
+a
+O
+O
+O
+L
+t
+P
+c
+I
+I
+u
+u
+u
+M
+a
+b
+o
+t
+n
+n
+t
+t
+t
+t
+r
+w
+o
+p
+p
+p
+p
+p
+L
+i
+a
+e
+r
+u
+u
+u
+u
+u
+E
+o
+k
+r
+s
+t
+t
+t
+t
+t
+D
+n
+e
+R E
+O N
+O F F
+Y E S
+N O
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+H O L D
+L E A S E
+O p e
+E
+r
+x
+a
+c
+t
+i
+i
+t
+o
+a
+n
+t i
+o
+o
+f
+n
+t h e m a c h
+①
+i n e
+①
+①
+①
+①
+S h o r t b
+②
+r a k e
+O p e r
+③
+a t i
+③
+③
+③
+o n o f
+N o
+E
+④
+x
+e
+t
+x
+e
+c
+r
+i
+n
+t
+a
+a
+l
+t i
+D
+o
+e
+n
+v i c e
+⑤
+s
+⑤
+⑤
+⑤
+⑥
+E x c i t a t i o n

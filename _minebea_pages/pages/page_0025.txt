@@ -1,0 +1,28 @@
+Chapter3 Installation and Wiring
+( 3 ) Applicable motor cables
+Cable Type Compatible motor Cable length remarks
+model
+2417-1703-10F01 M11PMKxxxx 1m Flexible shielded cable
+2417-1703-10F03 3m
+2417-1703-10F05 5m
+2417-1703-17F01 M17PMxxxxx 1m Flexible shielded cable
+2417-1703-17F03 3m
+2417-1703-17F05 5m
+2417-1703-23F01 M23KMxxxxx 1m Flexible shielded cable
+2417-1703-23F03 3m
+2417-1703-23F05 5m
+ Housing/Contact on motor controller side
+manufacturer Model No./Lead Wire Standard
+housing Molex Japan LLC 43025-0600
+contact Molex Japan LLC 43030-0001
+Applicable lead wires - AWG 24 to 22
+ Motor side housing/contact
+Motor type Housing (Manufacturer) Contact (Manufacturer) Applicable lead wires
+M11PMKxxxx ZER-06V-S SZE-002T-P0.3 AWG 28 to 24
+(J.S.T.MFG.CO.,LTD) (J.S.T.MFG.CO.,LTD)
+M17PMxxxxx PAP-06V-S SPHD-002T-P0.5 AWG 28 to 24
+(J.S.T.MFG.CO.,LTD) (J.S.T.MFG.CO.,LTD)
+M23KMxxxxxxx XAP-06V-1 SXA-001T-P0.6 AWG 28 to 22
+(J.S.T.MFG.CO.,LTD) (J.S.T.MFG.CO.,LTD)
+The round terminal for the frame GND is 0.5-3 (J.S.T. Mfg. Co., Ltd.)
+24

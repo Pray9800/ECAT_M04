@@ -1,0 +1,70 @@
+Chapter9 Internal register
+Word Range/Unit Initial refle
+address content detail
+Length s value ct
+signal list for the input
+signals that can be assigned.
+* For EtherNet/IP types, the
+initial value is 0: Unused.
+DI0 signal debounce Sets the debounce time from 0～250 0 C
+0D08H 1 time DI0 signal input to detection
+/msec
+validity.
+DI1 signal debounce Sets the debounce time from 0～250 0 C
+0D09H 1 time DI1 signal input to detection
+/msec
+validity.
+DI2 signal debounce Sets the debounce time from 0～250 0 C
+0D0AH 1 time DI2 signal input to detection
+/msec
+validity.
+DI3 signal debounce Sets the debounce time from 0～250 0 C
+0D0BH 1 time DI3 signal input to detection
+/msec
+validity.
+DI4 signal debounce Sets the debounce time from 0～250 0 C
+0D0CH 1 time DI4 signal input to detection
+/msec
+validity.
+DI5 signal debounce Sets the debounce time from 0～250 0 C
+0D0DH 1 time DI5 signal input to detection
+/msec
+validity.
+DI6 signal debounce Sets the debounce time from 0～250 0 C
+0D0EH 1 time DI6 signal input to detection
+/msec
+validity.
+DI7 signal debounce Sets the debounce time from 0～250 0 C
+0D0FH 1 time DI7 signal input to detection
+/msec
+validity.
+DO0 Function Select the output signal to 138:INPONS C
+Assignment be assigned to DO0.
+Refer to the ➡ Output Signal
+0D10H 1 List for the input signals 0～255/-
+that can be assigned.
+* For EtherNet/IP types, the
+initial value is 0: Unused.
+DO1 Function Select the output signal to 132:READY C
+Assignment be assigned to DO1.
+Refer to the ➡ 6.4.2 Output
+0D11H 1 signal list for the input 0～255/-
+signals that can be assigned.
+* For EtherNet/IP types, the
+initial value is 0: Unused.
+DO2 Function Select the output signal to 134:MOVE C
+Assignment be assigned to DO2.
+Refer to the ➡ 6.4.2 Output
+0D12H 1 signal list for the input 0～255/-
+signals that can be assigned.
+* For EtherNet/IP types, the
+initial value is 0: Unused.
+DO3 Function Select the output signal to 130:ALM-B C
+Assignment be assigned to DO3.
+Refer to the ➡ 6.4.2 Output
+0D13H 1 signal list for the input 0～255/-
+signals that can be assigned.
+* For EtherNet/IP types, the
+initial value is 0: Unused.
+( 2 ) Virtual Connection Input
+171

@@ -1,0 +1,54 @@
+Chapter5 Various Operation Methods
+the same as when both LS+ and LS- are enabled.
+- Homing can be executed regardless of the limit switch status.
+During operation, the rotation stop function via the limit switch is disabled.
+- Whether either the LS+/LS- limit switch or the software limit (+ side) or (- side) is
+active can be monitored via the internal limit status (bit 16 of parameter 3902H)
+ Setting the Software Limit
+Configure the software limit settings to restrict the movable range using software only,
+without external switches or sensors. No configuration is necessary if you do not wish
+to restrict the movable range.
+① Set the software limit position (+ side) and software limit position (- side).
+Set these using signed 31-bit positions. Rounding is not supported.
+Set the position after resolution change via electro gear.
+② Set the stop method when the software limit (+ side) and softwawre limit (- side) are
+active (Parameter 0523H).
+Alarm 10 (Out of Position Range) can also be triggered (Setting Value 3).
+Word Initial
+address content detail Range/Units
+Length value
+0523H 1 Operation Sets the rotation stop function when the 0～5/- 3
+selection when software limit is enabled.
+software limit 0: Disable (do nothing).
+switch is 1: Decelerate to stop.
+enabled 2: Emergency stop.
+3: Alarm 10 (emergency stop)
+4: Quick stop
+5: Immediate stop.
+When external pulse commands are enabled
+(0514H:0), settings 1, 4, and 5 will
+operate the same as setting 2.
+0524H 2 Software limit Sets the software limit position (+). -2147483648 ～ 21474836
+position(+) When the encoder position exceeds this 2147483647
+47
+parameter value, the software limit is
+/-
+enabled.
+The value must be set so that the software
+limit position (+) > the software limit
+position (-).
+0526H 2 Software limit Sets the software limit position (-). -2147483648 ～ -
+position(-) When the encoder position falls short of 2147483647
+21474836
+this parameter value, the software limit
+/-
+is enabled. 48
+The value must be set so that the software
+limit position (+) > the software limit
+position (-).
+- Software limits become active under the following conditions:
+Software limit position (+ side) ≤ Encoder position (Parameter 303BH)
+Software limit position (- side) ≥ Encoder position (Parameter 303BH)
+- Stops motor rotation when software limit active is detected.
+Refer to the limit switch section for the type of stop.
+47

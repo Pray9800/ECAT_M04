@@ -1,0 +1,35 @@
+Chapter5 Various Operation Methods
+ PNUM0/PNUM1/PNUM2/PNUM3/PNUM4/PNUM5
+Specify the program operation data number.
+When an external instruction to start moving is given, it starts moving with the program
+operation data (No. 0 to 63) represented by the 6Bit signals PNUM0, PNUM1, PNUM2, PNUM3,
+PNUM4, and PNUM5.
+* Undefined PNUMx are considered as coupler OFF.
+Program Operation PNUM0 PNUM1 PNUM2 PNUM3 PNUM4 PNUM5
+Data Number
+0 Coupler OFF Coupler OFF Coupler OFF Coupler OFF Coupler OFF Coupler OFF
+1 Coupler ON Coupler OFF Coupler OFF Coupler OFF Coupler OFF Coupler OFF
+2 Coupler OFF Coupler ON Coupler OFF Coupler OFF Coupler OFF Coupler OFF
+3 Coupler ON Coupler ON Coupler OFF Coupler OFF Coupler OFF Coupler OFF
+4 Coupler OFF Coupler OFF Coupler ON Coupler OFF Coupler OFF Coupler OFF
+5 Coupler ON Coupler OFF Coupler ON Coupler OFF Coupler OFF Coupler OFF
+6 Coupler OFF Coupler ON Coupler ON Coupler OFF Coupler OFF Coupler OFF
+・ ・ ・ ・ ・ ・ ・
+・ ・ ・ ・ ・ ・ ・
+57 Coupler ON Coupler OFF Coupler OFF Coupler ON Coupler ON Coupler ON
+58 Coupler OFF Coupler ON Coupler OFF Coupler ON Coupler ON Coupler ON
+59 Coupler ON Coupler ON Coupler OFF Coupler ON Coupler ON Coupler ON
+60 Coupler OFF Coupler OFF Coupler ON Coupler ON Coupler ON Coupler ON
+61 Coupler ON Coupler OFF Coupler ON Coupler ON Coupler ON Coupler ON
+62 Coupler OFF Coupler ON Coupler ON Coupler ON Coupler ON Coupler ON
+63 Coupler ON Coupler ON Coupler ON Coupler ON Coupler ON Coupler ON
+Point
+ In the case of position control, it is possible to move to a specified position by
+registering the program operation data. In addition, the registered program operation data
+can be executed sequentially by specifying continuous operation.
+For more information about program operation, see➡8.7.7 Program operation.
+ A total of 64 (0~63) operating data can be registered. Although only the PNUMx defined for
+the input signal can be specified, all program operation data can be used because the next
+program operation data number can be registered in the “next operation data number” of the
+operation data.
+51

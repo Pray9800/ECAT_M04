@@ -1,0 +1,43 @@
+Chapter8 RS485 Communication
+- program operation base acceleration/deceleration (81EH) = 800000 [pps/s],
+acceleration rate = 100 (%),
+- program operation base acceleration/deceleration (81EH) = 1600000 [pps/s],
+acceleration rate = 50 (%).
+ Deceleration
+Set the deceleration rate when moving.
+This setting is valid when the following modes are selected.
+mode Valid Modes
+6: Relative Position Control/(Encoder Position 〇
+Base)
+7: Absolute Position Control 〇
+8: Homing 〇
+9: Position Set ×
+10: Following Error Counter Clear ×
+16: Relative Position Control/Force/(Encoder 〇
+Position Base)
+17: Absolute Position Control/Force 〇
+18: Position Domination/(Command Position Base) 〇
+19: Relative Position Control/Force/(command 〇
+position Base)
+20: Round Absolute Position Control 〇
+21: Round Absolute Position Control/ Force 〇
+The operating speed in each mode is determined by the program operation base
+acceleration/deceleration (81EH) x deceleration rate.
+For example, to set the operating deceleration of Mode 6: Relative position
+control/(encoder position reference) to 800000 [pps/s],
+- program operation base acceleration/deceleration (81EH) = 800000 [pps/s],
+deceleration rate = 100 (%),
+- program operation base acceleration/deceleration (81EH) = 1600000 [pps/s],
+deceleration rate = 50 (%).
+ Coupling
+In step transition, if you want to select "Coupling" to transition to the next step
+without stopping the motor, set this to 1. If not, set this to 0.
+ Loop Position Offset
+Sets the offset value to be added to the target position each time the loop is
+repeated.
+ Wait time
+Set the waiting time after the end of the move.
+ Next Operation Data Number
+Set the next power transfer data number to be executed after completion. Set it to -1
+for exit.
+120

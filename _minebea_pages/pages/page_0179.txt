@@ -1,0 +1,68 @@
+Chapter9 Internal register
+address Word Operation content detail Range/Uni Initial refle
+Length data ts value ct
+9005H 1 0 Acceler Set the acceleration for operation 1～100 100 B
+ation data number 0.
+/%
+Set by acceleration (081EH) x this
+value (%).
+This parameter is referenced when
+mode:6,7,16,17,18,19,20,21.
+When mode:8, 081AH is referenced
+9006H 1 0 Deceler Deceleration setting for operation 1～100 100 B
+ation data number 0.
+/%
+Set by Deceleration Rate (081EH) x
+this value (%).
+This parameter is referenced when
+mode:6,7,16,17,18,19,20,21.
+When mode:8, 081AH is referenced.
+9007H 1 0 Couplin Enables/disables coupling of operation 0～1/- 0 B
+g data number 0.
+When coupling is enabled, the machine
+moves to the next operation data
+number without decelerating to the
+target position.
+0: Disable coupling
+1: Enable coupling.
+9008H 2 0 Loop Sets the amount of offset to be added -4194303 0 B
+Positio for each loop repetition of operation
+～4194303
+n data number 0.
+Offset The value of this parameter is added /pulse
+to the target position or target
+distance each time the loop is
+repeated.
+This parameter is not referenced when
+the operation data number is not in a
+loop.
+See also Loop Count (900CH).
+900AH 1 0 Wait Sets the waiting time until the next 0～30000 0 B
+time operation data is executed after the
+/msec
+operation of operation data number 0
+is completed.
+900BH 1 0 Next Set the next operation data number to -1～63/- -1 B
+operati be executed after the operation of
+on data operation data number 0 is completed.
+number Setting -1 terminates the programmed
+operation
+900CH 1 0 Loop Sets the loop count for operation data 0～255/- 0 B
+count number 0.
+When this parameter is set to 2-255,
+it becomes the top of the loop.
+When 0 or 1 is set, it does not become
+the top of the loop.
+The operation of the operation data
+number from the top of the loop to
+the end of the loop is repeated as many
+times as the number of loops.
+See also Loop End (900DH).
+900DH 1 0 Loop Set operation data number 0 as the loop 0～1/- 0 B
+end end point.
+Repeats between the operation data
+numbers from the beginning of the loop
+to
+the loop end point as many times as
+the loop count.
+178

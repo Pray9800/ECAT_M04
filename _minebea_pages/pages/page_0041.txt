@@ -1,0 +1,5 @@
+Chapter4 Dimensions
+4. Dimensions
+4.1 RS485
+UNIT: mm
+40

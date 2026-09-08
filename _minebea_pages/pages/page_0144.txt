@@ -1,0 +1,51 @@
+Chapter9 Internal register
+address Word content detail Range/Unit Initial refle
+Length s value ct
+010BH 1 Electro Gear Sets the number of pulses per 1～10000/- 1 C
+Numerator
+motor revolution from the user's
+perspective.
+010CH 1 Electro Gear 1～10000/- 1 C
+(Number of pulses after change)
+Denominator
+= (pulses per motor encoder
+revolution) / (electronic gear
+numerator / electronic gear
+denominator)
+0809H 1 Direction at CW Sets the direction of movement when 0～1/- 0 C
+rotation the motor rotates CW
+0: + direction
+1: - direction
+Word Range/Uni Initial refle
+address content detail
+Length ts value ct
+0A00H 1 Baud rate Sets the baud rate for RS485 0～5/- 3 C
+communication.
+0: 9,600 bps
+1: 19,200 bps
+2: 38,400 bps
+3: 57,600 bps
+4: 115,200 bps
+5: 230,400 bps
+This setting is referenced by RS485
+type.
+Word Range/Uni Initial refle
+address content detail
+Length ts value ct
+0B60H 1 Selected monitor Sets the address to read for 0～ 0 A
+readout address 1 selected monitor 1.
+65535/-
+Used for EtherNet/IP types.
+0B61H 1 Selected monitor Sets the address to read for 0～ 0 A
+readout address 2 selected monitor 2.
+65535/-
+Used for EtherNet/IP types.
+0B62H 1 Selected monitor Sets the address to read for 0～ 0 A
+readout address 3 selected monitor 3.
+65535/-
+Used for EtherNet/IP types.
+0B63H 1 Selected monitor Sets the address to read for 0～ 0 A
+readout address 4 selected monitor 4.
+65535/-
+Used for EtherNet/IP types.
+143

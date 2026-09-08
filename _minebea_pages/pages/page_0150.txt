@@ -1,0 +1,12 @@
+Chapter9 Internal register
+address Word content detail Range/Unit Initial refle
+Length s value ct
+2147483647
+/pps
+081AH 2 Homing 1～ 1600000 B
+Sets the Homing Accel/Decel Speed in
+Accel/Decel 2147483647
+absolute value.
+Speed
+/pps/s
+149

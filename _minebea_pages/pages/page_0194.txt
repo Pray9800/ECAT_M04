@@ -1,0 +1,15 @@
+Chapter9 Internal register
+9.5.12 Parameter Save
+Commands are given to save and initialize parameters.
+Word Range/Uni refle
+address content detail
+Length ts ct
+9999H 1 Parameter save Saves parameters to nonvolatile memory. 0～1/- A
+Values stored in nonvolatile memory are
+retained even after the control power is turned
+off.
+0: Save the current value
+1: Save the parameter to the initial state.
+Do not shut off the control power for 5 seconds
+after saving to nonvolatile memory.
+193

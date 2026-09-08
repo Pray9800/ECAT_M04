@@ -1,0 +1,18 @@
+Chapter10 Troubleshooting
+10.3 What to do in case of abnormalities
+This section describes how to deal with anomalies that occur even when no alarms or information
+are present.
+phenomenon checklist
+Motor does not excite. • Is the power cable properly connected?
+Motor rotates by hand • Is the supply voltage within the specification range?
+• Is the motor cable properly connected?
+Motor does not rotate • STOP signal is ON.
+• Are the motor cable and encoder cable properly connected?
+• Target address and current address are the same value in absolute
+position control.
+• Movement amount is set to 0 in relative position control.
+• Wrong combination of motor controller and motor.
+Motor operation is • Are the motor cable and encoder cable properly connected?
+unstable • Torque ratio is less than 30% in torque control.
+• Wrong combination of motor controller and motor.
+199

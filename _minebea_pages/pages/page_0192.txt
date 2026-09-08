@@ -1,0 +1,69 @@
+Chapter9 Internal register
+9.5.11 Alarm Notification Parameters
+Set and check alarms and notifications.
+Word Range/Unit Initial refle
+address content detail
+Length s value ct
+0B05H 1 Alarm history clear Clear alarm history. 0～1/- 0 A
+1:Clear
+0B06H 1 TRIP meter clear Clear TRIP meter (1354H). 0～1/- 0 A
+1:Clear
+0B07H 1 Notification Clear Clear Notification (130AH). 0～1/- 0 A
+1:Clear
+*Writing is disabled when
+Notification Auto Clear
+(0B40H) is set to 1 (enabled)
+0B08H 1 Notification history clear Clear notification history. 0～1/- 0 A
+1:Clear.
+0B09H 2 Integrated load Sets the notification 0～ 0 A
+notification threshold threshold for the totalized
+2147483647
+load.
+0 disables the function /-
+0B0BH 1 Driver temperature Sets the driver temperature 40～780 780 A
+notification threshold notification threshold.
+/0.1℃
+0B0CH 1 Regenerative resistance Set the regenerative 40～1750 1000 A
+temperature notification resistance temperature
+/0.1℃
+threshold notification threshold
+0B0DH 1 Motor temperature Sets the motor temperature 40～1500 1000 A
+notification threshold notification threshold
+/0.1℃
+0B0EH 2 ODO meter notification Set the ODO meter 0～ 0 A
+threshold notification threshold
+2147483647
+0 disables the function
+/100 turns
+0B10H 2 TRIP meter notification Sets the TRIP meter 0～ 0 A
+threshold notification threshold
+2147483647
+0 disables the function
+/100 turns
+0B12H 1 Overvoltage notification Sets the overvoltage 0～1000 550 A
+threshold notification threshold.
+/0.1V
+0B13H 2 Following error Sets the following error 0~21474836 25000 A
+notification threshold notification threshold.
+47 / press
+0B15H 1 Overspeed notification Sets the overspeed 0～9000 / 4500 A
+threshold notification threshold.
+rpm
+0 disables the function
+0B20H 1 Sub-notification Enable Sets the sub-notification 0～1/- 0 A
+function.
+0: Disabled.
+1: Enabled.
+0B40H 1 Notification auto clear Sets the automatic clearing 0～1/- 1 A
+function of information
+(130AH).
+The notification is
+automatically cleared when
+the cause of each
+notification is released.
+0:Disable (manual clear with
+0B07H)
+1:Enable
+0B80H 1 Automatic clear of Enables automatic clearing of 0～1/- 0 A
+integrated load the integrated load (134DH).
+191

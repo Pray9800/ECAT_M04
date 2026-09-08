@@ -1,0 +1,62 @@
+Chapter9 Internal register
+9.5.9 Operation event data
+Configure the operation event data for program operation events.
+address Word Event content detail Range/Unit Initial refle
+Length Number s value ct
+9500H 1 0 Event coupling Enables/disables coupling at 0～1/- 0 B
+the branch when operation event
+0 occurs.
+When coupling is enabled, the
+operation data number of the
+branch destination is
+performed without decelerating
+to a stop.
+0: Disable coupling
+1: Enable coupling.
+For RS485 type, access in 8
+consecutive words.
+9501H 1 0 Event Branch Set the branch destination at -1～63/- -1 B
+Destination the time of operation event 0
+occurrence by operation data
+number.
+-1: End of programmed operation
+0-63: Operation data number
+9502H 1 0 Event Wait Sets the waiting time until the 0～30000 0 B
+Time next operation data is executed
+/msec
+at the branch when operation
+event 0 occurs.
+9503H 1 0 Event Signal Selects the signal to be the 0～255/- 0 B
+Source source of operation event 0.
+0-127: Input signal
+128-255: Output signal
+See “List of Input Signals” and
+“List of Output Signals” for
+selectable input and output
+signals.
+9504H 1 0 Event Sets the conditions under which 0～8/- 0 B
+Detection Type the event of operation event 0
+occurs.
+Select a combination of the
+condition of the signal (9503H)
+selected as the source of the
+event and the criterion.
+The event occurs when the
+selected condition exceeds the
+criterion (9505H).
+0: No setting
+1: (Accumulated valid time)-
+(Accumulated invalid time)
+2: Valid continuously for a
+predetermined period of time
+3: (Accumulated invalid time) -
+(Accumulated valid time)
+4: Invalid for a predetermined
+period of time
+5: Number of invalid to valid
+edges
+6: Number of valid to invalid
+edges
+7: Accumulated valid time
+8: Accumulated invalid time
+185

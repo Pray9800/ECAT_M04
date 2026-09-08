@@ -1,0 +1,64 @@
+Chapter9 Internal register
+Word Range/Unit Initial refle
+address content detail
+Length s value ct
+signals that can be assigned.
+RI13 function Select the input signal to be 0: Unused C
+assignment assigned to RI13.
+0D2DH 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RI14 function Select the input signal to be 48:JOG-FWD C
+assignment assigned to RI14.
+0D2EH 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RI15 function Select the input signal to be 49:JOG-REV C
+assignment assigned to RI15.
+0D2FH 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RO0 Function Select the output signal to 64:PNUM0-Re C
+Assignment be assigned to RO0.
+0D30H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO1 Function Select the output signal to 65:PNUM1-Re C
+Assignment be assigned to RO1.
+0D31H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO2 Function Select the output signal to 66:PNUM2-Re C
+Assignment be assigned to RO2.
+0D32H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO3 Function Select the output signal to 32:PRG-Re C
+Assignment be assigned to RO3.
+0D33H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO4 Function Select the output signal to 36:HOME-Re C
+Assignment be assigned to RO4.
+0D34H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO5 Function Select the output signal to 132:READY C
+Assignment be assigned to RO5.
+0D35H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO6 Function Select the output signal to 135:NOTICE C
+Assignment be assigned to RO6.
+0D36H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO7 Function Select the output signal to 129:ALM-A C
+Assignment be assigned to RO7.
+0D37H 1 Refer to the ➡ 6.4.2 Output 0～255/-
+signal list for the input
+signals that can be assigned.
+RO8 Function Select the output signal to 0: Unused C
+0D38H 1 Assignment be assigned to RO8. 0～255/-
+Refer to the ➡ 6.4.2 Output
+175

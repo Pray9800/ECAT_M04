@@ -1,0 +1,31 @@
+Chapter5 Various Operation Methods
+( 2 ) Output Signal
+When each output signal is ACTIVE (coupler ON), the function is defined as follows in the
+initialization state.
+Pin No. Signal function
+Name No. parameter explanation
+12、13 ±OUT0 138 INPOS In position control, this turns ON when the deviation
+between the target position and the encoder position is
+less than a predetermined value. For the above
+predetermined value, refer to the parameter address
+010AH (imposition zone count value).
+14、15 ±OUT1 132 READY It turns on when the driver is able to drive.
+16、17 ±OUT2 134 MOVE It turns on when the motor is in operation.
+18、19 ±OUT3 130 ALM-B Outputs the alarm condition of the driver (B contact).
+ INPOS
+When the position deviation falls within the imposition zone (set by parameter 010Ah), the
+coupler is turned on.
+For more information about the imposition zone (parameter 010AH), see➡9.5.4 Position
+control.
+ READY
+When the driver is ready to drive, the coupler will be turned on.
+ MOVE
+During motor operation, the MOVE output is turned on by the coupler.
+During program operation, the coupler is continuously turned on even if the motor is stopped,
+and after the program operation is completed, the coupler turns OFF.
+ ALM-B (B Contact)
+ALARM output is coupler ON when there is no alarm, and when an alarm occurs, the coupler
+turns OFF and the motor stops.
+You can check the alarm code via RS485 communication or a dedicated application.
+For more information about alarm codes, see➡10.1 Alarm.
+52
