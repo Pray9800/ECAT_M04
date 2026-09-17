@@ -17,13 +17,10 @@ extern "C" {
 
 // ============================================================
 // 透传发送节奏参数（主循环每拍 = 10ms）
-//
-//   TX_INTERVAL_TICKS : 两次发送的间隔（拍数）→ 200拍 = 2秒发一次
-//   TX_PULSE_TICKS    : DataValid 高电平保持拍数 → 3拍 = 30ms
-//
+// TX_INTERVAL_TICKS : 两次发送的间隔（拍数）→ 200拍 = 2秒发一次
+// TX_PULSE_TICKS    : DataValid 高电平保持拍数 → 3拍 = 30ms
 // 脉冲宽度必须 ≥ 2拍(20ms)：M04 内部轮询周期约 15ms，
 // DataValid 拉高的时间要覆盖至少一个 M04 轮询周期，
-// 否则可能出现"M04还没采样到，你就已经清零了"导致丢发。
 // ============================================================
 #define TX_INTERVAL_TICKS 200
 #define TX_PULSE_TICKS    5
@@ -35,7 +32,7 @@ extern "C" {
 // ============================================================
 
 static ecx_contextt ctx;  // SOEM 上下文对象  官方结构体
-static uint8 IOmap[4096];
+static uint8 IOmap[4096];  //存储
 
 // 打印从站信息   数据来源是XML 也就是写在EEPROM里面的
 void printSlaveInfo(ecx_contextt* context, int slave_num) {
@@ -57,7 +54,7 @@ void printSlaveInfo(ecx_contextt* context, int slave_num) {
         }
     }
 }
-//上文 if：0xB95=AMSAMOTION 厂商、0x1410=M04 产品码，双命中就打印"EC2-MB-M04 found"，纯身份确认
+//上文 if：0xB95=AMSAMOTION 厂商、0x1410=M04 产品码，双命中就打印"EC2-MB-M04 found"， 身份确认
 
 int main(int argc, char* argv[]) {
     int cnt;
@@ -88,14 +85,14 @@ int main(int argc, char* argv[]) {
         printf("\nScanning EtherCAT slaves...\n");
 
 
-        //发第一条真报文 BRD（广播读）数出从站数 → 逐站读 SII 身份填进 slavelist[]。返回值 = 从站数，>0 才继续
+        //发第一条真报文 BRD（广播读）数出从站数 → 逐站读 SII EEPROM 身份填进 slavelist[]。返回值 = 从站数，>0 才继续
 	   //初始化是从站数量大于0才继续，ecx_config_init()会读取每个从站的 EEPROM，获取其身份信息、PDO 配置等，并填充到 ctx.slavelist[] 中
         if (ecx_config_init(&ctx) > 0) {
 			printf("Found %d slave(s)\n", ctx.slavecount);  //打印识别到的从站数量
             //列出从站信息 
             if (ctx.slavecount > 0) {
                 for (cnt = 1; cnt <= ctx.slavecount; cnt++) {
-                    printSlaveInfo(&ctx, cnt);
+					printSlaveInfo(&ctx, cnt); //打印从站信息
                 }
 				//确定从站数量后，进行 PDO 映射配置和分布式时钟配置
                 printf("\nConfiguring PDO mapping...\n");
@@ -103,8 +100,8 @@ int main(int argc, char* argv[]) {
 				 // 这里的 IOmap 是主站的进程数据映射区，SOEM 会根据从站的 PDO 配置把数据映射到这个缓冲区
                 //过程数据对象（PDO）内存映射与从站 FMMU 硬件配置的核心函数
                 //IOmap 保存数据地方   0第0个站 返回值通常是146+136
-                //主站通过 SDO 读取从站的 0x1C12（RxPDO 映射）和 0x1C13（TxPDO 映射）字典；
-                ecx_config_map_group(&ctx, IOmap, 0);
+                //主站通过 SDO 读取从站的 0x1C12（RxPDO 映射  工控机的output ）和 0x1C13（TxPDO 映射）字典；
+                ecx_config_map_group(&ctx, IOmap, 0);//0就是全部保存在grpop0
 
                 printf("Configuring distributed clocks...\n");
 				//分布式时钟配置，确保主站和从站的时钟同步
@@ -114,7 +111,7 @@ int main(int argc, char* argv[]) {
 				// 计算期望的工作计数（WKC）值，WKC = 输出字节数 * 2 + 输入字节数
                 //M04 输出从站  146 outputsWKC=1 ；inputsWKC = 1。
                 //expected= (1 * 2) + 1 = 3  
-                expected = (ctx.grouplist[0].outputsWKC * 2) + ctx.grouplist[0].inputsWKC;
+                expected = (ctx.grouplist[0].outputsWKC * 2) + ctx.grouplist[0].inputsWKC; //group0
 				// 进入 SAFE-OP 状态 slavelist[0]命令所有从站   预运行状态
                 ////  发起状态跳转请求
                 ctx.slavelist[0].state = EC_STATE_SAFE_OP;
@@ -158,10 +155,10 @@ int main(int argc, char* argv[]) {
                                TX_INTERVAL_TICKS * 10, TX_PULSE_TICKS * 10);
 
                         // ================================================================
-                        // PDO 数据窗口布局说明（实测反推，Obytes=112 / Ibytes=104）
+                        // PDO 数据窗口布局说明（实测反推，Obytes=146 / Ibytes=136）
                         // ================================================================
                         //
-                        // 【输出区 outputs[]：主站 → M04，共112字节】
+                        // 【输出区 outputs[]：主站 → M04，共146字节】
                         //   [0]      端口使能掩码：bit0=RS485_A  bit1=B  bit2=C  bit3=D
                         //            （这里 0x01 = 只开 RS485_A 口的透传通道）
                         //   [1~9]    保留
@@ -171,7 +168,7 @@ int main(int argc, char* argv[]) {
                         //   [44~77]  SLOT-02 窗口（结构同上：Valid/Len/32B Data）
                         //   [78~111] SLOT-03 窗口（结构同上）
                         //
-                        // 【输入区 inputs[]：M04 → 主站，共104字节】
+                        // 【输入区 inputs[]：M04 → 主站，共136字节】
                         //   Input[0]        帧序号 Index（M04 收到新帧时更新）
                         //   Input[1]        本帧接收长度 Len
                         //   Input[2..1+Len] 收到的原始字节（例如 JCOM 发来的
@@ -182,6 +179,14 @@ int main(int argc, char* argv[]) {
 
                         // 清零输出区，避免残留旧数据被 M04 当作有效帧发出 向M04的输出
                         memset(ctx.slavelist[1].outputs, 0, ctx.slavelist[1].Obytes);
+
+                        // === 主机 -> M04 发送区说明 ===
+                        // 主站向 M04 发送数据的方式是：
+                        //  1) 在 ctx.slavelist[1].outputs[] 中写入要透传的数据及控制字（端口使能、Len、Payload、DataValid/触发位等）
+                        //     例如：outputs[0]=端口使能, outputs[11]=Len, outputs[12..]=Payload, outputs[10]=DataValid(触发位)
+                        //  2) 调用 ecx_send_processdata(&ctx) 将这些 PDO 写入总线上，由 M04 读取并在其 RS-485 口透传出去。
+                        //  所以任何写 outputs[] 并调用 ecx_send_processdata 的位置都是“主机发数据到 M04”的实现点。
+
 
                         // 接收侧快照：保存上一帧内容，用于"只打印新到的帧"
                         uint8 lastFrame[36];
@@ -195,51 +200,37 @@ int main(int argc, char* argv[]) {
                             // phase = 本轮(200拍=2秒)内走到第几拍
                             int phase = i % TX_INTERVAL_TICKS;
 
-                            //// ---- 1. 填发送数据（每拍都写，内容不变，幂等）----
-                            //// 数据必须在 DataValid 拉高之前就位：
-                            //// M04 是"先采样窗口、再决定发不发"，数据和使能同拍写入即可。
-                            //ctx.slavelist[1].outputs[0] = 0x01;   // 使能 RS485_A 
-                            //ctx.slavelist[1].outputs[11] = 6;     // Len = 6字节
-                            //memcpy(&ctx.slavelist[1].outputs[12], "HELLO\n", 6);
+                            // 1. 端口使能与数据内容常驻（保持完整性，绝不清零长度）
+                            ctx.slavelist[1].outputs[0] = 0x01;                   // 使能 RS485_A
+                            ctx.slavelist[1].outputs[11] = 6;                     // 数据长度固定为 6 字节
+                            memcpy(&ctx.slavelist[1].outputs[12], "HELLO\n", 6); // 载荷常驻
 
-                            //// ---- 2. DataValid 交替变化（每10ms变化一次）----
-                            ////
-                            //// 让 DataValid 在 0x01 和 0x02 之间交替变化
-                            //// M04 检测到变化就发送，这样可以持续发送完整数据
-                            //// 避免脉冲机制导致的分包问题
-                            ////ctx.slavelist[1].outputs[10] = (i % 2 == 0) ? 0x01 : 0x02;
-                            //if (phase == 0) {
-                            //    static uint8_t tx_counter = 0;
-                            //    ctx.slavelist[1].outputs[10] = ++tx_counter; // 只变一次：1 -> 2 -> 3...
-                            //}
-                            // 
- 
-
-                        // 仅在第 0 拍装填数据并使数值发生单次跳变，其余 199 拍严格保持原状
+                            // 2. 仅在第 0 拍（每 2 秒）触发一次数值翻转
                             if (phase == 0) {
-                                static uint8_t tx_id = 0;
+                                static uint8_t tx_toggle = 0;
 
-                                ctx.slavelist[1].outputs[0] = 0x01;                   // 保持 RS485_A 端口使能
-                                ctx.slavelist[1].outputs[11] = 6;                     // 数据长度 6 字节
-                                memcpy(&ctx.slavelist[1].outputs[12], "HELLO\n", 6); // 装填载荷
-
-                                ctx.slavelist[1].outputs[10] = ++tx_id;              // 仅变动一次数值(1->2->3...)触发一次发送
+                                // 触发核心：每次给一个新数字 (1 -> 2 -> 3 ... 255 -> 0)
+                                // M04 检测到 outputs[10] 变动，立刻原子抓取 [11]长度 和 [12..]数据发送
+                                ctx.slavelist[1].outputs[10] = ++tx_toggle;
 
                                 totalTx++;
-                                printf("[t=%d.%03ds] TX #%d 'HELLO\\n'\n",
-                                    i / 100, (i % 100) * 10, totalTx);
+                                printf("[t=%d.%03ds] TX #%d 'HELLO\\n' (Trigger ID=%d)\n",
+                                    i / 100, (i % 100) * 10, totalTx, tx_toggle);
                             }
 
 
-                            // 不需要 else，其余 199 拍保持不动，网关绝不会连发
-                            
+                                          
                             // ---- 3. EtherCAT 周期收发（每拍一帧过程数据）----
+                            //实际发送函数
                             ecx_send_processdata(&ctx);// 广播函数
                             ecx_receive_processdata(&ctx, EC_TIMEOUTRET); //抓取回来
 
                             // ---- 4. 接收处理：与上一帧比较，仅新帧打印 ----
-                            // 透传输入窗口(见顶部布局说明)：
-                            //   in[0]=帧序号  in[1]=长度  in[2..]=数据
+                            // === M04 -> 主站 / 透传来自 RS-485 的数据 ===
+                            // M04 把它从 RS-485 接收到的帧放到 inputs[] 窗口中，主站通过 ecx_receive_processdata(&ctx)
+                            // 获取过程数据后可以读取 ctx.slavelist[1].inputs：
+                            //   inputs[0] = 帧序号, inputs[1] = 长度, inputs[2..] = 数据字节
+         
                             uint8* in = ctx.slavelist[1].inputs;
                             uint8  idx = in[0];
                             uint8  len = in[1];
@@ -249,20 +240,12 @@ int main(int argc, char* argv[]) {
                                 if (lastLen != (int)len || memcmp(lastFrame, &in[2], len) != 0) {
                                     memcpy(lastFrame, &in[2], len);
                                     lastLen = len;
-                                    printf("[t=%d.%03ds] RX new frame: idx=%02X len=%d  data:",
-                                           i / 100, (i % 100) * 10, idx, len);
-                                    for (int k = 0; k < len; k++) printf(" %02X", in[2 + k]);
-                                    printf("\n");
+                                    printf("[t=%d.%03ds] RX new frame: idx=%02X len=%d  data: %.*s\n",
+                                        i / 100, (i % 100) * 10, idx, len, (int)len, &in[2]);
                                 }
                             }
 
-                            // ---- 5. 发送时刻打印一行状态（每2秒一次）----
-                            if (phase == 0) {
-                                totalTx++;
-                                printf("[t=%d.%03ds] TX #%d 'HELLO\\n' (DataValid high %dms)\n",
-                                       i / 100, (i % 100) * 10,
-                                       totalTx, TX_PULSE_TICKS * 10);
-                            }
+                     
 
                             osal_usleep(10000);   // 10ms 一拍
                         }
