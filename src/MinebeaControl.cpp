@@ -8,6 +8,30 @@
 
 #include "logc.h"
 
+/* ============================================================
+ * 函数地图(按阅读顺序, 三类就够)
+ *
+ * [周期链路] 每 10ms 一拍, 上位机主循环依次调用:
+ *   processPDO()            总入口: 绑窗口/Modbus Enable 保持/逐轴处理
+ *     processAxis()         每轴: 解 3021H 状态块进缓存 + 报警检测 + 命令完成确认
+ *       processMotionControl() 运动状态机: 择机把队列命令交给传输层下发
+ *
+ * [命令出口] 下单只置标志, 实际发指令由上面周期链路完成:
+ *   setMotionPosition()     运动总入口(mm->脉冲换算后排队, 调试改行程/速度改这里)
+ *     queueCmdBlock()       拼 3000H~3008H 九字命令块
+ *     queueStopBlock()      拼停止块(3000H=0 + 3004H 停止选项)
+ *   stopMotion()            减速停, 无条件清空队列
+ *
+ * [状态读取] 只读本地缓存, 不发总线请求:
+ *   getStatus() / isTargetReached() / printControlStatus()
+ *
+ * 其余为上位机接口样板(参数检查+置标志, 不用细读):
+ *   enable/disable/reset/setMotionCommand/setMotionParameter/
+ *   setMotionWorkMode/executeMotion/setParameters/getParameter/
+ *   init/setupPDO/getMotorNum/getMotorConfig
+ * 换算小工具: LengthToPulse/PulseToLength/axisOf
+ * ============================================================ */
+
 // ---- 机械参数(直线关节: 丝杠直驱, 无减速) ----
 #define MINEBEA_PULSE_PER_REV   (16000)   // 电机一圈脉冲数(3032H 出厂 16000, 上电后可核对)
 #define MINEBEA_SCREW_LEAD      (1.5)     // 丝杠导程 mm/圈
@@ -35,7 +59,7 @@
 #define MINEBEA_STOP_SERVO_ON  (3)   // 伺服开
 
 
-MinebeaControl::MinebeaControl()
+MinebeaControl::MinebeaControl() //前面是函数名 后面是类名
 {
   memset(axes_, 0, sizeof(axes_));
   memset(&motionParameter_, 0, sizeof(motionParameter_));
@@ -45,10 +69,10 @@ MinebeaControl::MinebeaControl()
   parameters_.profileAcceleration = 0;   // 0810H 加速度: 驱动器参数, 一次性设定
   parameters_.profileDeceleration = 0;   // 0812H 减速度: 同上
 
-  memset(&motorParams_, 0, sizeof(motorParams_));
-  motorParams_.encoderResolution = MINEBEA_PULSE_PER_REV;
-  motorParams_.gearRatio         = MINEBEA_RATIO;
-  motorParams_.dir               = MINEBEA_MOTOR_DIR;
+  memset(&motorParams_, 0, sizeof(motorParams_)); //电机参数清零
+  motorParams_.encoderResolution = MINEBEA_PULSE_PER_REV; //一圈一千六百转
+  motorParams_.gearRatio         = MINEBEA_RATIO; //减速比1：1
+  motorParams_.dir               = MINEBEA_MOTOR_DIR; //正方向
 }
 
 bool MinebeaControl::init(uint16_t slaveIndex, uint8_t motor_nums, int32_t *zero_pos)
@@ -67,6 +91,8 @@ bool MinebeaControl::init(uint16_t slaveIndex, uint8_t motor_nums, int32_t *zero
 
   paramsInitialized_ = true;
 
+
+  //核心打印 初始化打印  ECAT站号：电机站号  
   for (uint8_t i = 0; i < motor_nums_; i++)
   {
     log_info("Minebea[%d:%d]: init zero position absolute = %d (pulse)",
@@ -162,7 +188,7 @@ bool MinebeaControl::setMotionCommand(AxisIndex_t motor_index, const MotionComma
     return false;
   }
 
-  axes_[axis].pending = cmd;
+  axes_[axis].pending = cmd; //核心代码 保存脉冲和速度等参数到 pending 中，等待 executeMotion 执行
   log_debug("Minebea[%d:%d]: Motion command set - mode=%d, pos=%d, vel=%u, relative=%d",
             slaveIndex_, axis, cmd.mode, cmd.target_position, cmd.profile_velocity, cmd.flag_relative);
 
@@ -292,7 +318,7 @@ bool MinebeaControl::stopMotion(AxisIndex_t motor_index)
   }
   if (axis >= motor_nums_)
     return false;
-
+  //•	Minebea[0:0]：第 0 个从站的第 0 个电机，也就是 1 号轴
   log_info("Minebea[%d:%d]: Stopping motion (3000H=0 减速停)", slaveIndex_, axis);
 
   axes_[axis].stop_req = 1;
@@ -318,12 +344,12 @@ bool MinebeaControl::setMotionPosition(AxisIndex_t motor_index, double position,
 
   if (is_relative)
   {
-    cmd.target_position = (int32_t)(MINEBEA_MOTOR_DIR * LengthToPulse(position));
+    cmd.target_position = (int32_t)(MINEBEA_MOTOR_DIR * LengthToPulse(position)); 
     cmd.flag_relative   = true;
   }
   else
   {
-    // 绝对定位(3000H=7): 脉冲坐标 = 零点 + 方向 * 换算, 每次一次性截断, 不累积
+    // 绝对定位(3000H=7): 脉冲坐标 = 零点 + 方向 * 换算, 每次一次性截断, 不累积 //根据位移计算脉冲数量  
     cmd.target_position = axes_[axis].zero_pos + (int32_t)(MINEBEA_MOTOR_DIR * LengthToPulse(position));
     cmd.flag_relative   = false;
   }
@@ -336,7 +362,7 @@ bool MinebeaControl::setMotionPosition(AxisIndex_t motor_index, double position,
   log_debug("Minebea[%d:%d]: Set position:%f mm, velocity:%f mm/s, relative=%d, target=%d(pulse)",
             slaveIndex_, axis, position, velocity, is_relative, cmd.target_position);
 
-  return setMotionCommand(motor_index, cmd);
+  return setMotionCommand(motor_index, cmd);  //保存目标参数
 }
 
 MotorStatus_t MinebeaControl::getStatus(AxisIndex_t motor_index) const
@@ -433,7 +459,7 @@ bool MinebeaControl::getParameter(uint16_t index, uint8_t subindex, uint32_t* va
   }
 }
 
-void MinebeaControl::processPDO(PdoCtl_t& pdoCtl)
+void MinebeaControl::processPDO(PdoCtl_t& pdoCtl)  //10ms 循环一次 在while(1)里面
 {
   static bool bind_err_logged = false;
 
@@ -451,7 +477,7 @@ void MinebeaControl::processPDO(PdoCtl_t& pdoCtl)
 
   m04_.processCycle();    // Modbus Enable 保持 + 触发时序推进
 
-  for (uint8_t axis = 0; axis < motor_nums_; axis++)
+  for (uint8_t axis = 0; axis < motor_nums_; axis++)  //逐个处理每一台电机 processAxis(0);processAxis(1);
     processAxis(axis);
 }
 
@@ -465,7 +491,7 @@ void MinebeaControl::processAxis(uint8_t axis)
     rt->cmd_active = 1;
 
   // ① 状态块刷新 + 到位窗口判定
-  if (m04_.readStatusBlock(axis, rt->status))
+  if (m04_.readStatusBlock(axis, rt->status))  //先读取上一周期状态  获取编码器位置 速度  报警号  实际转矩
   {
     const M04StatusBlock_t& st = rt->status;
 
@@ -542,7 +568,7 @@ void MinebeaControl::processAxis(uint8_t axis)
   }
   else
   {
-    processMotionControl(axis);
+	  processMotionControl(axis);  //如果电机已经使能,则进入运动状态机
   }
 
   ctr->state.work_state = ctr->work_state;
@@ -557,7 +583,7 @@ void MinebeaControl::processMotionControl(uint8_t axis)
   MotorControl_t* ctr = &rt->ctr;
   MotionCommand_t* cmd = &rt->current;
 
-  switch (ctr->work_state)
+  switch (ctr->work_state)  //初始状态为 MOTOR_STATE_RESET
   {
     case MOTOR_STATE_RESET:
       // 伺服开: 3000H=0 停止 + 3004H=3 Servo-on
@@ -568,8 +594,8 @@ void MinebeaControl::processMotionControl(uint8_t axis)
       }
       break;
 
-    case MOTOR_STATE_WAITTING:
-    case MOTOR_STATE_ARRIVED:
+    case MOTOR_STATE_WAITTING: //等待 都执行下面的函数
+    case MOTOR_STATE_ARRIVED:  //已到位状态
       // 演示模式: 到位后关于零位对称翻转目标
       if (ctr->work_state == MOTOR_STATE_ARRIVED && ctr->work_mode == WORK_MODE_DEMON)
       {
@@ -614,6 +640,18 @@ void MinebeaControl::processMotionControl(uint8_t axis)
       break;
 
     case MOTOR_STATE_RUNNING:
+      // 新指令覆盖旧目标: 驱动器运动中不响应新定位指令, 先减速停, 停稳后转 WAITTING 下发
+      if (rt->pending.mode != OPERATION_MODE_NONE)
+      {
+        if (queueStopBlock(axis, MINEBEA_STOP_DECEL))
+        {
+          log_info("Minebea[%d:%d]: Override target: decel-stop first (3000H=0)", slaveIndex_, axis);
+          rt->stable_cnt = 0;
+          ctr->work_state = MOTOR_STATE_STOP;
+        }
+        break;
+      }
+
       if (!rt->cmd_active)
         break;    // 等写槽触发完成
 
@@ -636,7 +674,21 @@ void MinebeaControl::processMotionControl(uint8_t axis)
       break;
 
     case MOTOR_STATE_STOP:
-      cmd->flag_new_target = 0;
+      // 换目标减速停中: 编码器连续 MINEBEA_ARRIVAL_STABLE 拍(50ms)不动才算停稳,
+      // 停稳后转 WAITTING 把 pending 当新目标下发
+      if (rt->last_pos == rt->status.encoderPos)
+      {
+        if (++rt->stable_cnt >= MINEBEA_ARRIVAL_STABLE)
+        {
+          rt->stable_cnt = 0;
+          ctr->work_state = MOTOR_STATE_WAITTING;
+        }
+      }
+      else
+      {
+        rt->stable_cnt = 0;
+      }
+      rt->last_pos = rt->status.encoderPos;
       break;
 
     default:

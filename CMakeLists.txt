@@ -20,11 +20,11 @@ add_executable(test_m04
 target_link_libraries(test_m04 soem)
 
 # 添加包含目录
+# soem/osal、soem/oshw 的平台路径由 soem 目标 PUBLIC 导出(按 CMAKE_SYSTEM_NAME 自动选 win32/linux),
+# 链接 soem 即继承, 不在此写死平台路径, 保持 Windows/Linux 通用
 target_include_directories(test_m04 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${CMAKE_CURRENT_SOURCE_DIR}/soem/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/soem/osal/win32
-    ${CMAKE_CURRENT_SOURCE_DIR}/soem/oshw/win32
 )
 
 # Windows特定配置

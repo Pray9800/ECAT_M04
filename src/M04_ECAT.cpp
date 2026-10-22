@@ -3,19 +3,42 @@
 #include <string.h>
 
 /* ============================================================
- * 槽位窗口偏移表(当前实测布局, Obytes=76 / Ibytes=98, 与 test_m04.cpp 一致)
- * 输出区: [0]=Modbus Enable, [1..8]=Control Byte1~8
- *   [9~43]=SLOT-01 透传(本驱动不碰)   SLOT-03 九字块(18B) -> 44
- *   (若加 SLOT-04 清警槽: 2B -> 76, 且 Obytes 变 78)
- * 输入区: [0~33]=SLOT-01 透传(本驱动不碰)   SLOT-02 状态块(64B) -> 34
- * 轴 1/2 的槽位(slot=0)为未配置占位, 以后加槽后填入并核对偏移
- * 插删槽位后窗口整体重排, 必须核对修正本表
+ * M04 SLOT 配置和 PDO 窗口布局
+ *
+ * | SLOT    | 模块              | 功能         | 485口   | 站号     | 数据            | 模式       | 输出窗          | 输入窗         |
+ * |---------|-------------------|--------------|---------|----------|-----------------|------------|-----------------|----------------|
+ * | SLOT-01 | 0x0900 透传(2304) | HELLO 收发   | RS485_A | —        | 32B 载荷        | Force Poll | [9~43] 35B      | [0~33] 34B     |
+ * | SLOT-02 | FC03 读           | 电机1 状态读 | RS485_B | 1(拨码1) | 0x3026 起 32 字 | Force Poll | —               | [34~97] 64B    |
+ * | SLOT-03 | FC16 写           | 电机1 命令写 | RS485_B | 1        | 0x3000 起 9 字  | Rising     | [44~171] 128B   | —              |
+ * | SLOT-04 | FC03 读           | 电机2 状态读 | RS485_C | 2(拨码2) | 0x3026 起 32 字 | Force Poll | —               | [98~161] 64B   |
+ * | SLOT-05 | FC16 写           | 电机2 命令写 | RS485_C | 2        | 0x3000 起 9 字  | Rising     | [172~299] 128B  | —              |
+ * | SLOT-06 | 占位              | 未配         | —       | —        | —               | —          | —               | [162~225] 64B   |
+ * | SLOT-07 | 占位              | 未配         | —       | —        | —               | —          | [300~427] 128B  | —              |
+ *
+ * 输入 PDO 区：
+ *   [0~33]     SLOT-01 透传，34 字节
+ *   [34~97]    SLOT-02 电机1状态，64 字节
+ *   [98~161]   SLOT-04 电机2状态，64 字节
+ *   [162~225]  SLOT-06 占位，64 字节
+ *
+ * 输出 PDO 区：
+ *   [0]         Modbus Enable
+ *   [1~8]       Control Byte
+ *   [9~43]      SLOT-01 透传，35 字节
+ *   [44~171]    SLOT-03 电机1命令，128 字节
+ *   [172~299]   SLOT-05 电机2命令，128 字节
+ *   [300~427]   SLOT-07 占位，128 字节
+ *
+ * 窗口大小：Obytes=428，Ibytes=226。
+ * clearSlot/clearOffset 为清警槽及其输出偏移；当前均为 0，表示未配置清警槽。
+ * 插删 SLOT 后窗口会整体重排，必须同步核对本表和 kSlotMap。
  * ============================================================ */
 static const M04SlotMap_t kSlotMap[M04_AXIS_MAX] = {
   /* readSlot, readOffset, writeSlot, writeOffset, clearSlot, clearOffset */
-  { 2,  34, 3, 44,  0,  0 },   /* 轴0: 拨码1, 已配置 */
-  { 0,   0, 0,  0,  0,  0 },   /* 轴1: 未配置(以后加 SLOT 后填) */
-  { 0,   0, 0,  0,  0,  0 },   /* 轴2: 未配置 */
+    //对应axis = 0
+  { 2,  34, 3, 44,  0,  0 },   /*  偏移量 轴0: 拨码1, SLOT-02读/SLOT-03写  0-33被SLOT1 使用 所有34 */ 
+  { 4,  98, 5, 172,  0,  0 },   /* 轴1: 拨码2, SLOT-04读/SLOT-05写 */
+  { 6,  162, 7,  300,  0,  0 },   /* 轴2: 未配置 */
 };
 
 #define M04_CMD_BLOCK_BYTES   (18)   /* 3000H~3008H 共 9 字 */
@@ -79,7 +102,7 @@ void M04_ECAT::processCycle()
   if (!bound_)
     return;
 
-  outputs_[M04_MODBUS_ENABLE_OFFSET] = M04_MODBUS_ENABLE_VAL;
+  outputs_[M04_MODBUS_ENABLE_OFFSET] = M04_MODBUS_ENABLE_VAL; //保存M04 Modbus Enable=1, 让网关透传 Modbus 帧
 
   Trigger_t* groups[2] = { cmdTrig_, clearTrig_ };
   for (int g = 0; g < 2; g++)
@@ -93,7 +116,7 @@ void M04_ECAT::processCycle()
         trig.lowCycles++;
         if (trig.lowCycles >= M04_TRIGGER_LOW_CYCLES)
         {
-          setTriggerBit(trig.slot, true);   /* 0->1 上升沿, 网关发一帧 */
+          setTriggerBit(trig.slot, true);   /* 0->1 上升沿, 网关发一帧 触发信号 */ 
           trig.stage = 2;
         }
       }
@@ -106,7 +129,7 @@ void M04_ECAT::processCycle()
   }
 }
 
-bool M04_ECAT::writeCmdBlock(uint8_t axis, const uint16_t reg9[9])
+bool M04_ECAT::writeCmdBlock(uint8_t axis, const uint16_t reg9[9])  //命令写进去
 {
   if (axis >= M04_AXIS_MAX || !reg9)
     return false;

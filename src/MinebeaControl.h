@@ -76,6 +76,8 @@ private:
     int32_t  zero_pos;             // 绝对零点(编码器脉冲坐标)
     int16_t  last_alarm;           // 报警号变化检测
     uint8_t  arrival_cnt;          // 到位稳定计数
+    int32_t  last_pos;             // 上一拍编码器位置(换目标停稳判定用)
+    uint8_t  stable_cnt;           // 换目标停稳判定: 编码器连续不变拍数
     uint8_t  cmd_active;           // 命令块已发到驱动器(写槽 Rising 已完成)
     uint8_t  clear_req;            // 清警请求
     uint8_t  stop_req;             // 停止请求

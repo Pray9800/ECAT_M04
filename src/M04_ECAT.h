@@ -10,23 +10,29 @@
  * 职责边界: 只管 PDO 窗口读写、小端字节序、Rising 触发时序。
  * 寄存器语义(3000H 命令块 / 3021H 报警 / 3026H 编码器)由 MinebeaControl 解释。
  *
- * ---- M04 配置工具 SLOT 配置(当前实测布局, Obytes=76 / Ibytes=98) ----
- *  SLOT-01 透传     RS485_A  (接电脑 JCOM, 本驱动不碰它的窗口)
- *  SLOT-02 FC03 读  RS485_B  Slave=1 起始=0x3026 字数=32  Force Poll
- *  SLOT-03 FC16 写  RS485_B  Slave=1 起始=0x3000 字数=9   Rising
- *  (建议补配) SLOT-04 FC06 写 RS485_B Slave=1 起始=0x3009 字数=1 Rising  网络清警
+ * ---- M04 配置工具 SLOT 配置(当前实测布局, Obytes=428 / Ibytes=226) ----
+ *  SLOT-01 透传     RS485_A  HELLO 收发通道(接电脑 JCOM, 32B 载荷, Force Poll)
+ *                          —— 上位机收发测试用, 本驱动不碰它的窗口
+ *  SLOT-02 FC03 读  RS485_B  Slave=1(拨码1) 起始=0x3026 字数=32  Force Poll
+ *  SLOT-03 FC16 写  RS485_B  Slave=1        起始=0x3000 字数=9   Rising
+ *  SLOT-04 FC03 读  RS485_C  Slave=2(拨码2) 起始=0x3026 字数=32  Force Poll
+ *  SLOT-05 FC16 写  RS485_C  Slave=2        起始=0x3000 字数=9   Rising
+ *  SLOT-06/07 未配置占位(窗口仍保留 64B/128B, 插删槽位后整体重排)
  *
  *  PDO 窗口布局(与 test_m04.cpp 实测一致):
- *  输出区 76B: [0]Modbus Enable [1~8]Control Byte1~8 [9]保留
- *               [10]SLOT-01 DataValid [11]SLOT-01 Len [12~43]SLOT-01 Payload
- *               [44~75]SLOT-03 窗口 Word1~16 (九字命令块占 [44~61])
- *               若加 SLOT-04: 清警字占 [76~77], Obytes=78
- *  输入区 98B: [0]SLOT-01 Index [1]SLOT-01 Len [2~33]SLOT-01 Payload
- *               [34~97]SLOT-02 窗口 Word1~32 (0x3026~0x3045)
+ *  输出区 428B: [0]Modbus Enable [1~8]Control Byte1~8
+ *               [9~43]SLOT-01 透传 35B(HELLO 发: [10]DataValid [11]Len [12~43]载荷)
+ *               [44~171]SLOT-03 写窗 128B(九字命令块占 [44~61])
+ *               [172~299]SLOT-05 写窗 128B(九字命令块占 [172~189])
+ *               [300~427]SLOT-07 占位 128B
+ *  输入区 226B: [0~33]SLOT-01 透传 34B(HELLO 收: [0]Index [1]Len [2~33]载荷)
+ *               [34~97]SLOT-02 读窗 64B(0x3026~0x3045)
+ *               [98~161]SLOT-04 读窗 64B
+ *               [162~225]SLOT-06 占位 64B
  *
  *  注意:
- *  1. 槽 Interface Type: SLOT-01=RS485_A(透传), SLOT-02/03=RS485_B(Modbus 主站,
- *     接美蓓亚驱动器拨码1); 出厂默认 Disable=4, 不改收不到帧
+ *  1. 槽 Interface Type: SLOT-01=RS485_A(透传 HELLO), SLOT-02/03=RS485_B(电机1, 拨码1),
+ *     SLOT-04/05=RS485_C(电机2, 拨码2); 出厂默认 Disable=4, 不改收不到帧
  *  2. 改槽流程: PRE-OP -> 填参数 -> Reload Device -> 写入+保存+关闭网络+启动网络
  *  3. 插删槽位后 PDO 窗口整体重排, 必须在配置工具里核对下方偏移表并修正
  *  4. 读槽用 Force Poll(数据不变也持续刷新), 写槽用 Rising(上升沿发一帧即止)
@@ -39,13 +45,13 @@
 
 #define M04_AXIS_MAX              (3)
 
-/* ---- PDO 窗口字节数(当前实测: Obytes=76 / Ibytes=98) ---- */
-/* 加 SLOT-04 清警槽后输出区变为 78 */
-#define M04_OUTPUTS_SIZE          (76)
-#define M04_INPUTS_SIZE           (98)
+/* ---- PDO 窗口字节数 ---- */
+/* 含 SLOT-04~07 占位的实测窗口 */
+#define M04_OUTPUTS_SIZE          (428)
+#define M04_INPUTS_SIZE           (226)
 
 #define M04_MODBUS_ENABLE_OFFSET  (0)     /* [0] Modbus Enable */
-#define M04_MODBUS_ENABLE_VAL     (0x03)  /* bit0=RS485_A(透传) bit1=RS485_B(Modbus主站) */
+#define M04_MODBUS_ENABLE_VAL     (0x0F)  /* bit0=RS485_A(透传) bit1=RS485_B(电机1) bit2=RS485_C(电机2)bit3=RS485_C(电机3) */
 #define M04_CTRL_BYTE_BASE        (1)     /* [1..8] Control Byte1~8 */
 /* 控制位分配: Byte1 的 bit0~bit7 对应 SLOT-01~08, 依槽序顺延
  * SLOT n -> 偏移 M04_CTRL_BYTE_BASE + (n-1)/8 的 bit((n-1)%8) */
