@@ -1,0 +1,9 @@
+Chapter8 RS485 Communication
+5 Number of invalid to valid edges
+6 Number of valid to invalid edges
+7 Accumulated valid time
+8 Accumulated invalid time
+ Event Detection Count
+Sets the amount of time or number of times for an event detection to occur after the
+specified condition has passed.
+122

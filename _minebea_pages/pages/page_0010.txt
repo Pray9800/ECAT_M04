@@ -1,0 +1,24 @@
+Chapter1 Overview
+1. Overview
+1.1 Features
+ Normally, stepping motors can lose steps due to load fluctuations, but stepping motors with
+encoders enable closed-loop control, making it possible to prevent loss of steps.
+ Closed loop control enables optimal current control according to the load, reducing heat
+generation and contributing to power savings.
+ Stepping motors with encoders are capable of position control, speed control, as well as
+torque control and force control like AC servo motors.
+ Position control is performed with an encoder resolution of ±1 pulse, ensuring stable
+stopping accuracy.
+ It can be operated by pulse input, communication network, and control signal.
+ It can be easily connected to a PC via USB communication. In addition, it is possible to
+operate programs and back up and restore parameters using a dedicated application.
+ Since 64 points of program operation data can be registered in the internal memory, complex
+control like PLC control is possible by specifying linked operation of program operations.
+ The following controls are possible with this unit.
+control mode Contents
+Position control Control to stop exactly at the specified target position.
+Speed control Control to continue rotation at a specified constant speed.
+Torque Control Control to continue rotation within the specified torque limit value or
+less.
+Force control Control to stop when the specified torque limit value is detected.
+9

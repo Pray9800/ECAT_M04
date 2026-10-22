@@ -1,0 +1,12 @@
+Chapter9 Internal register
+9.5.6 Force control Parameters
+Configure the settings related to force control.
+address Word content detail Range/Uni Initial refle
+Length ts value ct
+0402H 1 Torque limit Sets the time from when the stopper 0～10000/ 100 C
+detection time is pushed against the stopper until
+msec
+the torque limit is detected (until
+the torque limit status becomes
+valid) during force/torque control.
+169

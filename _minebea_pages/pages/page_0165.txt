@@ -1,0 +1,65 @@
+Chapter9 Internal register
+address Word content detail Range/Unit Initial refle
+Length s value ct
+mode mode. /0.1%
+Set the value as a ratio to the
+rated current of each motor.
+0113H※1 1 Time to switch to Set the time in ms for the motor 10～5000 100 C
+open mode after motor to switch to open after it has
+/msec
+stops stopped.
+0114H 1 Designation of Reverses the rotation direction at 0～1/- 0 C
+rotation direction at external pulse command from the
+external pulse direction shown in the timing
+command chart.
+0: Normal
+1: Inverted
+0115H 1 External pulse Selects the external pulse command 0～2/- 0 C
+command format format.
+0: 2 pulses (P1=CW, P2=CCW)
+1: 1 pulse (P1=pulse,
+P2=direction)
+2: 2-phase pulse (P1=Phase A,
+P2=Phase B)
+0117H※1 1 Selection of position Sets whether the deviation between 0～1/- 1 B
+correction in open the stop position and target
+mode position in open mode is corrected.
+0: Position compensation is not
+performed.
+1: Position compensation is
+performed.
+0118H※1 1 Speed of position Sets the speed of position 10～500 75 B
+correction in open correction in open mode.
+/pps
+mode
+0119H※1 1 Tolerance value of Sets the tolerance value of 0～100 0 B
+position correction deviation for executing position
+/pulse
+in open mode correction in open mode.
+If the deviation between the stop
+position and target position is
+within this value, position
+correction is not executed.
+※1 This parameter is invalid when "010DH" is set to 0.
+※2 When setting "010DH" to 1 (open at or below the set speed) and "10EH" to 1 (RPM) or more, use pulse drive. For other
+controls (communication network, PLC input, USB communication), fix "10EH" to 0. This may cause abnormal vibration
+during rotation.
+Word Range/Unit Initial refle
+address content detail
+Length s value ct
+0161H 1 Absolute Positioning Selects the direction of rotation 0～3/- 0 A
+Control Round Type during round absolute position
+control.
+0: Normal *1
+1: Near rotation *2
+2: (+) direction
+3: (-) direction
+*1: For rounding position
+counting: The motor rotates in
+the (+) direction
+when the Target Position exceeds
+the Current Position,
+and in the (-) direction when the
+Target Position is less than the
+Current Position.
+164

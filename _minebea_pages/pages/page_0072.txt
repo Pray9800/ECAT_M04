@@ -1,0 +1,11 @@
+Chapter5 Various Operation Methods
+5.5 Operation by dedicated application
+Parameters and operation programs are written from dedicated applications using USB communication.
+For more information on how to access internal registers, see ➡9 Internal register for details.
+The system configuration in operation with a dedicated application is shown below.
+5.5.1 Connection method
+See ➡ 3.2.5 USB device connection.
+5.5.2 Dedicated Application
+For more information about the dedicated application, please contact your local distributor or
+sales office.
+71

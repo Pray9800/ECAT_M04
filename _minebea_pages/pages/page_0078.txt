@@ -1,0 +1,49 @@
+Chapter6 Control signal
+Composit B Selection signal source B.
+[Setting range]
+Output SO1 Signal Source ➡ 6.4.2 Output signal
+B Selection
+ Signal source B Inverted setting
+function parameter explanation Initial value
+Signal SO0 Signal Source B Sets the signal polarity of signal
+source B.
+Inverted Setting
+Composit [Setting range] 0
+SO1Signal source B 0:Do nothing
+Output Inverted setting 1: Invert
+ Output Logic Setting
+function parameter explanation Initial value
+Signal SO0 Logic Sets the logic coupling between signal
+sources A and B
+setting
+Composit [Setting range] 1: OR
+SO1 Logic 0:AND (logical conjunction)
+Output setting 1:OR (logical disjunction)
+6.3.3 Remote Output
+The method of outputting signals via various communications is remote output (ROrIt is.
+name explanation
+Output function Select the output signal to be assigned to RO.
+Output value setting Set the value to output from RO
+ Output function
+function parameter explanation Initial value
+RO0 Function Select the output signal to be assigned to ➡ 9.5.7 Control
+Assignment Signal
+RO0～RO15。
+RO1 Function Parameters
+assignment [Setting range]
+RO2 Function ➡ 6.4.2 Output signal .
+assignment
+RO3 Function
+assignment
+RO Function
+RO4 Function
+selection assignment
+RO5 Function
+assignment
+RO6 Function
+assignment
+RO7 Function
+assignment
+RO8 Function
+assignment
+77

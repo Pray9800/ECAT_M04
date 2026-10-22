@@ -1,0 +1,68 @@
+Chapter6 Control signal
+No. parameter explanation
+50～51 reservation Not used
+52 INCH-FWD Executes inching in the (+) direction.
+The inching travel distance is set with parameter 0820H, and the
+speed with 081CH.
+This function can not be executed when external pulse commands
+are enabled (0514H:0).
+53 INCH-REV Executes inching in the (-) direction.
+The inching travel distance is set with parameter 0820H, and the
+speed with 081CH.
+This function can not be executed when external pulse commands
+are enabled (0514H:0).
+54～55 reservation Not used
+56 POS-FWD Executes position control operation in the (+) direction.
+The motor is driven at the speed of the operation data number
+selected by PNUM0 to PNUM5, only while the signal is ON.
+This function can not be executed when external pulse commands
+are enabled (0514H:0).
+57 POS-REV Executes position control operation in the (-) direction.
+The motor is driven at the speed of the operation data number
+selected by PNUM0 to PNUM5, only while the signal is ON.
+This function can not be executed when external pulse commands
+are enabled (0514H:0).
+58 SPD-FWD Executes speed control operation in the (+) direction.
+The motor is driven at the speed of the operation data number
+selected by PNUM0 to PNUM5, only while the signal is ON.
+This function can not be executed when external pulse commands
+are enabled (0514H:0).
+59 SPD-REV Executes speed control operation in the (-) direction.
+The motor is driven at the speed of the operation data number
+selected by PNUM0 to PNUM5, only while the signal is ON.
+This function can not be executed when external pulse commands
+are enabled (0514H:0).
+60 PSH-FWD Executes torque control operation in the (+) direction.
+The motor is driven with the speed and torque of the operation
+data number selected by PNUM0 to PNUM5, only while the signal is
+ON.
+This function can not be executed when external pulse commands
+are enabled (0514H:0).
+61 PSH-REV Executes torque control operation in the (-) direction.
+The motor is driven with the speed and torque of the operation
+data number selected by PNUM0 to PNUM5, only while the signal is
+ON.
+This function can not be executed when external pulse commands
+are enabled (0514H:0).
+62～63 reservation Not used
+64 PNUM0
+Specifies the operation data number from 0 to 63.
+65 PNUM1
+Selected by arranging PNUM0 to PNUM5 in order to represent a 6-
+66 PNUM2
+digit binary number.
+67 PNUM3
+PNUM0 is the LSB side, and PNUM5 is the MSB side.
+68 PNUM4
+Digits not assigned to an input will be 0.
+69 PNUM5
+70～79 reservation Not used
+80 GP0
+81 GP1
+82 GP2
+83 GP3 General-purpose input signal. Can be used as an event signal
+84 GP4 source for program operation, etc.
+85 GP5
+86 GP6
+87 GP7
+80

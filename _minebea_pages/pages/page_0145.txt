@@ -1,0 +1,43 @@
+Chapter9 Internal register
+9.5.2 Speed Parameters
+Configure the speed settings.
+address Word content detail Range/Unit Initial refle
+Length s value ct
+0800H 2 Startup speed Set the startup speed. 0～ 100 B
+2147483647
+/pps
+0802H 2 Maximum speed Sets the maximum speed. 0～ B
+Used in combination with the homing
+2147483647 80000
+offset speed (0904H[%]) at the time of
+homing offset movement. /pps
+Used in combination with the speed [%]
+(9003H+nx10H, n=0 to 63) of program
+operation data during program operation.
+0806H 1 S-curve ratio Sets the percentage of the S-shaped 0～100/% 0 B
+(acceleration) section during acceleration in %.
+0% means linear acceleration.
+0807H 2 Torque limit Sets the setting for the distance to be 0～ 0 B
+press amount pressed further after the torque limit
+2147483647
+is detected during force control.
+/pulse
+0809H 1 Direction at Sets the direction of movement when the 0～1/- 0 C
+CW rotation motor rotates CW
+0: + direction
+1: - direction
+080AH 1 Operation Set the behavior of the operation status 0～1/- 0 B
+status setting during position control.
+during The operation status turns ON when the
+position motor operation begins.
+control 0: The operation status turns OFF when
+the current command position reaches the
+target position.
+1: The operation status turns OFF when
+the In-position status turns ON
+after the current command position
+reaches the target position.
+080DH 1 S-curve ratio Sets the percentage of the S-shaped 0～100/% 0 B
+(deceleration) section during deceleration in %.
+0% indicates linear deceleration.
+144

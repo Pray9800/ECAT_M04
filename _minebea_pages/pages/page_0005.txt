@@ -1,0 +1,30 @@
+Precautions for use
+Caution
+operation after recovering from a stopped state, ensure safety to prevent injury to
+personnel and damage to the equipment caused by unintended motor operation.
+Precautions for use
+This section describes precautions for using the product.
+• Do not perform insulation resistance measurements or dielectric strength tests on the
+encoder, as this may damage the unit.
+• Do not perform a dielectric strength test. Also, when measuring the insulation
+resistance, be sure to separate the motor from the unit, as this may damage the unit.
+• This unit uses semiconductor devices, so please handle it with care to prevent damage
+caused by static electricity.
+• To protect the encoder, keep the motor surface temperature below 80°C.
+• There are screw holes on the side of this device, but do not screw anything into them or
+insert foreign objects. Doing so may damage the device.
+• Ensure the motor does not enter a freewheeling state during power outages or similar
+events. Doing so may damage the device due to voltage surges caused by regeneration. If
+this cannot be avoided, operate within the load inertia ratio and motor speed ranges
+specified in the table below.
+Motor Use range
+M23KMH744CSMA00 Inertia ratio up to 20 times: Motor speed up to 2400 rpm
+M23KMK358CSMA00 Inertia ratio up to 20 times: Motor speed up to 3000 rpm
+M23KMH041CSMA00 There are no restrictions on the inertia ratio or motor speed.
+M17PMxxxxCSMA00
+M11PMKxxxCSMA00
+For motors other than those listed above, please contact us.
+• Do not servo-off while the motor is rotating. Regenerative voltage may damage the unit.
+• Do not use in nuclear, aircraft, or military related equipment.
+• The adoption of this product in medical devices is at the customer's own discretion and
+4

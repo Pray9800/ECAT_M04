@@ -1,0 +1,57 @@
+Chapter9 Internal register
+9.3 Status Information
+By accessing the internal registers, the status of alarms, RPM, current position, etc. can be
+displayed.
+For details on how to access the internal registers, see ➡8 RS485 Communication.
+Status is read-only.
+9.3.1 Common Statuses
+address Word content detail Range/Units
+Length
+3021H 1 Alarm monitor Displays the alarm number that is being 0～15/-
+reported.
+If more than one alarm event is detected,
+the alarm number that was reported first is
+displayed.
+1: Overload error
+2: Following error excess
+3: Overspeed
+4: Gain adjustment failure
+5: Voltage error (overvoltage/undervoltage)
+6: Initialization error
+7: NV memory error
+8: Overcurrent detection
+9: Temperature abnormality
+10: Out of position range
+11: Illegal parameter
+12: Circuit protection
+13: ABS encoder connection error
+14: Torque off state
+15: Power reconnection
+3022H 1 Motor speed monitor Monitors the rotation speed of the motor /rpm
+3023H 1 Current of motor operation Monitors the current value of the motor. /×0.1%
+Displays the current value as a percentage
+of the rated current
+3024H 2 Current command position Monitors the current command position of the -/pulse
+position control.
+The position can be switched to round
+position by setting 0536H.
+3026H 2 Current encoder position Monitors the current position detected from -/pulse
+the encoder.
+The position can be switched to round
+position by setting 0536H.
+302EH 1 Operation data number Displays the last executed program data -1、0～63
+number.
+When program operation has not been executed
+since power-on, the value is -1 (FFFFH)
+302FH 1 Programmed operation loop Indicates the current program loop count 0, 2～255
+count
+3032H 1 Number of pulses per Displays the number of pulses per revolution 0～65535
+revolution of the motor encoder
+/pulse
+3033H 2 Command speed monitor Monitors the command speed. -/pps
+3035H 2 Detection speed monitor Monitors the detected rotation speed. -/pps
+3039H 1 Command torque monitor Monitors the command torque. It is expressed /0.1%
+as a ratio to the rated value.
+303AH 1 Detection torque monitor Monitors the detected current torque. The /0.1%
+value is expressed as a ratio to the rating.
+126

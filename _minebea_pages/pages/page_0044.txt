@@ -1,0 +1,46 @@
+Chapter5 Various Operation Methods
+5.3 Position Management Settings
+Set the parameter by writing the value to a given address.
+See below for how to set it up.
+When using a dedicated application, see the manual of the dedicated application.
+When using RS485 communications, see ➡8 RS485 Communication.
+Turn on the control power supply to set the position management parameters.
+To rewrite the following parameters, a power cycle is required. When the value of the parameter
+is written, a power cycle alarm (alarm 15) is issued. When the control power is turned on again,
+the alarm disappears and the written value is reflected. If there is no problem with the initial
+value, this setting is not necessary.
+ Setting the Resolution
+The electronic gear function changes the apparent resolution (number of pulses) of one
+revolution.
+Number of pulses after change = Motor encoder resolution ÷ (electro gear numerator÷
+electro gear denominator)
+address Word content detail Range/Unit Initial
+Length s value
+010BH 1 Electro Gear Sets the number of pulses per 1～10000/- 1
+Numerator
+motor revolution from the user's
+perspective.
+010CH 1 Electro Gear 1～10000/- 1
+(Number of pulses after change)
+Denominator
+= (pulses per motor encoder
+revolution) / (electronic gear
+numerator / electronic gear
+denominator)
+note
+The following conditions must be met:
+If you set a value outside the range, an invalid parameter alarm (alarm 11) will occur.
+1) Motor encoder resolution ÷ (electro gear numerator÷ electro gear denominator) is a
+natural number
+2) Motor encoder resolution ÷ (electro gear numerator÷ electro gear denominator) <
+2147483647
+ Setting the Direction of Rotation
+Set the positive/negative direction of rotation and position of the motor. If there is
+no problem with the initial value, no setting is required.
+address Word content detail Range/Unit Initial
+Length s value
+0809H 1 Direction at Sets the direction of movement when the 0～1/- 0
+CW rotation motor rotates CW
+0: + direction
+1: - direction
+43

@@ -1,0 +1,162 @@
+Chapter5 Various Operation Methods
+※1 If there is a difference in the signal condition, see ➡5.4.7 Status check.
+※2 This chart shows the automatic servo on enabled when the control power is turned on (parameter
+0516H: 0 (initial value)). If automatic servo on disabled (parameter 0516H: 1), execute servo-
+on. For servo-on, refer to ➡5.4.5 Other operation:Servo On (Automatic Servo On is disabled).
+※3 When the operation data number is expressed in binary, PNUM0 indicates the value of bit0, PNUM1
+indicates the value of bit1, and PNUM2 indicates the value of bit2.
+e.g. When the operation data number is 3(011b), PNUM2:OFF, PNUM1:ON, PNUM0:ON
+※4 Turn off the PRG input before performing the following actions.
+※5 For details of parameter 0905H (homing data) mode, see➡ 9.5.3 Homing Parameters.
+56
+M a
+P
+i
+N
+n
+U
+M
+E
+/
+M
+o
+n
+C
+2
+S
+t
+c
+o
+~
+R
+V
+o
+o
+n
+P
+E
+-
+M
+r
+d
+t
+N
+A
+S
+O
+e
+r
+U
+P
+D
+T
+V
+o
+r
+o
+M
+R
+Y
+S
+E
+p
+l
+0
+G
+e
+P
+O
+O
+O
+r
+o
+P
+I
+I
+u
+u
+u
+a
+s i
+o
+n
+n
+t
+t
+t
+t
+t
+w
+p
+p
+p
+p
+p
+i
+i
+e
+u
+u
+u
+u
+u
+o
+o
+r
+t
+t
+t
+t
+t
+n
+n
+D
+S
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+R I V
+T O P
+E
+O p e r a t i
+①
+o n o f t
+・
+h e
+・
+m
+・
+a c
+≦
+h
+②
+②
+i
+6
+n
+0
+e
+③
+m s
+④
+④
+④
+O p e r a t i o
+O p e r a t i o n s e t b y
+p a r a m e t e r 0 9 0 0 H
+・
+n o f E x t e r n a l D e v i c e s
+・ ・
+⑤
+⑤
+⑤
+V a l u e s e t t o 0 9 0 5 H

@@ -1,0 +1,47 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"soem/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 10
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "soem::@aabcde9633b5702441b3"
+		}
+	],
+	"id" : "ALL_BUILD::@aabcde9633b5702441b3",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"orderDependencies" : 
+	[
+		{
+			"id" : "soem::@aabcde9633b5702441b3"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "soem",
+		"source" : "soem"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

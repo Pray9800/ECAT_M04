@@ -1,0 +1,39 @@
+Chapter10 Troubleshooting
+10. Troubleshooting
+Troubleshooting describes how to respond to alarms, information, and other abnormalities of the
+monitoring system.
+When an alarm occurs, the motor stops to protect the driver. Information helps maintain the
+equipment by confirming the condition before the alarm occurs.
+10.1 Alarm
+When an alarm occurs, the motor stops and the alarm LED blinks.
+The number of times the LED blinks, various communication I/Fs, control outputs, and dedicated
+applications can be used to check the type of alarm that is occurring.
+When an alarm occurs, the ALM LED blinks the alarm number at 1-second intervals and goes off
+for 2 seconds.
+( 1 ) Disarming alarms
+Once the cause of the alarm has been eliminated and safety is assured, clear the alarm by one
+of the following methods
+- Alarm clear from network communication
+- Alarm clear from control signal
+- Alarm clear from dedicated applications
+- Power back on
+(Caution)
+Some alarms cannot be cleared except by turning the power back on. Please refer to the list
+of alarms below.
+( 2 ) Alarm List
+Command
+number Contents cause support Release
+in
+1 Overload error Overload at full torque or Lighten the load or set the
+motor speed does not follow command below the maximum
+command. motor speed. 〇
+Motor or encoder is Check the wiring.
+disconnected.
+2 Following error Overload or motor speed does Keep the load below the 〇
+excess not follow command. continuous rated torque or
+use a slower
+acceleration/deceleration.
+3 Overspeed Motor speed is abnormal. Set the command below the 〇
+maximum motor speed.
+4 Gain adjustment Motor is vibrating abnormally Readjust the gain or slow 〇
+194

@@ -1,0 +1,45 @@
+Chapter9 Internal register
+address Word content detail Range/Units
+Length
+303BH 2 Current command position Monitors the current command position of the -/pulse
+(32bit fixed) position control.
+The position is always displayed in 32-bit
+counts. For round position see 3024H.”
+303DH 2 Current Encoder position Monitors the current position detected from -/pulse
+(32bit fixed) the encoder.
+Always displays the position in 32-bit
+counts. For round position, refer to 3026H
+3902H 2 Status word Monitors the status of the driver. -/-
+bit0: Operation status(1:Motor is operating)
+bit1: In-position status (1:Positioning
+complete within the in-position zone)
+bit2: Zero speed status (1:Speed is 240 rpm
+or less)
+bit3: Reached speed status(1:Target speed
+has been reached during speed control)
+bit4: Torque limit status(1:Torque limit
+detected)
+bit5: Servo-off status (0:Servo-on, 1:Servo-
+off)
+bit7: Alarm status (1:Alarming, 0:No alarm)
+bit8: DI0
+bit9: DI1
+...
+bit14: DI6
+bit15: DI7
+bit16: Internal limit status (1:Reached
+limit switch or software limit switch)
+bit17: Notification status(1:Notification
+occurred)
+bit19: Main power status(1:Main power is on)
+bit20: Torque-off status (1: In torque off
+state)
+bit21: Command execution Ready(1: Can accept
+operation commands Note: Stop commands are
+not affected by this status)
+bit28: DO0
+bit29: DO1
+bit30: DO2
+bit31: DO3
+bit6,18,22-27: Reserved
+127

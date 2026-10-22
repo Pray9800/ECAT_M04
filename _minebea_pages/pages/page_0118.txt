@@ -1,0 +1,41 @@
+Chapter8 RS485 Communication
+8.7.7 Program operation
+Specified program operation data can be executed from the preset program operation data.
+( 1 ) Overview of Operation Functions
+64 pieces of program operation data (0~63) can be registered, and the following items must
+be set for each.
+Setting items unit Setting range Initial value
+Mode - 6, 7, 8, 9, 10, 16, 17, 18, 19, 20, 21 6
+Position Data pulse -2147483648～2147483647 0
+Speed % 1～100 100
+Torque Limit 0.1% 0～1500 500
+Acceleration % 1～100 100
+Deceleration % 1～100 100
+Coupling - 0, 1 0
+Loop Position Offset pulse -4194303～4194303 0
+Wait time msec 0～30000 0
+Next Operation Data - -1～63 -1
+Number
+Loop count count 0～255 0
+Loop end - 0, 1 0
+Event - -1～31 -1
+Event (Priority) - -1～31 -1
+ Mode
+The mode can be set at address 90n0H in the program operation data.
+The setting numbers and their corresponding modes are as follows:
+number mode
+6 Relative Position Control/(Encoder Position Base)
+7 Absolute position control
+8 Homing
+9 Position Set
+10 Following error counter clear
+16 Relative Position Control/Force/(Encoder Position Base)
+17 Absolute Position Control/Force
+18 Relative Position Control /(Command Position Base)
+19 Relative Position Control/Force/(Command Position Base)
+20 Round Absolute Position Control
+21 Round Absolute Position Control/Force
+ Position data
+Position information can be set at addresses 90n1H to 90n2H of the program operation
+data.
+117

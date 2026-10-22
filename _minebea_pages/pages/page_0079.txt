@@ -1,0 +1,36 @@
+Chapter6 Control signal
+RO9 Function
+assignment
+RO10 Function
+assignment
+RO11 Function
+assignment
+RO12 Function
+assignment
+RO13 Function
+assignment
+RO14 Function
+assignment
+RO15 Function
+assignment
+ Output value setting
+function parameter explanation Initial value
+Monitors the output of the remote output
+RO0~RO15.
+See 0D30H~0D3FH for RO0~RO15 function
+assignments.
+Each bit of this parameter corresponds to the
+following input signal:
+bit0:RO0
+Output value
+Remote Output
+bit1:RO1 －
+setting (RO)
+…
+bit14:RO14
+bit15:RO15
+* This parameter is for use with RS485 type
+(address 3077H)。
+* This parameter is assigned to Implicit
+communication in the EtherNet/IP type.
+78

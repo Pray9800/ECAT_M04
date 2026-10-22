@@ -1,0 +1,6 @@
+Chapter9 Internal register
+address Word content detail Range/Unit Initial refle
+Length s value ct
+selection (012FH) is 5.
+See Speed loop integral Gain 0.
+168

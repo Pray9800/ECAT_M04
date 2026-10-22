@@ -1,0 +1,23 @@
+Chapter3 Installation and Wiring
+( 2 ) pinout
+ Motor controller side
+Pin No. signal name use
+1 A Motor phase A
+2 /A Motor phase /A
+3 - Not used.
+4 B Motor phase B
+5 /B Motor phase /B
+6 MFG Motor frame GND
+※ Motor Frame GND is assigned to a round terminal outside the connector on the motor side.In
+order to suppress noise, it is recommended to ground the the motor frame GND.
+ Pin assignment (motor side)
+Motor Type
+M11PMKxxxx M17PMxxxxx M23KMxxxxx
+Pin No. Signal Name
+1 B /A /B
+2 ― ― ―
+3 /B A B
+4 A B /A
+5 ― ― ―
+6 /A /B A
+23

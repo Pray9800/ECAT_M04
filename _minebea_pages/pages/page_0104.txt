@@ -1,0 +1,29 @@
+Chapter8 RS485 Communication
+ Here is an example of calculating CRC-16 in C#:
+/// <summary>
+/// CRC Calculation Routine in RTU Mode
+/// </summary>
+///<param name="data"> data buffer to be calculated</param>
+///<param name="len"> the length of the data to be calculated</param>
+///<returns>CRC data of the calculation result</returns>
+private UInt16 CalcCRC(Byte[] data, int len){
+UInt16 reg_crc = 0xffff;
+for (int i = 0; i < len; i++){
+reg_crc ^= data[i];
+for (int j = 0; j < 8; j++){
+UInt16 carry = (UInt16)(reg_crc & 0x0001);
+reg_crc = (UInt16)(reg_crc >> 1);
+if (1 == carry){
+reg_crc ^= 0xa001;
+}
+}
+}
+return reg_crc;
+}
+example
+The command (without CRC-16) for node address 1, address 0x0100, and 1 word read
+request is as follows.
+0x01, 0x03, 0x01, 0x00, 0x00, 0x01
+Calculating CRC-16 is 0xF685, so the whole command looks like this:
+0x01, 0x03, 0x01, 0x00, 0x00, 0x01, 0x85, 0xF6
+103

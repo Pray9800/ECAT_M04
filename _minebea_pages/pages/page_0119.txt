@@ -1,0 +1,44 @@
+Chapter8 RS485 Communication
+The information that is set, such as the amount of movement and the amount of position,
+differs depending on the mode.
+mode Information set by Position data
+6: Relative Position Control/(Encoder Position Amount of movement
+Base)
+7: Absolute Position Control Target Position
+8: Homing ― (No setting required)
+9: Position Set Setting the current position
+10: Following Error Counter Clear ― (No setting required)
+16: Relative Position Control/Force/(Encoder Amount of movement
+Position Base)
+17: Absolute Position Control/Force Target Position
+18: Position Domination/(Command Position Base) Amount of movement
+19: Relative Position Control/Force/(command Amount of movement
+position Base)
+20: Round Absolute Position Control Target position (specified by round
+position)
+21: Round Absolute Position Control/ Force Target position (specified by round
+position)
+ Speed
+Set the speed rate when moving.
+This setting is valid when the following modes are selected.
+mode Valid Modes
+6: Relative Position Control/(Encoder Position 〇
+Base)
+7: Absolute Position Control 〇
+8: Homing 〇
+9: Position Set ×
+10: Following Error Counter Clear ×
+16: Relative Position Control/Force/(Encoder 〇
+Position Base)
+17: Absolute Position Control/Force 〇
+18: Position Domination/(Command Position Base) 〇
+19: Relative Position Control/Force/(command 〇
+position Base)
+20: Round Absolute Position Control 〇
+21: Round Absolute Position Control/ Force 〇
+The operating speed in each mode is determined by the parameter maximum speed (802H) x
+speed rate.
+For example, if you want to set the operating speed of Mode 6: Relative Position
+Control to 150 [r/m];
+- Parameter Maximum Speed (802H) = 150[pps], speed rate =100 (%),
+118

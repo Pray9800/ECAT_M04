@@ -1,0 +1,40 @@
+Chapter5 Various Operation Methods
+5.4.7 Status check
+If there is a difference in the confirmation status of each signal, please respond according
+to the following contents.
+symptoms cause correspondence
+SV-STS output (during (1) The motor controller is not Perform servo on.
+motor excitation) is in the servo on state. For Servo-on, see ➡5.4.5 Other operation.
+not ON. When auto servo-on is enabled (parameter
+0516H: 0), it is executed automatically
+after the control power is turned on.
+(2) An alarm has occurred. When an alarm occurs, the servo turns off(no
+* Alarm output(ALM-A) is not OFF excitation or short braking). Refer to the
+symptom "Alarm output (ALM-A) is not OFF."
+The MOVE output (while The motor is running. Wait for the previous action to complete.
+the motor is running) is * The previous operation has not Alternatively, perform a deceleration stop
+not OFF. been completed. to abort the previous operation.
+Alarm output (ALM-A) is An alarm has been raised. Remove the alarm factor and dismiss the
+not OFF. alarm.
+Factors and alarm dismissal, see➡10.1 Alarm
+and➡ 5.4.6 Alarm Clear.
+The READY output (ready (1) Since the control power is When the control power is turned on, the
+for operation) is not turned on, the preparation motor controller executes the startup
+ON. inside the motor controller has process internally.
+not been completed. READY output turns ON when ready
+(2) The motor is operating. Wait for the previous action to complete.
+※ If any one of (1) * The previous operation has not Alternatively, perform a stop to abort the
+through (5) applies, the been completed. previous action.
+READY output is not (3) Input signals pertaining to Replace the appropriate input signal with
+turned ON. stop are turned on. thePlease turn it off.
+SV-OFF input (1), STOP input
+(5), E-STOP (11)
+* Input signal No. in ()
+(4) The motor controller is in Release the torque off state.
+the torque off state. To release the torque off state, see➡7.3.2
+Return from Torque off to Normal.
+(5) Limit sensor LS+/LS- and Cancel the limit state.
+soft limits limit both
+directions on the (+) and (-)
+sides at the same time.
+70

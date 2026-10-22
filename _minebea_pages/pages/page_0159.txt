@@ -1,0 +1,21 @@
+Chapter9 Internal register
+Homing operation setting 9: Z (- side) operation
+This mode performs homing using the Z phase.
+Detects the negative edge of the Z phase.
+● When the homing start position is on the negative side of the Z phase
+High = Inactive, Low = Active (at default)
+No. operation
+① The edge of the Z phase is detected in the positive direction at the homing speed.
+② The Z-phase edge is detected in the negative direction at the homing search speed.
+③ The Z-phase edge is detected in the positive direction at the homing search speed, and
+the detection operation ends.
+● When the homing start position is on the positive side of the Z phase
+High = Inactive, Low = Active (at default)
+No. operation
+① The edge of LS+ is detected in the positive direction at the homing speed.
+② The Z-phase edge is detected in the negative direction at the homing speed.
+③ The edge of the Z phase is detected in the positive direction at the homing speed.
+④ The Z-phase edge is detected in the negative direction at the homing search speed.
+⑤ The Z-phase edge is detected in the positive direction at the homing search speed, and
+the detection operation ends.
+158

@@ -1,0 +1,10 @@
+Chapter9 Internal register
+9.3.2 Torque off Status
+Word
+address content detail Range/Units
+Length
+134CH 1 Torque Off State Monitors torque-off state due to TO request 0～1/-
+signal input.
+0: Not torque-off state
+1: Torque-off state
+128

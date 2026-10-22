@@ -1,0 +1,34 @@
+Chapter8 RS485 Communication
+( 3 ) Coupling operation
+In program operation, the operation mode can be set to relative positioning (coupling
+operation) or absolute positioning (coupling operation) to perform coupling operations. The
+coupling motion allows you to connect that step to the next, allowing you to change speed
+or torque during movement.
+ When coupling, set the following steps in addition to the operation mode. If there is
+no setting for the next step, the coupling operation will not occur.
+ When coupling, set both the operation mode of the step and the next step to the
+coupling operation.
+ The wait time of the coupling steps is no longer valid.
+( 4 ) Operation
+Basically, operation by RS485 is performed with the 9-word data setting shown in ➡ 9.4.1
+Operation Commands.
+An example of program operation data is shown below.
+address Word content detail
+Length
+3000H 1 Operation order Specifies the operation method.
+9: Program operation
+3001H 1 Direction order ※Not used in program operation.
+- Determined by the contents of the program data.
+3002H 1 Speed order(upper) ※Not used in program operation.
+3003H 1 Speed order(lower) - Determined by the contents of the program data.
+3004H 1 Stop Option ※Not used in program operation.
+- Determined by the content of the program data
+3005H 1 Operation number Specify the start number of the operation data.
+order Example) 10
+3006H 1 Target ※Not used in program operation.
+position(upper) - Determined by the content of the program data
+3007H 1 Target
+position(lower)
+3008H 1 Torque order ※Not used in program operation.
+- Determined by the content of the program data
+123

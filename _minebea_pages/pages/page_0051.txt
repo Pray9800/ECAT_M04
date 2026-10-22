@@ -1,0 +1,42 @@
+Chapter5 Various Operation Methods
+5.4.1 Control Signals
+The control signals (input and output signals) act as an interface for communication between
+the motor controller and the higher-level equipment.
+The control signal is used by assigning the necessary functions to each input and output terminal.
+For more information, see➡ 6 Control signal.
+( 1 ) Input Signal
+When each input signal is ACTIVE (coupler ON), the function is defined as follows in the
+initialization state.
+Pin No. Signal function
+Name No. parameter explanation
+2 IN0 32 PRG Execute the program operation.
+3 IN1 64 PNUM0 Specify the program operation data number 0~63. Select
+4 IN2 65 PNUM1 PNUM0~PNUM5 in order, as if it were a 6-digit binary number.
+5 IN3 66 PNUM2 PNUM0 is on the LSB side and PNUM5 is on the MSB side. Digits
+that are not assigned to the input will be 0.
+6 IN4 36 HOME Perform homing operation.
+7 IN5 1 SV-OFF The power supply to the motor is cut off and de-excited
+(servo off).
+8 IN6 5 STOP Stop the motor.
+9 IN7 8 ALM-CLR Clear the alarm.
+ PRG
+This is a signal to execute the programmed operation.
+When the coupler is turned ON, it starts moving according to the program operation data
+(No. 0 to 63) data represented by 6Bit of PNUM0, PNUM1, PNUM2, PNUM3, PNUM4, and PNUM5.
+* Undefined PNUMx are considered as coupler OFF.
+ HOME
+This is the signal to start homing operation.
+When the coupler is turned on, the homing operation begins.
+The speed and torque at this time follow the data of the program operation number (No. 0
+to 63) represented by the 6 Bit signals PNUM0, PNUM1, PNUM2, PNUM3, PNUM4, and PNUM5.
+* Undefined PNUMx are considered as coupler OFF.
+ SV-OFF
+This is a signal to de-excite the motor.
+When the coupler is turned on, the current of the motor is stopped and the motor is put
+into a non-excitation state.
+ STOP
+Stop the motor.
+When the coupler is turned on, the moving motor stops.
+ ALM-CLR
+By turning on the coupler, the alarm that is occurring is canceled.
+50

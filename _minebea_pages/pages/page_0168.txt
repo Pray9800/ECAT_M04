@@ -1,0 +1,63 @@
+Chapter9 Internal register
+address Word content detail Range/Unit Initial refle
+Length s value ct
+0135H 1 Speed loop proportional This value is reflected when 0～30000/- 70 B
+gain 1 the control gain table
+selection (012FH) is 1.
+See Speed loop proportional
+Gain 0.
+0136H 1 Speed loop integral This value is reflected when 0～30000/- 48 B
+gain 1 the control gain table
+selection (012FH) is 1.
+See Speed loop integral Gain 0.
+0138H 1 Position loop gain 2 This value is reflected when 0～30000/- 97 B
+the control gain table
+selection (012FH) is 2.
+See Position Loop Gain 0.
+0139H 1 Speed loop proportional This value is reflected when 0～30000/- 97 B
+gain 2 the control gain table
+selection (012FH) is 2.
+See Speed loop proportional
+Gain 0.
+013AH 1 Speed loop integral This value is reflected when 0～30000/- 94 B
+gain 2 the control gain table
+selection (012FH) is 2.
+See Speed loop integral Gain 0.
+013CH 1 Position loop gain 3 This value is reflected when 0～30000/- 136 B
+the control gain table
+selection (012FH) is 3.
+See Position Loop Gain 0.
+013DH 1 Speed loop proportional This value is reflected when 0～30000/- 136 B
+gain 3 the control gain table
+selection (012FH) is 3.
+See Speed loop proportional
+Gain 0.
+013EH 1 Speed loop integral This value is reflected when 0～30000/- 184 B
+gain 3 the control gain table
+selection (012FH) is 3.
+See Speed loop integral Gain 0.
+0140H 1 Position loop gain 4 This value is reflected when 0～30000/- 189 B
+the control gain table
+selection (012FH) is 4.
+See Position Loop Gain 0.
+0141H 1 Speed loop proportional This value is reflected when 0～30000/- 189 B
+gain 4 the control gain table
+selection (012FH) is 4.
+See Speed loop proportional
+Gain 0.
+0142H 1 Speed loop integral This value is reflected when 0～30000/- 357 B
+gain 4 the control gain table
+selection (012FH) is 4.
+See Speed loop integral Gain 0.
+0144H 1 Position loop gain 5 This value is reflected when 0～30000/- 264 B
+the control gain table
+selection (012FH) is 5.
+See Position Loop Gain 0.
+0145H 1 Speed loop proportional This value is reflected when 0～30000/- 264 B
+gain 5 the control gain table
+selection (012FH) is 5.
+See Speed loop proportional
+Gain 0.
+0146H 1 Speed loop integral This value is reflected when 0～30000/- 696 B
+gain 5 the control gain table
+167

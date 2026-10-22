@@ -1,0 +1,62 @@
+Chapter9 Internal register
+9.5.5 Control Gain Table
+Configure the control gain setting.
+address Word content detail Range/Unit Initial refle
+Length s value ct
+012FH 1 Control gain table Selects the control gain 0～5/- 2 B
+selection table.
+With the default value of the
+gain table, the gains increase
+in the order of this parameter
+0 to 5.
+The user can arbitrarily
+change the value of each gain
+table.
+Note that this parameter is
+rewritten to 0 after the
+automatic gain adjustment is
+executed by the PC
+application,
+The adjusted gain is written to
+control gain table 0 (0130H to
+0132H).
+0130H 1 Position loop gain 0 This value is reflected when 0～30000/- 50 B
+the control gain table
+selection (012FH) is 0.
+The higher the gain, the better
+the tracking performance and
+the better the tracking to the
+target position.
+If it is set too high,
+overshooting or hunting will
+occur.
+0131H 1 Speed loop proportional This value is reflected when 0～30000/- 50 B
+gain 0 the control gain table
+selection (012FH) is 0.
+The higher the gain, the better
+the tracking performance and
+the better the tracking to the
+target position and target
+speed.
+If it is set too high,
+overshooting or hunting will
+occur.
+0132H 1 Speed loop integral This value is reflected when 0～30000 25 B
+gain 0 the control gain table
+selection (012FH) is 0.
+Set this value lower when the
+rigidity of the load (the
+mechanism connected to the
+motor shaft) is low.
+If the inertia of the load is
+large, this value is effective
+in suppressing hunting,
+but it is not effective if the
+inertia of the load is small.
+However, the settling time for
+positioning will be longer.
+0134H 1 Position loop gain 1 This value is reflected when 0～30000/- 70 B
+the control gain table
+selection (012FH) is 1.
+See Position Loop Gain 0.
+166

@@ -1,0 +1,63 @@
+Chapter9 Internal register
+address Word Operation content detail Range/Uni Initial refle
+Length data ts value ct
+9090H 1 9 Operati Sets the operation data number 9. ― ― B
+on Same configuration as 9000H-900FH.
+data9 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+90A0H 1 10 Operati Sets the operation data number 10. ― ― B
+on Same configuration as 9000H-900FH.
+data10 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+90B0H 1 11 Operati Sets the operation data number 11. ― ― B
+on Same configuration as 9000H-900FH.
+data11 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+90C0H 1 12 Operati Sets the operation data number 12. ― ― B
+on Same configuration as 9000H-900FH.
+data12 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+90D0H 1 13 Operati Sets the operation data number 13. ― ― B
+on Same configuration as 9000H-900FH.
+data13 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+90E0H 1 14 Operati Sets the operation data number 14. ― ― B
+on Same configuration as 9000H-900FH.
+data14 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+90F0H 1 15 Operati Sets the operation data number 15. ― ― B
+on Same configuration as 9000H-900FH.
+data15 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9100H 1 16 Operati Sets the operation data number 16. ― ― B
+on Same configuration as 9000H-900FH.
+data16 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9110H 1 17 Operati Sets the operation data number 17. ― ― B
+on Same configuration as 9000H-900FH.
+data17 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9120H 1 18 Operati Sets the operation data number 18. ― ― B
+on Same configuration as 9000H-900FH.
+data18 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9130H 1 19 Operati Sets the operation data number 19. ― ― B
+on Same configuration as 9000H-900FH.
+data19 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9140H 1 20 Operati Sets the operation data number 20. ― ― B
+on Same configuration as 9000H-900FH.
+data20 Refer to operating data number 0.
+For RS485 type, access in 16
+180

@@ -1,0 +1,65 @@
+Chapter9 Internal register
+Word Range/Unit Initial refle
+address content detail
+Length s value ct
+RI1 function Select the input signal to be 65:PNUM1 C
+assignment assigned to RI1.
+0D21H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RI2 function Select the input signal to be 66:PNUM2 C
+assignment assigned to RI2.
+0D22H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RI3 function Select the input signal to be 32:PRG C
+assignment assigned to RI3.
+0D23H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RI4 function Select the input signal to be 36:HOME C
+assignment assigned to RI4.
+0D24H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RI5 function Select the input signal to be 5:STOP C
+assignment assigned to RI5.
+0D25H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RI6 function Select the input signal to be 1:SV-OFF C
+assignment assigned to RI6.
+0D26H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RI7 function Select the input signal to be 8:ALM-CLR C
+assignment assigned to RI7.
+0D27H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RI8 function Select the input signal to be 0: Unused C
+assignment assigned to RI8.
+0D28H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RI9 function Select the input signal to be 0: Unused C
+assignment assigned to RI9.
+0D29H 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RI10 function Select the input signal to be 0: Unused C
+assignment assigned to RI10.
+0D2AH 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RI11 function Select the input signal to be 0: Unused C
+assignment assigned to RI11.
+0D2BH 1 Refer to the ➡ 6.4.1 Input 0～127/-
+signal list for the input
+signals that can be assigned.
+RI12 function Select the input signal to be 0: Unused C
+assignment assigned to RI12.
+0D2CH 1 0～127/-
+Refer to the ➡ 6.4.1 Input
+signal list for the input
+174

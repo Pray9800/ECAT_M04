@@ -1,0 +1,28 @@
+Chapter7 Torque off function
+7. Torque off function
+7.1 Overview
+Important
+The torque off function is not certified as a safety
+function. Do not use it as a safety feature.
+Note
+ Make sure that the motor is stopped before executing the torque off function. Doing so
+may damage the unit.
+ When returning to normal from the torque-off state, make sure that it is in a safe
+state.
+ The torque off function is a function that cuts off the supply of torque to the motor,
+and does not guarantee that the motor is stopped.
+ When installing or replacing equipment, make sure that the torque off function works
+properly before use.
+The torque off function is a function that cuts off the supply of torque to the motor with
+hardware.
+Torque off request signal input from the outside TO1 and TO2 to switch between the torque-off
+state (the state in which the torque supply is cut off) and the normal state.
+For example, during maintenance, it is assumed that the torque is turned off to prevent
+unintentional driving of the motor.
+You can check whether the motor is in the torque-off state by checking the status of the PWR
+LED (flashing indicates torque-off state, lit indicates normal state) and the torque-off state
+parameter (134CH).
+A failure in the torque-off function can be confirmed by the EDM signal (EDM monitoring signal).
+Depending on the settings, an alarm can be issued when the device transitions to the torque-off
+state.
+84

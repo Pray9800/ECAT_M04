@@ -1,0 +1,52 @@
+Chapter9 Internal register
+9.4 Operation Commands
+Access to internal registers allows control of the motor, control of speed and control of torque.
+For details on how to access the internal registers, see ➡8 RS485 Communication.
+The "Reflect" column in each table indicates the timing when the operation command is reflected.
+For more information, see➡ 9.2 Reflection timing setting parameters.
+9.4.1 Operation Commands
+It controls how the motor is driven and the direction in which it moves.
+address Word content detail Range/Units refle
+Length ct
+3000H 1 Operation order Specifies the operation method. 9 0～21/- A
+consecutive words from 3000H to 3008H must
+be accessed.
+0: STOP
+1: JOG
+2: Speed control
+3: Torque control
+4: Reserved
+5: Signal search
+6: Relative position control(encoder
+position base)
+7: Absolute position control
+8: Homing
+9: Programmed operation
+10 to 15: Reserved
+16: Relative position control/force(encoder
+position base)
+17: Absolute position control/force
+18: Relative position control(command
+position base)
+19: Relative position control/force(command
+position base)
+20: Round absolute position control
+21: Round absolute position control/force
+This parameter is referenced by RS485 type.
+Please refer to the chapter of each
+communication protocol in the instruction
+manual for the operation method of other
+protocols.
+3001H 1 Direction order Specifies the direction of movement. 0～1/- A
+0: CCW
+1: CW
+The operation order (3000H) to which this
+parameter applies are 1, 4, and 5.
+For other operation order, enter any value
+within the range.
+This parameter is referenced by RS485 type.
+Please refer to the chapter of each
+communication protocol in the instruction
+manual for the operation order of other
+protocols.
+133

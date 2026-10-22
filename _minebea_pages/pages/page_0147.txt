@@ -1,0 +1,7 @@
+Chapter9 Internal register
+address Word content detail Range/Unit Initial refle
+Length s value ct
+as 0%.
+0: Disable
+1: Enable
+146

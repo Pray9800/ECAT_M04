@@ -1,0 +1,29 @@
+Chapter7 Torque off function
+7.2 Input/Output Signals
+For information on wiring input and output signals, see ➡ 3.2.7 Torque off request/EDM
+diagnostics controller connection.
+7.2.1 Input Signal
+Signal Name use content
+TO1 Torque off request It cuts off the torque output from the motor output lines A and B
+phases.
+TO2 Torque off request It cuts off the torque output from the motor output line /A and /B
+phase.
+When either the torque cut-off request signal TO1 or TO2 changes from ON (24 VDC) to OFF (0 V),
+the state changes from the normal state to the torque-off state.
+To return to the normal state from the torque-off state, the torque cutoff request signals TO1
+and TO2 must be turned ON (24 V) and then a specified time must elapse (※１) and then operate
+the torque-off state clear parameter (0B00H) or the TO-CLR input signal (※２)。
+※１：Set the torque-off state clear invalid time (0B01H).
+※2: If the torque-off state clear polarity (0B02H) is 0, switch the torque-off state clear parameter (0B00H)
+or the TO-CLR input signal from 1 to 0.If the torque off state clear polarity (0B02H) is 1, the torque
+off state clear parameter (0B00H) or the TO-CLR input signal is switched from 0 to 1.
+Alarm 14 (torque off state) is triggered under the following conditions:
+- When the operation when the TO request signal is valid (0B03H) is set to 1 (alarm occurs) and
+the state transitions to the torque-off state
+- When one of the torque cutoff request signals TO1, TO2 changes from ON to OFF, and the other
+does not change from ON to OFF within the TO request signal (2 systems) abnormality detection
+time (0B04H)
+When a safety device (such as a safety controller) is connected to an external device, a self-
+diagnosis pulse may be superimposed on the output signal of the safety device.
+If this self-diagnosis pulse is 1 ms or less, the torque will not be cut off.
+86

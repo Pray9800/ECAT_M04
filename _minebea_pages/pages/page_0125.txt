@@ -1,0 +1,33 @@
+Chapter9 Internal register
+9. Internal register
+9.1 Internal Register List
+The internal registers of this unit contain the following contents.
+content summary References
+Status Information Displays the status of alarms, RPM, ➡ 9.3 Status Information
+current position, etc.
+Operation Commands Configure the settings for ➡ 9.4 Operation Commands
+controlling the motor.
+Common Parameters Set the parameters common to all ➡ 9.5.1 Common Parameters
+control methods.
+Speed Parameters Configure the speed settings. ➡ 9.5.2 Speed Parameters
+Homing Parameters Configure the settings related to ➡ 9.5.3 Homing Parameters
+homing.
+Parameters for position Configure the settings related to ➡ 9.5.4 Position control
+control position control.
+Control Gain Table Configure the control gain ➡ 9.5.5 Control Gain Table
+settings.
+Force control Parameters Configure the settings related to ➡ 9.5.6 Force control Parameters
+force control.
+Control Signal Parameters Selects and sets the control signal ➡ 9.5.7 Control Signal Parameters
+functions.
+Program operation data Program operation is used to set ➡ 9.5.8 Program operation data
+the control mode and movement
+amount.
+Operation event data Set the operation event data for ➡ 9.5.9 Operation event data
+program operation events.
+Torque Cutoff Parameters Sets the torque cutoff function. ➡ 9.5.10 Torque off Parameters
+Alarm Notification Set and check alarms and ➡ 9.5.11 Alarm Notification
+Parameters
+Parameters notifications.
+Parameter Save Save and initialize parameters. ➡ 9.5.12 Parameter Save
+124

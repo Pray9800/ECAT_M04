@@ -1,0 +1,35 @@
+Chapter5 Various Operation Methods
+5. Various Operation Methods
+There are three ways to operate the motor controller: PLC operation, operation by dedicated
+application, and operation by communication network.
+Operation Method Contents
+Operation by communication Operate according to communication specifications from the
+network communication network. See communication Networks chapter(➡8 RS485
+Communication).
+PLC operation I/O signals and pulse commands are sent from the I/O unit or
+positioning unit of the PLC for operation.
+Operation by dedicated The computer and the motor controller are connected via USB and
+application operated using a dedicated application.
+5.1 Setup procedure
+The basic commissioning procedure up to the operation check of the motor controller is shown
+below.
+For more information, see the relevant chapter.
+Motor controller installation
+➡3 Installation and Wiring
+Setup switch confirmation
+See below
+➡8.1 Connection
+Initialization
+・Location managementestablishment(If necessary)
+➡ 5.3 Position Management Settings
+- Speed parameter setting
+➡5.4.2 Speed parameter setting
+・Homing parameter setting*1
+➡5.4.3 Homing
+For RS485 operation For PLC operation
+operation check operation check
+➡ Since 8.7 Operation data ➡5.4.1 Control Signals
+➡5.4.5 Other operation
+*1 For information on how to set the position of a motor with an absolute encoder (model Mxxxxxxxxxxx),
+refer to “7.8 Recording and Using the Home Position” in the dedicated application manual.
+41

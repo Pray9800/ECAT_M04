@@ -1,0 +1,36 @@
+Chapter5 Various Operation Methods
+Word Range/Unit Initial
+address content detail
+Length s value
+0: Normal *1
+1: Near rotation *2
+2: (+) direction
+3: (-) direction
+*1: For rounding position
+counting: The motor rotates in
+the (+) direction
+when the Target Position exceeds
+the Current Position,
+and in the (-) direction when
+the Target Position is less than
+the Current Position.
+*2: The motor rotates toward the
+shorter travel distance.
+Ensure this is used in
+conjunction with the position
+rounding display range defined
+in 0534H and 0538H.
+Round Method = 0 (Normal) Rounding Method =1(Near rotation)
+Round Method = 2 (+ direction) Round Method = 3 (- direction)
+ Setting the Limit Switch
+Install external switches/sensors at the end of the movable range and configure limit
+switches to stop movement for safety.
+If the movable range is not restricted, no configuration is necessary. This can also be
+replaced with the software limit described later.
+① Assign limit switches LS+ and LS- to IO control inputs.
+Refer to ➡6.2.1 IO Control input for the setting method.
+The set values are LS-FWD (28) for LS+ and LS-REV (29) for LS-.
+② Set the enable levels for limit switches LS+ and LS- (Parameters 051BH, 051CH).
+③ Set the stop method when limit switches LS+ and LS- are active (Parameter 051DH).
+Alarm 10 (Out of Position Range) can also be triggered (Set value 3).
+45

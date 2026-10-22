@@ -1,0 +1,8 @@
+# CMake generation dependency list for this directory.
+D:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CPack.cmake
+D:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/CPackComponent.cmake
+D:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/InstallRequiredSystemLibraries.cmake
+D:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Templates/CPackConfig.cmake.in
+E:/JT-021/BEIJING_ECAT/test_M04/soem/CMakeLists.txt
+E:/JT-021/BEIJING_ECAT/test_M04/soem/cmake/Windows.cmake
+E:/JT-021/BEIJING_ECAT/test_M04/soem/include/soem/ec_options.h.in

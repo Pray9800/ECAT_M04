@@ -1,0 +1,8 @@
+Chapter3 Installation and Wiring
+3. Plug the connector for the control signal terminal into the control signal terminal (CN1)
+of the motor controller.
+( 3 ) Pulse Input Specifications
+ Photocoupler input
+ Line driver output: 26LS31 or equivalent
+ Open collector output: External power supply voltage = 5V±5
+30

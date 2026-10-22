@@ -1,0 +1,7 @@
+Chapter8 RS485 Communication
+18: Relative position control(command position base)
+Set the target position (3006H, 3007H) with a relative value based on command position.
+19: Relative position control/force(command position base)
+Set the target position (3006H, 3007H) with a relative value based on command position,
+and force control operation is performed.
+116

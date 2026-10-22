@@ -1,0 +1,9 @@
+Chapter3 Installation and Wiring
+( 3 ) Example of power and brake connection
+point
+ Provide a protective element such as a varistor near the brake to protect the motor controller
+control circuit from surge voltage when the brake is released.
+ The drain current should be kept below 1 A.
+ BRK+ is conductive to the control power supply. When using an electromagnetic brake, supply
+24 VDC to the control power supply.
+21

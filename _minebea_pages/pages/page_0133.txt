@@ -1,0 +1,31 @@
+Chapter9 Internal register
+Word
+address content detail Range/Units
+Length
+occurred.
+*refer to Notification occurrence time
+history 0
+134AH 2 Notification occurrence Displays the time when the condition
+time history 15 recorded in notification history 15
+occurred.
+*refer to Notification occurrence time
+history 0
+134DH 2 Integrated load monitor Monitor of integrated load. 0～
+2147483647/-
+134FH 1 Driver temperature Monitor of Driver temperature -/0.1℃
+1350H 1 Regenerative resistance Monitor of Regenerative resistance -/0.1℃
+temperature temperature
+1351H 1 Motor temperature Monitor of Motor temperature 0～1500
+/0.1℃
+1352H 2 ODO Meter Monitor of ODO Meter 0～
+4294967295
+/100turn
+1354H 2 TRIP Meter Monitor of TRIP Meter 0～
+4294967295
+/100turn
+135AH 2 Following error monitor Monitor of Following error monitor -/pulse
+135CH 1 Main power supply voltage Monitor of Main power supply voltage monitor -/0.1V
+monitor
+135DH 1 Control power supply Monitor of Control power supply voltage -/0.1V
+voltage monitor monitor
+132

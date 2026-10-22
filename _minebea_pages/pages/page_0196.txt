@@ -1,0 +1,58 @@
+Chapter10 Troubleshooting
+failure due to poor adjustment. down the
+acceleration/deceleration.
+5 Voltage error Main power supply voltage Set the mains voltage as
+(overvoltage/undervo exceeds the specification per specifications.
+ltage) range.
+Internal power supply voltage Acceleration/deceleration 〇
+is abnormally high due to should be slowed down or
+regeneration. load inertia should be
+reduced.
+6 initialization error The load exceeds the maximum Lighten the load.
+rating of the motor. 〇
+Motor cable abnormal Check motor cable.
+7 NV memory error Nonvolatile memory data is Repair support will be
+×
+abnormal. provided.
+8 Overcurrent Overcurrent detected. Check the motor rating,
+〇
+detection load, and cable faults.
+9 Temperature Anomaly Driver or motor became hot. Check the load condition
+〇
+and ambient environment.
+10 Out of position The request exceeded the Review the operating
+range allowable movement. profile.
+Limit SW/Soft Limit SW stop
+condition is detected with
+alarm 10 specified.
+〇
+Round absolute position
+control resulted in a
+movement request for a target
+value outside the round
+position count range.
+11 Illegal parameter There are violations of Check the parameters.
+configuration constraints
+×
+related to multiple
+parameters.
+12 Circuit protection The function to protect the Please accelerate and
+circuit from a voltage rise in decelerate more slowly or
+the internal power supply was reduce the load inertia.
+activated. Check that the power ×
+voltage input to the driver
+is normal.
+13 ABS encoder Communication between ABS Check the encoder cable.
+×
+connection error encoders is abnormal.
+14 Torque off state Torque off occurred when Release the torque off.
+torque off alarm is enabled.
+After one of TO1 and TO2 Check the controller for
+enters the torque off state, torque off requests. ×
+the other does not enter the
+torque off state within a
+predetermined time.
+15 Power reconnection Parameters changed requiring Turn the power back on.
+×
+power cycle.
+195

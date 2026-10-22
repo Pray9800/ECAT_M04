@@ -1,0 +1,50 @@
+Chapter5 Various Operation Methods
+( 3 ) Servo On (automatic servo on is enabled)
+Servo-ON is performed to excite the motor and make it ready for operation, and conversely,
+Servo-OFF is performed to de-energize the motor. The following shows the case where
+servo-ON is automatically executed when the control power is turned on (0516H Servo state
+at power-on: 0 Servo-ON).
+①Turn on the main power supply and control power supply.
+②The motor is excited, the READY output (ready for operation) is turned on, and the SV-
+STS output (servo on state) is turned on. ※1 ※2 ※3
+The electromagnetic brake is in the release state. ※5
+③Make sure that the SV-STS output (servo on state) is ON, and turn on the SV-OFF input
+(servo off). ※1
+READY output turns OFF. The motor enters the de-energized state and the SV-STS output
+turns OFF. The electromagnetic brake enters the holding state. ※5
+④Confirm that the SV-STS output is OFF, and turn the SV-OFF input to OFF. ※1 ※4
+The READY output is turned on.
+⑤Make sure that the READY output is ON and the SV-STS output is OFF, and turn on the
+SV-ON input (servo on). ※1
+The motor is excited and the SV-STS output is turned on. The electromagnetic brake is
+in the release state. ※5
+⑥Confirm that the SV-STS output is ON and turn off the SV-ON input. ※1 ※4
+①
+ON
+Main/Control Power
+OFF
+③
+ON
+SV-OFF Input ④
+OFF
+⑤
+ON
+≦10ms
+SV-ON Input ⑥
+OFF
+② ④
+ON
+READY Output ③
+OFF
+② ⑤
+ON
+SV-STS Output ③
+② ≦10ms ≦10ms ⑤
+YES
+motor excitation ③
+NO
+HOLD
+Electromagnetic brake ※3 ② ⑤
+RELEASE
+Operation of the machine Operation of External Devices
+62

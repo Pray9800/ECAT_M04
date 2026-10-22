@@ -1,0 +1,62 @@
+Chapter9 Internal register
+address Word content detail Range/Units Initial refle
+Length value ct
+13: Force control +
+direction, Z... Executes
+homing mode 4 after detecting
+the torque limit in the +
+direction.
+14: Force control -
+direction, Z... Executes
+homing mode 9 after detecting
+torque limit in the -
+direction.
+15: Position set... Sets the
+current position to the value
+of homing position (0905H).
+0902H 2 Sets the offset distance after -2147483647 0 B
+the homing operation is
+～2147483647
+completed.
+Homing offset distance Moves in the reverse direction /pulse
+of the last detection
+operation (Not executed in
+0900H:15 position set).
+0904H 1 Set the speed of 0902H:Homing 1～100/% 100 B
+offset distance.
+Homing offset speed The setting is made as a
+percentage (%) of the maximum
+speed (0802H).
+0905H 2 Sets the encoder position -2147483648 0 B
+Homing position (current position) to be set ～2147483647
+at the end of homing.
+/-
+0907H 1 Sets the torque limit when 0～1000 500 B
+Homing torque limit homing mode 11 to 14 is
+/0.1%
+executed.
+0908H 2 Sets the amount of offset -2147483647 0 B
+distance before starting Z-
+～2147483647
+phase detection when homing
+mode 13 to 14 is executed. /pulse
+Z-phase detection start *Range L: The lower limit is
+offset 0x80000001 (-2147483647)
+instead of 0x80000000 (-
+2147483648)
+because the maximum offset
+amount that can be set is ±
+2147483647.
+090AH 1 Homing torque limit Sets the torque limit 0～ 0 B
+detection time when homing
+detection time 10000/msec
+mode 11 to 14 is executed.
+address Word content detail Range/Unit Initial refle
+Length s value ct
+0816H 2 1～ 1600 B
+Homing search
+Sets the Homing search speed 2147483647
+speed
+/pps
+0818H 2 Homing Speed Sets the Homing Speed 1～ 64000 B
+148

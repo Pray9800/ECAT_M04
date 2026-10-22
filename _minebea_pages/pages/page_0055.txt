@@ -1,0 +1,158 @@
+Chapter5 Various Operation Methods
+※1 If there is a difference in the signal condition, see ➡5.4.7 Status check.
+※2 This chart shows the automatic servo on enabled when the control power is turned on (parameter
+0516H: 0 (initial value)). If automatic servo on disabled (parameter 0516H: 1), execute servo-
+on. For servo-on, refer to ➡5.4.5 Other operation:Servo On (Automatic Servo On is disabled).
+※3 Turn off the HOME input before executing the following operations.
+※4 For details of parameter 0905H (homing data) mode, see➡ 9.5.3 Homing Parameters.
+54
+M a i
+E
+n
+M
+n
+/
+o
+c
+C
+S
+t
+o
+o
+R
+V
+o
+d
+n
+E
+-
+M
+r
+e
+t
+H
+A
+S
+O
+r
+r
+O
+D
+T
+V
+o
+o
+M
+Y
+S
+E
+p
+P
+l
+E
+e
+o
+O
+O
+O
+r
+s
+P
+I
+u
+u
+u
+a
+i
+o
+n
+t
+t
+t
+t
+t
+w
+p
+p
+p
+p
+i
+i
+e
+u
+u
+u
+u
+o
+o
+r
+t
+t
+t
+t
+n
+n
+D
+S
+O
+O
+O
+O
+O
+R
+T
+O
+F
+O
+F
+O
+F
+O
+F
+O
+F
+I
+O
+N
+F
+N
+F
+N
+F
+N
+F
+N
+F
+V
+P
+E
+O p e r a t i
+①
+o n o f t
+・
+h e
+・
+m
+・
+a c h
+②
+②
+i n
+≦
+e
+1 0 m s
+③
+③
+③
+③
+O p e r a t
+O p e r a t i o n s e t b y
+p a r a m e t e r 0 9 0 0 H
+i o n o f E x t e r n a l D e v i c
+・
+e s
+・ ・
+④
+④
+④
+V a l u e s e t t o 0 9 0 5 H

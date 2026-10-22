@@ -1,0 +1,37 @@
+Chapter10 Troubleshooting
+10.2 Notification
+Notification output can be made before an alarm occurs.
+Each notification value can be set appropriately to help maintain the equipment.
+You can check the type of notification that is occurring from various communication I/Fs, control
+output, and dedicated applications. When a notification occurs, the ALM LED flashes every two
+seconds. If an alarm occurs at the same time, the ALM LED will give priority to the alarm display.
+When a notification occurs, the motor continues to run without stopping.
+( 1 ) Clear Notification
+Once you have eliminated the cause of the notification, clear the notification in one of the
+following ways:
+- Clearing notifications from network communication
+- Notification clearing from control signals
+- Notification clear from the dedicated application
+If the automatic clearing of notifications is set, it will be automatically cleared when the
+cause of the notification is removed.
+( 2 ) Notification List
+Notifications are output when the threshold is exceeded. The types of notifications, the
+threshold ranges, and the initial values are shown in the table below.
+The procedure for setting the threshold is as follows:➡9.5.11 Alarm Notification Parameters.
+initial
+(data) item Contents Range/Unit
+value
+Integrated load This is the integrated load monitor value. 0 to 2147483647 0
+The integrated load is the integrated value of
+the output torque during operation. It can
+detect when the torque increases more than
+expected due to aging of the equipment.
+A setting of 0 disables the function.
+Driver temperature Temperature monitor value of driver IC. 40 to 780 780
+/0.1°C
+Regenerative resistance Temperature monitored value of regenerative 40-1750 1000
+temperature resistance. /0.1°C
+Motor temperature Temperature monitor value of the motor. 40 to 1500 1000
+*The temperature is measured in the encoder /0.1°C
+part.
+197

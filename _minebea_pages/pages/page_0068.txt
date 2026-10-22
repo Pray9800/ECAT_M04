@@ -1,0 +1,124 @@
+Chapter5 Various Operation Methods
+※1 If there is a difference in the signal condition, see ➡5.4.7 Status check.
+※2 This chart shows the automatic servo on enabled when the control power is turned on (parameter
+0516H: 0 (initial value)). If automatic servo on disabled (parameter 0516H: 1), execute servo-
+on. For servo-on, refer to ➡5.4.5 Other operation:Servo On (Automatic Servo On is disabled).
+※3 Tturn off the RTRN input before executing the following actions.
+※4 The INPOS output is turned on when the motor position (encoder position) is within a
+predetermined distance from the target position. The above distance can be adjusted by the
+parameter 010AH (imposition zone count value). Set it according to your needs.
+67
+M a i n
+M
+/
+o
+C
+S
+t
+o
+R
+V
+o
+I
+n
+E
+-
+M
+r
+N
+t
+R
+A
+S
+O
+P
+r
+T
+D
+T
+V
+o
+O
+o
+R
+Y
+S
+E
+p
+S
+l
+N
+e
+O
+O
+O
+r
+O
+P
+I
+u
+u
+u
+a
+u
+o
+n
+t
+t
+t
+t
+t
+w
+p
+p
+p
+p
+i
+p
+e
+u
+u
+u
+u
+o
+u
+r
+t
+t
+t
+t
+n
+t
+D
+S
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+R I V
+T O P
+O N
+O F F
+E
+O p e r a t i
+①
+o n o f t h e
+②
+②
+m a c
+≦
+h i n
+1
+e
+0 m s
+③
+③
+③
+O p e r a t i o n o f E x t e r n a l D e v i c e s
+④
+④

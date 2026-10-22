@@ -1,0 +1,30 @@
+Introduction.
+Introduction.
+Thank you very much for adopting cX-stepper S-series (motor controller).
+This manual is intended for persons with expertise in motor control to explain how to handle
+the product and safety precautions. Please read and fully understand this manual before using
+the product safely.
+This manual should be kept in a safe place so that it can be retrieved and read at any time.
+This manual describes handling procedures and safety precautions for the following persons who
+use this product.
+ Motor control specialist
+ User installing the unit
+ User to operate and maintain the monitoring system
+ Final user of the monitoring system
+ Marks and Promises Used in This Manual
+This manual provides the following precautions to ensure correct and safe use of the product
+and to prevent injury to persons or accidents. Please familiarize yourself with the contents
+before using the product.
+Warning
+Indicates a potentially hazardous situation that, if not handled properly, could result in
+death or serious injury.
+Caution
+Indicates a potentially hazardous situation which, if not handled properly, may result in
+personal injury or property damage.
+point
+This section contains supplementary information on the installation of the device, connection
+with other devices, and settings and operation of the device.
+Caution
+Please note that the information in this document is subject to change without notice for
+product improvement or other reasons.
+1

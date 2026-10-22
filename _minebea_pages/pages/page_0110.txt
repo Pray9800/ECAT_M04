@@ -1,0 +1,60 @@
+Chapter8 RS485 Communication
+address Word content detail Range/Units Initial refle
+Length value ct
+signal in the - direction.
+10: LS-, Z.... . Detects the
+rising edge of the Z phase in
+the + direction after the
+edge of the LS- signal is
+detected.
+11: Force control +
+direction... Detects the
+torque limit in the +
+direction.
+12: Force control -
+direction... Detects the
+torque limit in the -
+direction.
+13: Force control +
+direction, Z... Executes
+homing mode 4 after detecting
+the torque limit in the +
+direction.
+14: Force control -
+direction, Z... Executes
+homing mode 9 after detecting
+torque limit in the -
+direction.
+15: Position set... Sets the
+current position to the value
+of homing position (0905H).
+0902H 2 Sets the offset distance -2147483647 0 B
+after the homing operation is
+～2147483647
+completed.
+Moves in the reverse /pulse
+Homing offset distance
+direction of the last
+detection operation (Not
+executed in 0900H:15 position
+set).
+0904H 1 Set the speed of 0902H:Homing 1～100/% 100 B
+offset distance.
+Homing offset speed The setting is made as a
+percentage (%) of the maximum
+speed (0802H).
+0905H 2 Sets the encoder position -2147483648 0 B
+Homing position (current position) to be set ～2147483647
+at the end of homing.
+/-
+0907H 1 Sets the torque limit when 0～1000 500 B
+Homing torque limit homing mode 11 to 14 is
+/0.1%
+executed.
+0908H 2 Sets the amount of offset -2147483647 0 B
+distance before starting Z-
+～2147483647
+Z-phase detection start phase detection when homing
+offset mode 13 to 14 is executed. /pulse
+*Range L: The lower limit is
+109

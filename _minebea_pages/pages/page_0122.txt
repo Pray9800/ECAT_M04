@@ -1,0 +1,43 @@
+Chapter8 RS485 Communication
+ Loop count
+If you want the step to be the beginning of the loop, set a value of 2~255. If it is
+not at the beginning, set it to 0.
+ Loop End
+Set 1 if you want that step to be the end of the loop. If it is not an end point, set
+it to 0.
+ Event
+Sets the number of the operation event detection to trigger the event. The conditions
+under which the event is triggered are set in the operation event detection.
+ Events(Priority)
+Sets the number of the operation event detection to trigger the event (priority). The
+conditions under which the event is triggered are set in the operation event detection.
+( 2 ) Operation Event Detection
+If a specified event (input change from the control signal pin) is detected during
+program operation, another program operation can be activated.
+You can register 32 events (0~31), and please set the following items for each.
+Setting items unit Setting range Initial value
+Event coupling - 0,1 0
+Event Branch Destination - -1～63 -1
+Event Wait Time msec 0～30000 0
+Event Signal Source - 0～255 0
+Event Detection Type - 0～8 0
+Event Detection Count msec/count 0～65535 0
+ Event Coupling
+Sets the join type for event branching.
+If you select "Coupling", set it to 1. If it is not, set it to 0.
+ Event Branch Destination
+Set the branch destination of the program operation by event from 0~63. Set it to -1
+for exit.
+ Event Wait Time
+Sets the wait time for event branching.
+ Event Signal Source
+Set the event signal source (IO number).
+ Event Detection Type
+Select the type of event detection.
+number Event Trigger Type
+0 No setting
+1 (Accumulated valid time)-(Accumulated invalid time)
+2 Valid continuously for a predetermined period of time
+3 (Accumulated invalid time) - (Accumulated valid time)
+4 Invalid for a predetermined period of time
+121

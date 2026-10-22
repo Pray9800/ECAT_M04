@@ -1,0 +1,17 @@
+Chapter9 Internal register
+Homing operation setting 8: LS- operation
+This is the mode to perform homing by LS-. The edge of LS- is detected.
+● When the homing start position is LS-undetected
+High = Inactive, Low = Active (at default)
+No. operation
+① The edge of LS- is detected in the - direction at the homing speed.
+② The edge of LS- is detected in the + direction at the homing search speed.
+③ The edge of LS- is detected in the - direction at the homing search speed, and the
+detection operation ends.
+● When the homing start position is LS-detected
+High = Inactive, Low = Active (at default)
+No. operation
+① The edge of LS- is detected in the + direction at the homing search speed.
+② The edge of LS- is detected in the - direction at the homing search speed, and the
+detection operation ends.
+157

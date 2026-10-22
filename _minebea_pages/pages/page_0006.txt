@@ -1,0 +1,12 @@
+Precautions for use
+responsibility.
+• compatible standards
+This unit complies with the following standards
+EN IEC63000:2018
+“Technical Document for the Evaluation of Electrical and Electronic Products Concerning
+Restrictions on the Use of Hazardous Substances" (RoHS Directive)
+EN IEC 61800-3:2024
+“EMC requirements for adjustable speed power drive systems“ (EMC Directive)
+EN61000-6-4: 2007+A1: 2011
+“Emissions in the industrial environment" (EMC Directive)
+5

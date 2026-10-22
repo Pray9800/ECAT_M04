@@ -1,0 +1,12 @@
+Chapter1 Overview
+( 2 ) Stepping motor with encoder
+Motor terminals
+Encoder terminal
+Mounting hole
+Motor shaft
+name Description.
+Motor shaft Rotation axis of a stepp ing motor with encoder.
+Mounting hole Screw holes for mounting plate.
+Motor terminals Connect the connector for motor power.
+Encoder terminal Connect the encoder connector.
+14

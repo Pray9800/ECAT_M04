@@ -1,0 +1,67 @@
+Chapter9 Internal register
+Word Initial refle
+address content detail Range/Units
+Length value ct
+a function to the output
+signal.
+0530H 2 Zone2 range(upper Sets the Zone2 range (upper -2147483648 214748 B
+limit) limit). ～
+3647
+ZONE2 is enabled when the 2147483647
+encoder position is within the /-
+Zone2 range.
+ZONE2 can be used by assigning
+a function to the output
+signal.
+0532H 2 Zone2 range(lower Sets the Zone2 range (lower -2147483648 214748 B
+limit) limit). ～
+3647
+ZONE2 is enabled when the 2147483647
+encoder position is within the /-
+Zone2 range.
+ZONE2 can be used by assigning
+a function to the output
+signal.
+0534H 1 Position round display Sets the percentage by which 0～1000 0 C
+offset the count range of the /0.1%
+position round display is
+offset to the negative side.
+0536H 1 Enable Position Round Sets the position round 0～1/- 0 B
+Display display validity at the
+current command position
+(3024H) and current encoder
+position (3026H).
+0: Disabled (Displayed in 32-
+bit position)
+1: Enable
+0538H 1 Number of position Sets the number of turns for 1～10000 10000 C
+round display turns the position round display. /0.1turn
+The number of turns in the
+position round display must be
+set to an integral number of
+10000[0.1r].
+0541H 1 Signal search 0 input Sets the effective level of 0～1/- 0 B
+SS0 polarity input signal SS0 to be
+referenced during signal
+search.
+0: Coupler ON or 1
+1: Coupler OFF or 0
+The setting is Coupler ON/OFF
+for signals from the Control
+signal pin, and 0/1 for data
+signals from communication
+I/F.
+Refer to the Control signal
+pin specifications for
+details on Coupler ON/OFF.
+0542H 1 Signal search 1 input Sets the effective level of 0～1/- 0 B
+SS1 polarity input signal SS1 to be
+referenced during signal
+search..
+0: Coupler ON or 1
+1: Coupler OFF or 0
+The setting is Coupler ON/OFF
+for signals from the Control
+signal pin, and 0/1 for data
+signals from communication
+141

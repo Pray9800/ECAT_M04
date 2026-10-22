@@ -1,0 +1,65 @@
+Chapter9 Internal register
+Word Initial refle
+address content detail Range/Units
+Length value ct
+It is not a function that can
+hold the current position.
+0513H 1 Low-pass filter for Sets the low-pass filter for 0～3/- 1 C
+speed feedback signal the speed feedback signal.
+Setting 0 means no filter.
+The cutoff frequency increases
+in the order of 1 to 3.
+0514H 1 Input selection of Enables/disables external 0～1/- 1 C
+command position pulse commands.
+0: External pulse command
+1: Command operation (initial
+value)
+When external pulse commands
+are selected, command input
+cannot be used.*1
+*1 Excluding Homing, Servo-on,
+Servo-off, and Emergency stop.
+*1 Parameter read and write
+operations are still possible.
+When external pulse commands
+are selected, motor operations
+via input signals cannot be
+executed.*2
+*2 Excluding SV-ON, SV-OFF, PD-
+CLR, E-STOP, HOME, and RTRN.
+*2 Operations not involving
+motor movement, such as ALM-CLR
+and TO-CLR, are possible
+(refer to the "Input Signal
+List").
+0516H 1 Servo state at power-on Selects automatic servo-on when 0～1/- 0 C
+the control power is turned on.
+Initialization operation and
+current position setting are
+also performed
+when the servo is turned on for
+the first time. 051FH is also
+referenced.
+0: Servo-on
+1: Servo-off
+0517H 1 Initialization delay Sets the delay time when 0～ 0 C
+time initialization operation is
+65535/msec
+executed
+0518H 1 Electromagnetic brake Executes user-operated 0～1/- 1 A
+manual setting electromagnetic brake control.
+This is reflected when the
+Manual brake enable (3060H) is
+set to 1.
+0: Brake hold (coupler OFF)
+1: Brake release (coupler ON)
+* This is not saved in NV
+memory, so it will revert to
+its initial value when power is
+turned off.
+0519H 1 Electromagnetic brake Sets the delay time for when 0～1000/msec 0 A
+manual setting the electromagnetic brake is
+turned on (release → hold).
+This setting is reflected when
+the Manual brake enable (3060H)
+137

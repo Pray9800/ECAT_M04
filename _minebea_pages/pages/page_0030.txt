@@ -1,0 +1,12 @@
+Chapter3 Installation and Wiring
+( 2 ) Connection of control cables
+Caution
+ Do not route control cables in the same piping as other cables. Noise may cause
+malfunction.
+ The cable length between the motor controller and the PLC/controller should not exceed
+3 m.
+1. Peel off about 7 to 8 mm of the lead wire sheath.
+Matching lead wires are AWG 30 to 20. Please provide your own lead wires.
+2. Check the pin assignment, and while pressing the orange button with a flat-blade screwdriver
+(①), connect the lead wire to the supplied connector for the control signal terminal (②).
+29

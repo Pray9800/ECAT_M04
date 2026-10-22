@@ -1,0 +1,23 @@
+Chapter3 Installation and Wiring
+Pin No. signal name use
+7 ENC B- Encoder phase B-
+8 ENC Z+ Encoder phase Z+
+9 ENC Z- Encoder phase Z-
+10 ENC 0V Power supply for encoder GND
+( 3 ) Applicable Encoder Cables
+Cable Type Compatible motor Cable length remarks
+model
+2417-1704-17F01 M11PMKxxxx 1m Flexible shielded cable
+2417-1704-17F03 M17PMxxxxx 3m
+2417-1704-17F05 M23KMxxxxx 5m
+ Housing/Contact on motor controller side
+manufacturer Model No./Lead Wire Standard
+housing J.S.T.MFG.CO.,LTD PUDP-14V-S
+contact J.S.T.MFG.CO.,LTD SPUD-002T-P0.5
+Applicable lead wires - AWG 28 to 24
+ Motor side housing/contact
+Motor type Housing (Manufacturer) Contact (Manufacturer) Applicable lead wires
+Mxxxxxxxxxxxxx NSHR-10V-S SSHL-003T-P0.2 AWG 32 to 28
+(J.S.T.MFG.CO.,LTD) (J.S.T.MFG.CO.,LTD)
+The round terminal for the frame GND is 0.5-3 (J.S.T. Mfg. Co., Ltd.)
+27

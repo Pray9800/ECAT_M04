@@ -1,0 +1,113 @@
+﻿=== M04 EtherCAT Transparent Diagnose ===
+==========================================
+
+Using default adapter configuration
+Adapter: \Device\NPF_{10665CCF-F790-4087-A630-9BD2F614C3EA}
+
+Initializing SOEM...
+SOEM initialization succeeded!
+
+Scanning EtherCAT slaves...
+Found 1 slave(s)
+
+=== Slave 1 Info ===
+Name: EC2-MB-M04
+Vendor ID: 0x00000B95
+Product Code: 0x00001410
+Revision: 0x00010100
+Serial: 0x00000000
+DL Address: 0x1001
+State: 0x01
+Input PDO Size: 0 bytes
+Output PDO Size: 0 bytes
+>>> This is AMSAMOTION device!
+>>> This is EC2-MB-M04 device!
+
+Waiting slave to reach PRE-OP for mailbox access...
+Slave state now: 0x02 (0x02=PRE-OP)
+
+--- RS485-A params (0x8000) ---
+  port interface: 0
+  gateway mode  : PassThrough
+[0x8005 PRE-OP-baseline] total errors=0
+
+--- RxPDO(master->module) assignment (0x1C12): 4 PDOs ---
+  PDO 0x1600 (10 entries):
+    +  0  0x0108:0   112 bit
+    + 14  0x0208:0   112 bit
+    + 28  0x0308:0   112 bit
+    + 42  0x0408:0   112 bit
+    (PDO total 126 bytes)
+  PDO 0x1602 (34 entries):
+    +  0  0x0108:32  112 bit
+    + 14  0x0208:32  112 bit
+    + 28  0x0308:32  112 bit
+    + 42  0x0408:32  112 bit
+    (PDO total 476 bytes)
+  PDO 0x1603 (34 entries):
+    +  0  0x0108:48  112 bit
+    + 14  0x0208:48  112 bit
+    + 28  0x0308:48  112 bit
+    + 42  0x0408:48  112 bit
+    (PDO total 476 bytes)
+  PDO 0x1604 (34 entries):
+    +  0  0x0108:64  112 bit
+    + 14  0x0208:64  112 bit
+    + 28  0x0308:64  112 bit
+    + 42  0x0408:64  112 bit
+    (PDO total 476 bytes)
+
+--- TxPDO(module->master) assignment (0x1C13): 4 PDOs ---
+  PDO 0x1A00 (1 entries):
+    +  0  0x0110:0   96 bit
+    (PDO total 12 bytes)
+  PDO 0x1A01 (34 entries):
+    +  0  0x0108:16  96 bit
+    + 12  0x0208:16  96 bit
+    + 24  0x0308:16  96 bit
+    + 36  0x0408:16  96 bit
+    (PDO total 408 bytes)
+  PDO 0x1A02 (34 entries):
+    +  0  0x0108:32  96 bit
+    + 12  0x0208:32  96 bit
+    + 24  0x0308:32  96 bit
+    + 36  0x0408:32  96 bit
+    (PDO total 408 bytes)
+  PDO 0x1A03 (34 entries):
+    +  0  0x0108:48  96 bit
+    + 12  0x0208:48  96 bit
+    + 24  0x0308:48  96 bit
+    + 36  0x0408:48  96 bit
+    (PDO total 408 bytes)
+Slot 0x8010: ModuleID=0x0200 p5=0 Trigger=ForcePoll Interface=INVALID(>=4)!
+  -> Interface invalid, rewritten to RS485_A
+
+--- SM registers ---
+  SM0: start=0x1000 len=288
+  SM1: start=0x1120 len=288
+  SM2: start=0x1240 len=10
+  SM3: start=0x1E40 len=0
+
+Parsed: transparent output Valid@-1 Len@-1 Data@-1 (cap 0B), input windows=0
+!! No transparent module (0x7010) in output PDO, check assignment dump above
+
+Configuring PDO mapping...
+Configuring distributed clocks...
+
+Waiting for slaves to enter SAFE-OP state...
+Obytes=112 Ibytes=104 expectedWKC=3
+Slaves entered SAFE-OP state!
+
+Requesting OP state...
+Failed to enter OP state!
+Current state: 0x01
+
+=== Final Slave Status ===
+Slave 1: State=0x02, Lost=0
+
+Closing SOEM...
+SOEM closed
+
+=== Test Complete ===
+Press Enter to exit...
+

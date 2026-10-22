@@ -1,0 +1,29 @@
+Chapter8 RS485 Communication
+( 2 ) Operation
+Basically, operation by RS485 is performed with the 9-word data setting shown in ➡ 9.4.1
+Operation Commands.
+Here is an example of homing data.
+address Word content detail
+Length
+3000H 1 Operation order Specifies the operation method.
+8: Homing
+3001H 1 Direction order * Not used for homing.
+The direction is determined by the parameter "Homing mode
+(0900H)”
+3002H 1 Speed order(upper) * Not used for homing.
+The speed is determined by the parameters "Homing search Speed
+3003H 1 Speed order(lower) (0816H)" and "Homing Speed (0818H)".
+3004H 1 Stop Option * Not used for homing.
+3005H 1 Operation number * Not used for homing.
+order
+3006H 1 Target * Not used for homing.
+position(upper)
+3007H 1 Target
+position(lower)
+3008H 1 Torque order * Not used for homing.
+・Torque is determined by the maximum torque value (0500H)
+(other than when force control) and the torque limit (0907H)
+(when force control).
+・The acceleration/deceleration is determined by the parameter "homing Accel/Decel speed
+(081AH)".
+111

@@ -1,0 +1,47 @@
+Chapter8 RS485 Communication
+address Word content detail Range/Unit Initial refle
+Length s value ct
+curve ratio (0806H, 080DH) is regarded
+as 0%.
+0: Disable
+1: Enable
+8.7.2 Homing
+( 1 ) Parameter setting
+Set the following parameters via RS485 communication or a dedicated application.
+For more information on how to access internal registers in RS485 communication, see ➡8
+RS485 Communication and ➡ 9 Internal register.
+How to operate in the dedicated application, see ➡ 5.5 Operation by dedicated application.
+address Word content detail Range/Units Initial refle
+Length value ct
+0900H 1 Homing mode Sets the homing mode. 1～15/- 12 B
+1: ORG(+ side)... . Detects
+the + side edge of the ORG
+signal.
+2: ORG(+ side), Z.. Detects
+the rising edge of the Z
+phase in the - direction
+after the + side edge of the
+ORG signal is detected.
+3: LS+... Detects the edge of
+LS+ signal.
+4: Z(+ side)... Detects the
+rising edge of the Z-phase
+signal in the + direction.
+5: LS+, Z... Detects the
+rising edge of the Z phase in
+the - direction after
+detecting the edge of the LS+
+signal.
+6: ORG(- side).... . Detects
+the - side edge of the ORG
+signal.
+7: ORG(- side), Z.. . Detects
+the rising edge of the Z
+phase in the + direction
+after the - side edge of the
+ORG signal is detected.
+8: LS-... Detects the edge of
+the LS- signal.
+9: Z(-side)... . Detects the
+rising edge of the Z-phase
+108

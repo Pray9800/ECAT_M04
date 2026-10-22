@@ -1,0 +1,23 @@
+Chapter5 Various Operation Methods
+5.4.5 Other operation
+( 1 ) Position control with PRG signal (program operation)
+Position control operation is performed using the input signal PRG (program operation).
+⓪Preparation
+Set the desired operation to any operation data number in the programmed operation
+data using RS485 communication or a dedicated application. When multiple operation
+data numbers are consecutively executed by programmed operation, at least the first
+operation data number to be executed should be in the range of 0 to 7.
+* For details of program operation, see ➡ 9.5.8 Program operation data.
+①Turn on the main power supply and control power supply.
+②Confirm that the READY output (ready for operation) is ON and the SV-STS output (servo
+on state) is ON. ※1 ※2
+③Set the input signals of PNUM2 to PNUM0 inputs (program operation number designation)
+to correspond to the operation data number set in ⓪. ※3
+④When the PRG input is turned ON, the position control operation specified by the program
+operation data is executed. When the operation starts, the READY output turns OFF and
+the MOVE output turns ON. Confirm that the READY output is OFF and turn off the PRG
+input. ※4
+⑤When the operation is finished, the MOVE output is turned OFF and the READY output is
+turned on. INPOS output turns ON when the motor position (encoder position) is within
+a predetermined distance from the target position. ※5
+59

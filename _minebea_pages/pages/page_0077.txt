@@ -1,0 +1,52 @@
+Chapter6 Control signal
+6.3 Output signal
+6.3.1 IO Control Output
+The method of routing a control cable to the control signal terminal and directly outputting
+the signal is the IO control output (DO).
+name explanation
+Output function Select the output signal to be assigned to the terminal.
+ Output function
+function parameter explanation Initial value
+DO0 Function Select the output signal to be assigned ➡ 9.5.7 Control
+to D0～DO3.
+assignment Signal
+[Setting range]
+DO1 Function Parameters
+➡ 6.4.2 Output signal.
+DO Function
+assignment
+selection DO2 Function
+assignment
+DO3 Function
+assignment
+6.3.2 Signal Composit Output
+(SO) is a method of creating a new signal from the combined logic of any two output signals.
+It can be used without wiring and can be set up to two. The signal you created (SO0,1)can
+be assigned to IO control outputs, etc.
+name explanation
+Signal source A Selection Select signal source A.
+Signal source A inverted setting Sets the signal polarity of signal source A.
+Signal source B Selection Select signal source B
+Signal source B Inverted setting Sets the signal polarity of signal source B.
+Output Logic Setting Sets the logic coupling between signal sources A and B.
+ Signal source A selection
+function parameter explanation Initial value
+Signal SO0 Signal Source A Select output signal to be assigned to
+signal source A.
+Selection
+Composit [Setting range] 128:OFF
+SO1 Signal Source A ➡ 6.4.2 Output signal.
+Output Selection
+ Signal source A inverted setting
+function parameter explanation Initial value
+Signal SO0 signal source A Sets the signal polarity of signal
+source A.
+inverted setting
+Composit [Setting range] 0
+SO1Signal sourceA 0: Do nothing
+Output inverted setting 1: Invert
+ Signal source B selection
+function parameter explanation Initial value
+Select output signal to be assigned to
+Signal SO0 Signal Source 128:OFF
+76

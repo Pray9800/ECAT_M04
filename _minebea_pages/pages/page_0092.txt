@@ -1,0 +1,11 @@
+Chapter8 RS485 Communication
+8. RS485 Communication
+8.1 Connection
+8.1.1 RS485 communication terminal(CN6,CN7) Pin Assignment
+Use the RS485 communication terminals (CN6, CN7) to connect the RS485 device to the motor
+controller.
+Pin No. Signal Name use remarks
+1 TRX+ RS485+ Differential data
+2 TRX- RS485- Differential data
+3 GND ― ―
+91

@@ -1,0 +1,10 @@
+Chapter1 Overview
+1.2 Check the bundle
+Before starting to use the unit, be sure to check that you have all of the following equipment
+Motor controller 1 unit
+For main power input For control signal Connector for TO/EDM
+terminal terminal terminal(※)
+Terminal block 1 piece Connector 1 piece 1 piece
+※ The TO/EDM terminal connector is equipped with a jumper to disable the torque off function. For
+details, see ➡ 3.2.7 Torque off request/EDM diagnostics
+10

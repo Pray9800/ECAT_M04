@@ -1,0 +1,38 @@
+Chapter3 Installation and Wiring
+3.2.7 Torque off request/EDM diagnostics controller connection
+Connect the PLC or controller to the motor controller using the supplied TO/EDM connector.
+For details on the torque off function, refer to ➡ 7 Torque off function.
+( 1 ) TO/EDM pin (CN5) Pin assignment
+Pin No. signal name use remarks
+1 EDM2+ EDM supervisory signal Connects to the controller for EDM monitoring.
+When not using the torque off function, do not
+2 EDM1+ EDM supervisory signal
+connect anything.
+3 TO2- Torque off request Connects to the torque off request controller.
+When not using the torque off function, connect
+the jumper wire as shown in next page.
+4 TO1- Torque off request
+When using the torque off function, remove the
+jumper wire and connect it to the controller.
+5 +14V Internal power supply When not using the torque off function, connect
++14V the jumper wires as shown in the table below.When
+using the torque off function, do not connect
+anything.
+6 - Not used. -
+7 EDM2- EDM supervisory signal Connects to the controller for EDM monitoring.
+When not using the torque off function, do not
+8 EDM1- EDM supervisory signal
+connect anything.
+9 GND GND for internal power When not using the torque off function, connect
+supply +14V the jumper wires as shown in the table below.When
+using the torque off function, do not connect
+anything.
+10 TO2+ Torque off request Connects to the torque off request controller.
+When not using the torque off function, connect
+the jumper wire as shown in next page.
+11 TO1+ Torque off request
+When using the torque off function, remove the
+jumper wire and connect it to the controller.
+12 - Not used. -
+※For RS485 type, EDM2+ and EDM2- are not used.
+37

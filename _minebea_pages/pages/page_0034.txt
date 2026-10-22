@@ -1,0 +1,8 @@
+Chapter3 Installation and Wiring
+( 9 ) Connection example
+ Sink Logic Circuit
+point
+ The output signal should be less than 30 VDC.
+ Be sure to use ±OUT0~3 with a current value of 10 mA or less. If the current exceeds this
+value, insert an external limiting resistor R1 to keep the current below 10 mA.
+33

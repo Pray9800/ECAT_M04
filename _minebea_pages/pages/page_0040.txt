@@ -1,0 +1,9 @@
+Chapter3 Installation and Wiring
+( 3 ) TOn signal input specifications
+ Photocoupler input
+ External power supply voltage = 24VDC±10%
+( 4 ) EDM1 signal output specifications
+ Open collector output
+ External power supply voltage ≤ DC30V
+ Collector current ≤ 50mA
+39

@@ -1,0 +1,51 @@
+For your safety
+Warning
+only) of this unit are not insulated. Do not connect a device with a grounded negative
+side to the power supply of this unit while the positive side is grounded. Doing so
+will cause a short circuit, damaging this unit and the connected device and resulting
+in a breakdown.
+Operation
+ Do not input power input voltage exceeding the maximum rating of this unit, as this may
+result in fire or electric shock.
+Caution
+General
+ Do not use this unit beyond the specifications and operating conditions, as this may
+result in electric shock, injury, or damage to the unit.
+ Do not press hard along the edges or corners of the housing as this may result in
+injury.
+ Do not insert your fingers or any other objects into the openings and connectors of
+this unit as this may result in fire, electric shock or injury.
+ Do not touch the unit or connectors while it is running or for a while after it has
+stopped. This may cause damage. In addition, the surface of the unit is hot and may
+cause burns.
+ Do not touch the unit or connectors for a while after the unit has stopped operating,
+as residual charges may cause electric shock.
+ When touching the unit or connectors, take anti-static measures to prevent static
+electricity from escaping, which may cause damage to the unit.
+ For the power supply of this unit, use a DC power supply with reinforced insulation on
+the primary and secondary sides, as this may cause electric shock.
+ Please take measures to protect the power output of this unit according to the
+operating environment, otherwise it may cause a fire.
+ Do not subject the unit to shocks such as hitting it with something or dropping it, as
+this may cause the electrical circuits to malfunction.
+ Do not disassemble, modify or repair this unit. Doing so may result in fire, electric
+shock or injury. For internal inspection or repair, contact the branch or sales office
+where you purchased the unit.
+ Make sure the input power voltage is within the specified range, otherwise it may cause
+a breakdown.
+Installation and wiring
+ Do not modify or alter the attached cable. Doing so may cause electric shock or injury.
+ Be sure to mount the unit and motor securely. Dropping the motor may cause injury or
+damage to the equipment.
+ Do not apply excessive stress to cables and connectors.
+This may cause fire, electric shock, or damage to the unit (circuit board).
+Operation
+ Fail-safe measures should be taken to ensure that the entire equipment works in a safe
+direction in the event of a malfunction of the unit or an external problem.
+ Use the motor and motor controller in accordance with ➡1.3 Compatible stepping motor
+with encoder. Failure to do so may cause fire or equipment damage.
+ Do not touch the motor or actuator during operation. Doing so may cause injury.
+ The surface temperature of the motor may become hot even during normal operation. This
+may cause burns.
+ When the equipment stops due to an emergency stop or power outage, and when it resumes
+3

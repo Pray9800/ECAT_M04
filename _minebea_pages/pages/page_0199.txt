@@ -1,0 +1,34 @@
+Chapter10 Troubleshooting
+initial
+(data) item Contents Range/Unit
+value
+ODO Meter This is the monitor value of the ODO meter 0 to 2147483647 0
+(total motor rotation speed). /100turn
+A setting of 0 disables the function.
+TRIP Meter This is the monitor value of the TRIP meter 0 to 2147483647 0
+(total motor rotation speed). /100turn
+You can reset the TRIP meter to 0 by clearing
+the TRIP meter.
+A setting of 0 disables the function.
+Overvoltage The monitored value of the main power supply 0 to 1000 550
+voltage. /0.1V
+Following error Monitored value of position deviation. 0 to 2147483647 25000
+/pulse
+Overspeed This is the overspeed monitor value. 0 to 9000/rpm 4500
+A setting of 0 disables the function.
+( 3 ) Sub-notification List
+A sub-notification is output when an action request fails. Sub-notifications are output when
+the function is enabled (the default value is disabled).
+item content
+Command execution This is output when an action request is not executed.
+failure
+Illegal target value This is output when an action request is made that includes an inappropriate
+target value.
+( 4 ) Notification History
+Up to 16 notifications are saved in order from the most recent to the most recent, and the
+notification history saved can be retrieved or deleted by one of the following methods.
+- Network communication
+- Dedicated application
+Notifications are not stored in non-volatile memory and are erased when the power is turned
+off.
+198

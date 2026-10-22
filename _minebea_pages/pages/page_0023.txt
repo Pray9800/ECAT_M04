@@ -1,0 +1,19 @@
+Chapter3 Installation and Wiring
+3.2.2 Connection of motor with encoder
+Use a motor cable to connect the motor with encoder to the motor controller.
+Please use our own cables for the motor. If you make your own cable, we recommend using a
+shielded cable and grounding the shield.
+( 1 ) Connecting the cable for the motor
+Caution
+ Do not route the cable for the motor in the same piping as other cables. Noise may
+cause malfunction.
+ Do not apply excessive stress to the connectors. Doing so may cause fire, electric
+shock, or damage to the unit (circuit board).
+ When attaching a motor to a moving part, use a separate cable for the moving part that
+has a superior number of bends and bending radius.
+ The recommended length of the motor cable is 5 m or less.
+1. The motor cable connects the motor controller and the motor with encoder.
+The connector on the motor controller side is inserted into the motor terminal (CN3). After
+connecting, make sure the connector is locked.
+To remove the connector, pull it out while pressing down on the connector claws.
+22

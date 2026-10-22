@@ -1,0 +1,18 @@
+Chapter9 Internal register
+Homing operation setting 11: + direction pressing operation
+This mode uses torque limit to perform pressing.
+Detects the torque limit in the + direction.
+High = Inactive, Low = Active (at default)
+No. operation
+① The torque limit is detected in the positive direction at the homing speed, and
+the detection operation ends.
+② The homing offset (0902H) moves in the opposite direction to the detection.
+Homing operation setting 12: - direction pressing operation
+This mode uses torque limit to perform pressing.
+Detects the torque limit in the - direction.
+High = Inactive, Low = Active (at default)
+No. operation
+① The torque limit is detected in the negative direction at the homing speed, and
+the detection operation ends.
+② The homing offset (0902H) moves in the opposite direction to the detection.
+160

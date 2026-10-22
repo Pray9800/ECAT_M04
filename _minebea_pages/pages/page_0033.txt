@@ -1,0 +1,19 @@
+Chapter3 Installation and Wiring
+( 5 ) Pulse input signal
+Input a pulse with a steep rise and
+fall as shown in right figure.
+( 6 ) Input Specifications
+ Photocoupler input
+ Input power supply voltage
+= 24VDC
+ Timing Example
+( 7 ) Output Specifications
+ Open collector output
+ External power supply voltage ≤ DC30V
+ Collector current ≤ 10mA
+( 8 ) Input/output signal connection example
+ pulse input circuit
+- Line driver output:
+- Open collector output:
+*When driving with 24VDC, connect a 1W, 2kΩ resistor.
+32

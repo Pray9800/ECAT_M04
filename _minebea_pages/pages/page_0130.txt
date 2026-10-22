@@ -1,0 +1,62 @@
+Chapter9 Internal register
+9.3.3 Alarm Notification Status
+Word
+address content detail Range/Units
+Length
+3021H 1 Alarm Monitor See 3021H in Common Status. 0～15/-
+1300H 1 Alarm history 0 Displays alarms that have occurred in the 0～15/-
+past.
+The history is updated each time an alarm
+is issued, with 0 being the most recently
+issued alarm number,
+The oldest alarm number is retained in
+ascending order from 0.
+The history is saved even if the power is
+turned off
+1301H 1 Alarm history 1 Displays alarms that have occurred in the
+past.
+*refer to alarm history 0
+1302H 1 Alarm history 2 Displays alarms that have occurred in the
+past.
+*refer to alarm history 0
+1303H 1 Alarm history 3 Displays alarms that have occurred in the
+past.
+*refer to alarm history 0
+1304H 1 Alarm history 4 Displays alarms that have occurred in the
+past.
+*refer to alarm history 0
+1305H 1 Alarm history 5 Displays alarms that have occurred in the
+past.
+*refer to alarm history 0
+1306H 1 Alarm history 6 Displays alarms that have occurred in the
+past.
+*refer to alarm history 0
+1307H 1 Alarm history 7 Displays alarms that have occurred in the
+past.
+*refer to alarm history 0
+1308H 1 Alarm history 8 Displays alarms that have occurred in the
+past.
+*refer to alarm history 0
+1309H 1 Alarm history 9 Displays alarms that have occurred in the
+past.
+*refer to alarm history 0
+130AH 2 Notification Notification is displayed. -/-
+Each bit is assigned the corresponding
+notification.
+1: Notification is generated
+0: No notification
+(notification)
+bit00:Integrated load notification
+bit01:Driver temperature notification
+bit02:Regenerative resistance temperature
+notification
+bit03:Motor temperature notification
+bit04:ODO meter notification
+bit05:TRIP meter notification
+bit06:Overvoltage notification
+bit07:Following error notification
+bit08:Overspeed notification
+(Sub notification)
+bit16:Command execution failure
+bit17:Illegal target value
+129

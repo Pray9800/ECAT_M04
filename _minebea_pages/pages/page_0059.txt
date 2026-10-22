@@ -1,0 +1,141 @@
+Chapter5 Various Operation Methods
+( 2 ) Operation
+Position control is performed by pulse input.
+①Turn on the main power supply and control power supply.
+②Make sure that the SV-STS output (servo on state) is ON. ※1 ※2
+③When the pulse is input, the motor rotates, and when the input is finished, the motor
+stops.
+④After the pulse input is completed, check that the INPOS output is ON and the operation
+is terminated. ※3※4
+※1 If there is a difference in the signal condition, see ➡5.4.7 Status check.
+※2 This chart shows the automatic servo on enabled when the control power is turned on (parameter
+0516H: 0 (initial value)). If automatic servo on disabled (parameter 0516H: 1), execute servo-
+on. For servo-on, refer to ➡5.4.5 Other operation:Servo On (Automatic Servo On is disabled).
+※3 During motor operation by pulse input, the INPOS output may be turned on. In principle, it is
+more likely to occur when the motor operation is slow or when it follows the pulse input well.
+After all pulse inputs are completed, the operation is judged to be complete when the INPOS
+output is turned on.
+※4 The INPOS output is turned on when the motor position (encoder position) is within a
+predetermined distance from the target position. The above distance can be adjusted by the
+parameter 010AH (imposition zone count value). Set it according to your needs.
+58
+P
+M
+u
+a
+l
+i
+s
+n
+e
+M
+/
+o
+C
+(
+S
+t
+o
+P
+V
+I
+o
+n
+1
+-
+N
+r
+t
+/
+S
+P
+r
+P
+T
+O
+o
+o
+2
+S
+S
+p
+l
+)
+e
+O
+O
+r
+P
+I
+u
+u
+a
+o
+n
+t
+t
+t
+w
+p
+p
+p
+i
+e
+u
+u
+u
+o
+r
+t
+t
+t
+n
+D
+S
+O
+O
+O
+O
+R
+T
+O
+F
+O
+F
+O
+F
+O
+F
+I
+O
+N
+F
+N
+F
+N
+F
+N
+F
+V
+P
+E
+O p e r a t i o n o f t h e
+①
+m a c h i n e
+②
+O p e
+③
+r a t i
+・
+o n
+・
+o
+・
+f E x t e
+・
+r n
+・
+a l
+・
+D e v i c e s
+④

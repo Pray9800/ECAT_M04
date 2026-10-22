@@ -1,0 +1,23 @@
+Chapter5 Various Operation Methods
+5.4.2 Speed parameter setting
+➡ See 8.7.1 Speed parameter setting
+5.4.3 Homing
+( 1 ) Parameter setting
+See ➡ 8.7.2 Homing.
+( 2 ) Operation
+ Using HOME signal
+Homing is performed using the input signal HOME.
+⓪Preparation
+Set the following parameters using RS485 communication or dedicated application.
+0900H (homing mode)... Set the homing behavior pattern to be used.
+* For details of the homing mode, see ➡9.5.3 Homing Parameters.
+①Turn on the main power supply and control power supply.
+②Confirm that the READY output (ready for operation) is ON and the SV-STS output (servo
+on state) is ON. ※1 ※2
+③Homing is executed when HOME input is turned ON. The homing operation executes the
+operation set to 0900H in ⓪. When the operation starts, the READY output turns OFF
+and the MOVE output turns ON. ※3
+④When the operation is finished, the MOVE output is turned OFF and the READY output is
+turned on. The encoder position (3026H) is the value set by parameter 0905H (homing
+data). ※4
+53

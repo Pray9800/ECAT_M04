@@ -1,0 +1,65 @@
+Chapter9 Internal register
+address Word Operation content detail Range/Uni Initial refle
+Length data ts value ct
+0: Not the loop end point
+1: Loop end point.
+900EH 1 0 Event Select the operation event number for -1～31 -1 B
+operation data number 0.
+-1 is
+When the selected event occurs, it can
+branch to an operation data number disabled/
+other than the 900BH setting. -
+If the event occurs at the same time
+as the event selected with 900FH, it
+is ignored.
+900FH 1 0 Event Select the operation event number -1～31 -1 B
+(priori (priority) for operation data number
+-1 is
+ty) 0.
+When the selected event occurs, it can disabled/
+branch to an operation data number -
+other than the 900BH setting.
+If the event occurs at the same time
+as the event selected in 900EH, it has
+priority.
+9010H 1 1 Operati Sets the operation data number 1. ― ― B
+on Same configuration as 9000H-900FH.
+data1 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9020H 1 2 Operati Sets the operation data number 2. ― ― B
+on Same configuration as 9000H-900FH.
+data2 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9030H 1 3 Operati Sets the operation data number 3. ― ― B
+on Same configuration as 9000H-900FH.
+data3 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9040H 1 4 Operati Sets the operation data number 4. ― ― B
+on Same configuration as 9000H-900FH.
+data4 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9050H 1 5 Operati Sets the operation data number 5. ― ― B
+on Same configuration as 9000H-900FH.
+data5 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9060H 1 6 Operati Sets the operation data number 6. ― ― B
+on Same configuration as 9000H-900FH.
+data6 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9070H 1 7 Operati Sets the operation data number 7. ― ― B
+on Same configuration as 9000H-900FH.
+data7 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+9080H 1 8 Operati Sets the operation data number 8. ― ― B
+on Same configuration as 9000H-900FH.
+data8 Refer to operating data number 0.
+For RS485 type, access in 16
+consecutive words.
+179

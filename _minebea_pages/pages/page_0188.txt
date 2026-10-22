@@ -1,0 +1,63 @@
+Chapter9 Internal register
+address Word Event content detail Range/Unit Initial refle
+Length Number s value ct
+number 0.
+For RS485 type, access in 8
+consecutive words.
+9540H 8 1 Operation Sets the operation event number ― ― B
+Event No. 8 8.
+Same configuration as 9500H-
+9507H. Refer to operating event
+number 0.
+For RS485 type, access in 8
+consecutive words.
+9548H 8 1 Operation Sets the operation event number ― ― B
+Event No. 9 9.
+Same configuration as 9500H-
+9507H. Refer to operating event
+number 0.
+For RS485 type, access in 8
+consecutive words.
+9550H 8 1 Operation Sets the operation event number ― ― B
+Event No. 10 10.
+Same configuration as 9500H-
+9507H. Refer to operating event
+number 0.
+For RS485 type, access in 8
+consecutive words.
+9558H 8 1 Operation Sets the operation event number ― ― B
+Event No. 11 11.
+Same configuration as 9500H-
+9507H. Refer to operating event
+number 0.
+For RS485 type, access in 8
+consecutive words.
+9560H 8 1 Operation Sets the operation event number ― ― B
+Event No. 12 12.
+Same configuration as 9500H-
+9507H. Refer to operating event
+number 0.
+For RS485 type, access in 8
+consecutive words.
+9568H 8 1 Operation Sets the operation event number ― ― B
+Event No. 13 13.
+Same configuration as 9500H-
+9507H. Refer to operating event
+number 0.
+For RS485 type, access in 8
+consecutive words.
+9570H 8 1 Operation Sets the operation event number ― ― B
+Event No. 14 14.
+Same configuration as 9500H-
+9507H. Refer to operating event
+number 0.
+For RS485 type, access in 8
+consecutive words.
+9578H 8 1 Operation Sets the operation event number ― ― B
+Event No. 15 15.
+Same configuration as 9500H-
+9507H. Refer to operating event
+number 0.
+For RS485 type, access in 8
+consecutive words.
+187

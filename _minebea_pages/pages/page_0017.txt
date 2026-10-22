@@ -1,0 +1,41 @@
+Chapter2 Specifications
+2. Specifications
+2.1 Motor Controller
+The specifications of the motor controller are shown below.
+( 1 ) General and Performance Specifications
+item content remarks
+Operating temperature and 0～50℃、85%RH or less No condensation
+humidity
+Storage temperature and -20～65℃、85%RH or less No condensation
+humidity
+altitude Below 1000m above sea level ―
+atmosphere No explosive gases ―
+No flammable gases
+No corrosive gases
+Do not expose to water or oil
+A place free of dust, iron particles,
+etc.
+Input power supply voltage Main circuit power supply ―
+DC24V/48V±10%
+Control power supply DC24V±10% When using a brake, the power
+supply voltage should be the
+same as the rated power supply
+of the brake.
+Input power supply current Main circuit power supply: Motor rated ―
+current or higher
+Control power supply: Brake current when brake is
+150mA (RS485 type) connected is not included.
+180mA (EtherNet/IP type)
+Insulation resistance DC500V 100MΩ or more Between FG terminal and power
+terminal
+Usage Environment Pollution degree: 2 ―
+Dimension W40.6mm × D79.5mm × H100mm ―
+Weight 190g (RS485 type) ―
+210g (EtherNet/IP type)
+Adaptive Load Inertia Within 20 times the motor inertia ―
+Encoder Resolution 4000PPR、16000 CPR ―
+Control Mode Position Control ―
+Speed Control
+Torque Control
+Force control
+16

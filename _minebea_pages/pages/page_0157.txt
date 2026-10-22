@@ -1,0 +1,26 @@
+Chapter9 Internal register
+Homing operation setting 7: ORG (- side), Z operation
+This mode performs homing using ORG and Z phase.
+After detecting the negative edge of ORG, the rising edge of the positive Z phase is
+detected.
+● When the homing start position is on the negative side of ORG
+High = Inactive, Low = Active (at default)
+No. operation
+① The edge of ORG is detected in the positive direction at the homing speed.
+② The edge of ORG is detected in the - direction at the homing speed.
+③ The edge of ORG is detected in the positive direction at the homing search
+speed.
+④ The Z-phase edge is detected in the positive direction at the homing search
+speed, and the detection operation ends.
+● When the homing start position is on the positive side of ORG
+High = Inactive, Low = Active (at default)
+No. operation
+① LS+ edge detection is performed in the + direction at the homing speed.
+② The edge of ORG is detected in the - direction at the homing speed.
+③ The edge of ORG is detected in the positive direction at the homing speed.
+④ The edge of ORG is detected in the - direction at the homing speed.
+⑤ The edge of ORG is detected in the positive direction at the homing search
+speed.
+⑥ The Z-phase edge is detected in the positive direction at the homing search
+speed, and the detection operation ends.
+156

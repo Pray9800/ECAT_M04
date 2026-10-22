@@ -1,0 +1,61 @@
+Chapter9 Internal register
+9.5.7 Control Signal Parameters
+Configure functions and settings for control signals.
+See also the content in the ➡6 Control signal.
+( 1 ) IO Control Input/Output
+Word Range/Unit Initial refle
+address content detail
+Length s value ct
+DI0 function Select the input signal to be 32:PRG C
+assignment assigned to DI0.
+Refer to the ➡ 6.4.1 Input
+0D00H 1 signal list for the input 0～127/-
+signals that can be assigned.
+* For EtherNet/IP types, the
+initial value is 0: Unused.
+DI1 function Select the input signal to be 64:PNUM0 C
+assignment assigned to DI1.
+Refer to the ➡ 6.4.1 Input
+0D01H 1 signal list for the input 0～127/-
+signals that can be assigned.
+* For EtherNet/IP types, the
+initial value is 0: Unused.
+DI2 function Select the input signal to be 65:PNUM1 C
+assignment assigned to DI2.
+Refer to the ➡ 6.4.1 Input
+0D02H 1 signal list for the input 0～127/-
+signals that can be assigned.
+* For EtherNet/IP types, the
+initial value is 0: Unused.
+DI3 function Select the input signal to be 66:NUP2 C
+assignment assigned to DI3.
+Refer to the ➡ 6.4.1 Input
+0D03H 1 signal list for the input 0～127/-
+signals that can be assigned.
+* For EtherNet/IP types, the
+initial value is 0: Unused.
+DI4 function Select the input signal to be 36:HOME C
+assignment assigned to DI4.
+Refer to the ➡ 6.4.1 Input
+0D04H 1 signal list for the input 0～127/-
+signals that can be assigned.
+* For EtherNet/IP types, the
+initial value is 0: Unused.
+DI5 function Select the input signal to be 1:SV-OFF C
+assignment assigned to DI5.
+Refer to the ➡ 6.4.1 Input
+0D05H 1 signal list for the input 0～127/-
+signals that can be assigned.
+* For EtherNet/IP types, the
+initial value is 0: Unused.
+DI6 function Select the input signal to be 5:STOP C
+assignment assigned to DI6.
+Refer to the ➡ 6.4.1 Input
+0D06H 1 signal list for the input 0～127/-
+signals that can be assigned.
+* For EtherNet/IP types, the
+initial value is 0: Unused.
+DI7 function Select the input signal to be 8:ALM-CLR C
+0D07H 1 assignment assigned to DI7. 0～127/-
+Refer to the ➡ 6.4.1 Input
+170

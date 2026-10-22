@@ -1,0 +1,58 @@
+Chapter9 Internal register
+Word Initial refle
+address content detail Range/Units
+Length value ct
+I/F.
+Refer to the Control signal
+pin specifications for
+details on Coupler ON/OFF.
+0543H 1 Enable external Sets use/non-use of an 0～1/- 0 C
+regenerative resistor external regenerative
+resistor.
+This setting is reflected only
+for applicable type.
+0: Not use
+1: Use
+Word Range/Uni Initial refle
+address content detail
+Length ts value ct
+0216H 1 inertia ratio Sets the inertia of the load 0～300/ 0 B
+(mechanism) connected to the motor
+0.1 times
+shaft as a ratio to the motor
+inertia.
+By setting this parameter, the
+control gain is adjusted in the
+driver.
+After inertia estimation is
+executed by the PC application, the
+result is written to this
+parameter.
+0217H 1 Notch filter center Sets the Notch filter center 0～1000 450 A
+frequency frequency
+/Hz
+0218H 1 Notch filter Sets the Notch filter attenuation 0～100 10 A
+attenuation coefficient coefficient
+/0.1
+0219H 1 Notch filter enable Enables/disables the notch filter. 0～1/- 0 A
+0: Disable
+1: Enable
+Word Range/Uni Initial refle
+address content detail
+Length ts value ct
+0220H 1 Poor gain adjustment Alarm 4: Sets the threshold value 0～65535 472 B
+alarm threshold for poor gain adjustment.
+/-
+Setting a higher value reduces the
+sensitivity of the alarm to
+vibration.
+Word Range/Uni Initial refle
+address content detail
+Length ts value ct
+3060H 2 Manual Electromagnetic Enables user operation of the 0～1/- 0 A
+Brake Enable electromagnetic brake.
+0: Disable (auto-linked to servo
+state)
+1:Enable.
+See 0518H for user operation.
+142

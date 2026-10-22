@@ -1,0 +1,19 @@
+Chapter1 Overview
+1.3 Compatible stepping motor with encoder
+Caution
+Be sure to use the motor controller and stepping motor with encoder in combination with the
+models shown in the table below. If the motor controller and stepping motor with encoder are used
+in different combinations, the stepping motor with encoder may not operate properly and the motor
+section may be damaged.
+Frame Size (mm) Motor overall Encoder Resolution Stepping motor with encoder type
+length (mm) (CPR)
+□28 49 16000 M11PMK043CSMA00
+57 16000 M11PMK142CSMA00
+68 16000 M11PMK241CSMA00
+□42 52 16000 M17PMK337CSMA00
+62 16000 M17PMK432CSMA00
+74 16000 M17PMFA34CSMA00
+□56 64 16000 M23KMK358CSMA00
+69 16000 M23KMH041CSMA00
+91 16000 M23KMH744CSMA00
+11

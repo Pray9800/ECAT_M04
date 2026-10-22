@@ -1,0 +1,22 @@
+Chapter8 RS485 Communication
+Continuous Word Data Writing
+The following is an example of how to write continuous word data with the following settings.
+・Node address: 1
+・Maximum speed: 5000PPS
+NextquerySend a maximum speed of 5000PPS.
+Field Name data content
+Node Address 01H Node Address 1
+Function Codes 10H Write to Multiple Registers
+data Write start address upper 08H The address of the register to be
+Write start address lower 02H write to = Maximum speed (0802H)
+Write word count uower 00H Number of writes to register address
+Write word count lower 02H
+Number of bytes 04H Twice the number of registers in the
+query
+Write word data value (upper) 00H The value to write to the register
+Write word data value (lower) 00H address
+Write word data + 1 value (upper) 13H =5000PPS(0000 1388H)
+Write word data + 1 value (lower) 88H
+Error check (lower) 18H. CRC-16 calculation result
+Error Check (Upper) E0H
+105

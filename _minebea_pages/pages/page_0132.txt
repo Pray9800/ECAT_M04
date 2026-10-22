@@ -1,0 +1,64 @@
+Chapter9 Internal register
+Word
+address content detail Range/Units
+Length
+shut off
+132EH 2 Notification occurrence Displays the time when the condition
+time history 1 recorded in notification history 1 occurred.
+*refer to Notification occurrence time
+history 0
+1330H 2 Notification occurrence Displays the time when the condition
+time history 2 recorded in notification history 2 occurred.
+*refer to Notification occurrence time
+history 0
+1332H 2 Notification occurrence Displays the time when the condition
+time history 3 recorded in notification history 3 occurred.
+*refer to Notification occurrence time
+history 0
+1334H 2 Notification occurrence Displays the time when the condition
+time history 4 recorded in notification history 4 occurred.
+*refer to Notification occurrence time
+history 0
+1336H 2 Notification occurrence Displays the time when the condition
+time history 5 recorded in notification history 5 occurred.
+*refer to Notification occurrence time
+history 0
+1338H 2 Notification occurrence Displays the time when the condition
+time history 6 recorded in notification history 6 occurred.
+*refer to Notification occurrence time
+history 0
+133AH 2 Notification occurrence Displays the time when the condition
+time history 7 recorded in notification history 7 occurred.
+*refer to Notification occurrence time
+history 0
+133CH 2 Notification occurrence Displays the time when the condition
+time history 8 recorded in notification history 8 occurred.
+*refer to Notification occurrence time
+history 0
+133EH 2 Notification occurrence Displays the time when the condition
+time history 9 recorded in notification history 9 occurred.
+*refer to Notification occurrence time
+history 0
+1340H 2 Notification occurrence Displays the time when the condition
+time history 10 recorded in notification history 10
+occurred.
+*refer to Notification occurrence time
+history 0
+1342H 2 Notification occurrence Displays the time when the condition
+time history 11 recorded in notification history 11
+occurred.
+*refer to Notification occurrence time
+history 0
+1344H 2 Notification occurrence Displays the time when the condition
+time history 12 recorded in notification history 12
+occurred.
+*refer to Notification occurrence time
+history 0
+1346H 2 Notification occurrence Displays the time when the condition
+time history 13 recorded in notification history 13
+occurred.
+*refer to Notification occurrence time
+history 0
+1348H 2 Notification occurrence Displays the time when the condition
+time history 14 recorded in notification history 14
+131

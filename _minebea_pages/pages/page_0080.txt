@@ -1,0 +1,59 @@
+Chapter6 Control signal
+6.4 Signal List
+6.4.1 Input signal list
+For information on the various inputs to which input signals are assigned, see➡ 6.2 Input
+signal.
+No. parameter explanation
+0 UNUSED Set when the input terminal is not used.
+1 SV-OFF Cuts off the power supply to the motor to de-energize it (Servo
+OFF).
+2 SV-ON Enables the power supply to the motor to energize it (Servo ON).
+3 PD-CLR Clears the deviation between the current command position and
+the encoder position (position deviation).
+4 reservation Not used
+5 STOP Stops the motor.
+This function can not be executed when external pulse commands
+are enabled (0514H:0).
+6～7 reservation Not used
+8 ALM-CLR Clears the alarm.
+9～10 reservation Not used
+11 E-STOP Initiates an emergency stop. The motor drive circuit enters a
+short brake state.
+From the short-brake state, the motor will be re-energized by
+Servo On (SV-ON). It will become de-energized by Servo Off (SV-
+OFF).
+12 TO-CLR Releases the torque off state.
+13 EVT-CLR Turns OFF the output signals EVT0-STS and EVT1-STS.
+14 NOTICE-CLR Clears notifications.
+15～27 reservation Not used
+28 LS-FWD Sets to the limit switch LS+.
+29 LS-REV Sets to the limit switch LS-.
+30 ORG Sets to the origin sensor ORG (Home Switch).
+31 reservation Not used
+32 PRG Executes program operation.
+This function can not be executed when external pulse commands
+are enabled (0514H:0).
+33～35 reservation Not used
+36 HOME Executes home return operation.
+37 RTRN Executes fixed position return operation.
+Returning to the specified position. The target position, speed,
+and acceleration settings are used in operation data No.63.
+If you use this input signal, do not use operation data No.63 in
+your program operation.
+The target position is set in 93F1H (pulse).
+The speed is set to 0802H (pps) × 93F3H (%).
+The acceleration is set to 081EH (pps/s) × 93F5H (%).
+The deceleration is set to 081EH (pps/s) × 93F6H (%).
+Set 93F0H to 7 and 93FBH to -1.
+Other parameters in operation data No.63 are not used. Set them
+to any value within their upper and lower limits.
+38～47 reservation Not used
+48 JOG-FWD Executes JOG operation in the (+) direction. The motor is driven
+only while the input signal is ON.
+This function can not be executed when external pulse commands
+are enabled (0514H:0).
+49 JOG-REV Executes JOG operation in the (-) direction. The motor is driven
+only while the input signal is ON.
+This function can not be executed when external pulse commands
+are enabled (0514H:0).
+79

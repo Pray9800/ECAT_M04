@@ -1,0 +1,11 @@
+Chapter5 Various Operation Methods
+- When software limit (+ side) or (- side) is active, motor movement initiation is
+restricted similarly to a limit switch.
+Refer to the section on limit switches.
+- During homing operation, the rotation stop function due to software limits is disabled.
+- Whether either the limit switch LS+/LS- or the software limit (+ side) (- side) is
+active can be monitored via the internal limit status (bit 16 of parameter 3902H).
+- The enabled/disabled state of the software limit (+ side) or (- side) can be monitored
+via the control signals SLS-FWD and SLS-REV (➡ 6.4.2 Output signal list).
+When the setting is finished, shut off the control power supply.
+48

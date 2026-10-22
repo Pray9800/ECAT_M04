@@ -1,0 +1,24 @@
+Chapter8 RS485 Communication
+8.2 Communication Overview
+This unit communicates via Modbus Protocol.
+The transmission mode corresponds to RTU mode (binary method).
+item RTU Mode
+protocol MODBUS RTU
+Synchronization method Half-duplex, asynchronous
+Start Bit 1 bit
+Data Length 8-bit
+Parity Bit None
+Stop Bits 1 bit
+Communication Codes Binary code
+Start Character None
+End Character None
+False Detection Cyclic redundancy check: CRC-16
+※Modbus is registered trademark of Modicon Inc.(AEG Schneider Automation International S.A.S.)
+The RS485 communication specifications are shown below.
+item RS485
+baud rate 9600、19200、38400、57600、115200、230400bps(初期値 57600)
+Node Address 1～15
+Cascading can
+Termination Resistor Necessary
+The terminating terminal is a configuration switch (SW1 and SW2) to ON
+95

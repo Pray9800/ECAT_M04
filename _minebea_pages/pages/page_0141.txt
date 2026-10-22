@@ -1,0 +1,71 @@
+Chapter9 Internal register
+Word Initial refle
+address content detail Range/Units
+Length value ct
+switch is enabled limit is enabled.
+0: Disable (do nothing).
+1: Decelerate to stop.
+2: Emergency stop.
+3: Alarm 10 (emergency stop)
+4: Quick stop
+5: Immediate stop.
+When external pulse commands
+are enabled (0514H:0),
+settings 1, 4, and 5 will
+operate the same as setting 2.
+0524H 2 Software limit Sets the software limit -2147483648 214748 B
+position(+) position (+). ～
+3647
+When the encoder position 2147483647
+exceeds this parameter value, /-
+the software limit is enabled.
+The value must be set so that
+the software limit position
+(+) > the software limit
+position (-).
+0526H 2 Software limit Sets the software limit -2147483648 - B
+position(-) position (-). ～
+214748
+When the encoder position 2147483647
+falls short of this parameter /- 3648
+value, the software limit is
+enabled.
+The value must be set so that
+the software limit position
+(+) > the software limit
+position (-).
+0528H 2 Zone0 range(upper Sets the Zone0 range (upper -2147483648 214748 B
+limit) limit). ～
+3647
+ZONE0 is enabled when the 2147483647
+encoder position is within the /-
+Zone0 range.
+ZONE0 can be used by assigning
+a function to the output
+signal.
+052AH 2 Zone0 range(lower Sets the Zone0 range (lower -2147483648 214748 B
+limit) limit). ～
+3647
+ZONE0 is enabled when the 2147483647
+encoder position is within the /-
+Zone0 range.
+ZONE0 can be used by assigning
+a function to the output
+signal.
+052CH 2 Zone1 range(upper Sets the Zone1 range (upper -2147483648 214748 B
+limit) limit). ～
+3647
+ZONE1 is enabled when the 2147483647
+encoder position is within the /-
+Zone1 range.
+ZONE1 can be used by assigning
+a function to the output
+signal.
+052EH 2 Zone1 range(lower Sets the Zone1 range (lower -2147483648 214748 B
+limit) limit). ～
+3647
+ZONE1 is enabled when the 2147483647
+encoder position is within the /-
+Zone1 range.
+ZONE1 can be used by assigning
+140

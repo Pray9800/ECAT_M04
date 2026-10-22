@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"E:/JT-021/BEIJING_ECAT/test_M04/build/cmake_install.cmake",
+		"E:/JT-021/BEIJING_ECAT/test_M04/build/soem/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

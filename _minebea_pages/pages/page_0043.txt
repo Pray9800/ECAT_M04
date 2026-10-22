@@ -1,0 +1,29 @@
+Chapter5 Various Operation Methods
+5.2 List of operation availability by operation method
+The functions that can be operated differ depending on the operation method. The following table
+shows which functions can be operated for each operation method.
+Operable: 0 Inoperable: 0
+Supported Functions PLC operation RS485 operation Operation by
+dedicated
+application
+Settings & Monitor × 〇 〇
+Monitors Parameter setting × 〇 〇
+Program operation data
+× 〇 〇
+edit
+Gain adjustment*1 × × 〇
+RS485 communication
+× 〇 〇
+settings
+driving JOG 〇 〇 〇
+Homing 〇 〇 〇
+Position control 〇 〇 〇
+Speed control 〇 〇 〇
+Torque control 〇 〇 〇
+Force control 〇 〇 〇
+Program operation 〇 〇 〇
+initialization Full Data
+× 〇 〇
+Initialization
+※1 For more information on gain adjustment, refer to the manual of the dedicated application.
+42

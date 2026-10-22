@@ -1,93 +1,138 @@
-# ECAT_M04
+# M04 EtherCAT 设备测试程序
 
+## 测试目标
+测试 EC2-MB-M04 设备的EtherCAT通讯。
 
+## 前置条件
 
-## Getting started
+### 1. 硬件连接
+- M04设备上电（电源灯亮）
+- 网线连接电脑和M04
+- 不要连接其他EtherCAT设备（单独测试）
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
+### 2. 获取网卡名称
+打开 PowerShell（管理员），运行：
+```powershell
+ipconfig /all
 ```
-cd existing_repo
-git remote add origin https://gitlab.jmed.com/wisdompan/ecat_m04.git
-git branch -M main
-git push -uf origin main
+找到你的EtherCAT网卡，记录GUID，格式如：
+```
+{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}
 ```
 
-## Integrate with your tools
+完整的网卡名称格式：
+```
+\Device\NPF_{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}
+```
 
-- [ ] [Set up project integrations](https://gitlab.jmed.com/wisdompan/ecat_m04/-/settings/integrations)
+## 编译步骤
 
-## Collaborate with your team
+```powershell
+# 进入测试目录
+cd e:\JT-021\BEIJING_ECAT\test_M04
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+# 创建build目录
+mkdir build
+cd build
 
-## Test and Deploy
+# 生成VS工程
+cmake .. -G "Visual Studio 18 2026"
 
-Use the built-in continuous integration in GitLab.
+# 编译
+cmake --build . --config Release
+```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## 运行测试
 
-***
+```powershell
+# 以管理员身份运行（必须！）
+.\bin\Release\test_m04.exe "\Device\NPF_{你的网卡GUID}"
+```
 
-# Editing this README
+## 预期结果
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+### 成功情况
+```
+=== M04 EtherCAT 设备测试程序 ===
+==================================
 
-## Suggestions for a good README
+使用网卡: \Device\NPF_{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+正在初始化SOEM...
+SOEM初始化成功!
 
-## Name
-Choose a self-explaining name for your project.
+正在扫描EtherCAT从站...
+找到 1 个从站
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+=== 从站 1 信息 ===
+名称: EC2-MB-M04
+厂商ID: 0x00000B95
+产品代码: 0x00001410
+版本号: 0x00010100
+...
+>>> 这是 AMSAMOTION 设备！
+>>> 这是 EC2-MB-M04 设备！
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+=== 通讯测试成功! ===
+```
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+### 失败情况
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+#### 未找到从站
+```
+未找到任何EtherCAT从站!
+```
+**解决方法:**
+1. 检查网线连接
+2. 检查M04电源
+3. 检查网卡名称是否正确
+4. 确认已安装Npcap
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+#### SOEM初始化失败
+```
+SOEM初始化失败!
+```
+**解决方法:**
+1. 以管理员身份运行
+2. 检查网卡名称
+3. 关闭Wireshark等抓包软件
+4. 重新安装Npcap
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+## 文件说明
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+- `test_m04.cpp` - 测试程序源码
+- `CMakeLists.txt` - CMake构建配置
+- `soem/` - SOEM库文件
+- `AMX_EC2_MB_M04_general_0.1_1.0.xml` - M04设备ESI文件
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+## 故障排查
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+### 1. 确认Npcap安装
+```powershell
+# 检查Npcap服务
+Get-Service -Name npcap
+```
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+### 2. 检查网卡
+```powershell
+# 列出所有网卡
+Get-NetAdapter | Format-Table Name, InterfaceDescription, Status
+```
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+### 3. 检查M04设备
+- 电源指示灯是否亮
+- 网口指示灯是否闪烁
+- 尝试更换网线
 
-## License
-For open source projects, say how it is licensed.
+### 4. 权限问题
+```powershell
+# 以管理员身份打开PowerShell
+Start-Process powershell -Verb RunAs
+```
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## 联系支持
+
+如果问题仍未解决：
+1. 截图错误信息
+2. 记录M04指示灯状态
+3. 记录网卡信息

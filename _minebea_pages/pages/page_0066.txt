@@ -1,0 +1,190 @@
+Chapter5 Various Operation Methods
+※1 If there is a difference in the signal condition, see ➡5.4.7 Status check.
+※2 This chart shows the automatic servo on is disabled when the control power is turned on (parameter
+0516H: 1).For Automatic Servo On Enabled (Parameter 0516H: 0 (initial value)), see ➡5.4.5
+Other operation:Servo On (automatic servo on is enabled).
+※3 The servo on automatically performs initialization operation at the first execution after
+power-on. The servo is automatically turned on after the initialization operation is completed.
+During the initialization operation, the motor shaft rotates in a range of up to 14.4 degrees
+in the forward and reverse directions. During the initialization operation, the electromagnetic
+brake is temporarily released. When servo on is performed for the second and subsequent times
+after the power is turned on, the initialization operation is not executed.
+※4 Turn off the SV-OFF input and the SV-ON input before performing the following operations.
+※5 This chart shows the case where the electromagnetic brake is disabled by user operation (3060H:0
+Servo State Automatic Interlocking Brake).
+( 5 ) Fixed-point return operation with RTRN signal
+The input signal RTRN is used to perform fixed-point return operation. Fixed-point return
+operation is a positioning operation to an arbitrary position that is started by the
+control signal input.
+⓪preparation
+Using RS485 communication or a dedicated application, the desired operation is set in
+65
+E l e
+M
+c
+a
+t
+i
+m
+r
+n
+o
+o
+/
+t
+m
+C
+S
+o
+a
+o
+S
+R
+V
+r
+g
+n
+V
+S
+E
+-
+n
+t
+-
+V
+A
+S
+e
+e
+r
+O
+-
+D
+T
+x
+t
+o
+F
+O
+Y
+S
+c
+i
+l
+F
+N
+i
+c
+O
+O
+t
+P
+I
+I
+u
+u
+a
+b
+o
+n
+n
+t
+t
+t
+r
+w
+p
+p
+p
+p
+i
+a
+e
+u
+u
+u
+u
+o
+k
+r
+t
+t
+t
+t
+n
+e
+R E
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+O N
+O F F
+Y E S
+N O
+H O L D
+L E A S E
+O p e r a t i o n
+①
+o f t h e m a
+≦
+c h
+②
+2 s
+i n e
+e c
+③
+F i r s t
+③
+※
+t
+3
+i m e
+O p e r
+③
+③
+③
+③
+a t
+≦
+i o n
+1
+④
+0 m
+o f
+s
+E x t e
+(
+r
+5
+n
+)
+a l
+⑤
+⑤
+⑤
+D e v i c e
+⑥
+s
+≦
+⑥
+≦
+1
+1
+0
+0
+m
+m
+s
+s
+⑦
+A f t e r
+⑦
+⑦
+⑦
+t h e 2 n d
+⑧

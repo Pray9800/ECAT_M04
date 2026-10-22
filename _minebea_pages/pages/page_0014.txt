@@ -1,0 +1,40 @@
+Chapter1 Overview
+Name Description. Reference
+LED display Displays the status of the unit. Table 1-1
+Control signal Connects control system input and output signals. Each 3.2.4
+pin (CN1) signal is switched by the control system. PLC/Controller
+Connection
+Encoder terminal Connect the encoder connector. 3.2.3
+(CN2) Encoder Connection
+Motor terminal Connect the connector for motor power. 3.2.2
+(CN3) Connection of motor
+with encoder
+Power input Connect the main power supply, control power supply, 3.2.1
+terminal (CN4) electromagnetic brake, and ground terminal. Power supply
+connection
+TO/EDM pin (CN5) Connect TO request signal and EDM monitoring signal. 3.2.7 Torque off
+request/EDM
+diagnostics
+RS485 For external control of multiple units by PC, connect 8 RS485 Communication
+communication the RS485 interface.
+terminals (CN6,
+CN7)
+USB For external control by PC, connect the USB interface. 3.2.5
+communication USB device connection
+terminal
+Station number Set the station number (address) to be used for RS-485 8 RS485 Communication
+setting switch communication. (Setting range = 1 to 15)
+Setting switch Termination resistor switching switch when using 8 RS485 Communication
+(SW) RS485 interface.
+LED types LED Status Motor controller status
+PWR LED OFF Power OFF
+(green) ON Power ON
+Blinking Torque off state
+OFF Power OFF
+ALM LED ON Normal
+(red) Blinking (every 2 seconds) Notification occurs
+Blinking (every 1 second) Alarm occurs
+Table 1-1
+For alarms and notifications, see ➡10 Troubleshooting, for torque off state, ➡7 Torque off
+function for details.
+13
